@@ -21,13 +21,13 @@
             <div class="items-center justify-evenly hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
             <ul class="text-sm flex flex-row font-medium rounded-lg bg-transparent gap-24">
                 <li>
-                <a href="/subsidipakan" class="block px-6 py-2 text-[#F5682A] rounded-lg hover:bg-[#F5682A] hover:text-white">Subsidi</a>
+                <a href="/subsidipakan" class="block px-6 py-2 transition-all text-[#F5682A] rounded-lg hover:bg-[#F5682A] hover:text-white">Subsidi</a>
                 </li>
                 <li>
-                <a href="/penyuluhan" class="block px-6 py-2 text-[#F5682A] rounded-lg hover:bg-[#F5682A] hover:text-white">Penyuluhan</a>
+                <a href="/penyuluhan" class="block px-6 py-2 transition-all text-[#F5682A] rounded-lg hover:bg-[#F5682A] hover:text-white">Penyuluhan</a>
                 </li>
                 <li>
-                <a href="/broadcast" class="block px-6 py-2 text-[#F5682A] rounded-lg hover:bg-[#F5682A] hover:text-white">Broadcast</a>
+                <a href="/broadcast" class="block px-6 py-2 transition-all text-[#F5682A] rounded-lg hover:bg-[#F5682A] hover:text-white">Broadcast</a>
                 </li>
             </ul>
             </div>
