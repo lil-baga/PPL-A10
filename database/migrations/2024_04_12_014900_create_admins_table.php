@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_admin');
             $table->string('name');
             $table->integer('phone_number');
-            $table->timestamps('timestamps');
+            $table->timestamps();
         });
     }
 

@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('governments', function (Blueprint $table) {
-            $table->id('id_government');
-            $table->string('name');
-            $table->string('address');
-            $table->integer('phone_number');
-            $table->integer('access_code')->nullable();
+        Schema::create('broadcasts', function (Blueprint $table) {
+            $table->id('id_broadcast');
+            $table->binary('covering_letter');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('governments');
+        Schema::dropIfExists('broadcasts');
     }
 };

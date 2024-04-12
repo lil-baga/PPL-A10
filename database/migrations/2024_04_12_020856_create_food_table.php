@@ -21,7 +21,7 @@ return new class extends Migration
             $table->enum('validation', ['Ditolak', 'Diproses', 'Diterima'])->default('Diproses');
             $table->binary('confirm_picture');
             $table->enum('confirmation', ['Belum Diambil', 'Proses Validasi', 'Sudah Diambil'])->default('Proses Validasi');
-            $table->timestamps('timestamps');
+            $table->timestamps();
         });
     }
 
