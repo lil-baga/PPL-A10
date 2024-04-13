@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Farmer;
+use App\Models\User;
 use App\Http\Requests\StoreFarmerRequest;
 use App\Http\Requests\UpdateFarmerRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FarmerController extends Controller
 {
@@ -27,9 +30,42 @@ class FarmerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFarmerRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedRegister = $request->validate([
+            'email'=> 'required|email|unique:users',
+            'password'=> 'required|min:8',
+        ]);
+
+        $validatedData = $request->validate([
+            'name'=> 'required',
+            'address'=> 'required',
+            'phone_number'=> 'required',
+        ]);
+
+        $validatedRegister['password'] = bcrypt($validatedRegister['password']);
+
+        User::create($validatedRegister);
+        Farmer::create($validatedData);
+
+        return redirect('/loginPeternak');
+    }
+
+    public function authlogin(Request $request)
+    {
+        $validatedLogin = $request->validate([
+            'email'=> 'required',
+            'password'=> 'required',
+        ]);
+
+        $userValidation = User::where([
+            ['email', $request->email],
+            ['password', $request->password]
+        ])->first();
+
+        if ($userValidation == $validatedLogin) {
+            return redirect('/subsidiPeternak');
+        }
     }
 
     /**

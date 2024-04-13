@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link rel="icon" type="image" href="logoicon.png">
-    <title>Chick & Check</title>
+    <title>Chick & Check | Login</title>
 </head>
 <body class="overflow-clip">
     <nav class="flex flex-row items-center bg-white p-1">

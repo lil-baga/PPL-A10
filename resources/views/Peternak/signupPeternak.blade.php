@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link rel="icon" type="image" href="logoicon.png">
-    <title>Chick & Check</title>
+    <title>Chick & Check | Sign Up</title>
 </head>
 <body class="overflow-clip">
     <nav class="flex flex-row items-center bg-white p-1">
@@ -41,7 +41,8 @@
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                         Sign Up Peternak
                     </h1>
-                    <form class="space-y-4 md:space-y-6" action="">
+                    <form class="space-y-4 md:space-y-6" action="/signupPeternak" method="POST">
+                        @csrf
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Nama</label>
                             <input type="text" name="name" id="name" placeholder="Nama Lengkap" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
@@ -55,18 +56,18 @@
                             <input type="email" name="email" id="email" placeholder="namaemail@gmail.com" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
                         </div>
                         <div>
-                            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 ">Nomor Telepon</label>
-                            <input type="tel" name="phone" id="phone" placeholder="081xxxxxxxxx" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
+                            <label for="phone_number" class="block mb-2 text-sm font-medium text-gray-900 ">Nomor Telepon</label>
+                            <input type="text" name="phone_number" id="phone_number" placeholder="081xxxxxxxxx" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
                         </div>
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
                             <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
                         </div>
-                        <div>
+                        {{-- <div>
                             <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900">Confirm Password</label>
                             <input type="password" name="confirm_password" id="confirm_password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
-                        </div>
-                        <button type="submit" class="w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Daftar</button>
+                        </div> --}}
+                        <button type="submit" class="w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign Up</button>
                         <p class="text-sm font-light text-gray-500 ">
                             Sudah memiliki akun? <a href="/login" class="font-medium text-[#F5682A] hover:text-[#F54C2A] hover:underline">Login</a>
                         </p>

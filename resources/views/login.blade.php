@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link rel="icon" type="image" href="logoicon.png">
-    <title>Chick & Check</title>
+    <title>Chick & Check | Login</title>
 </head>
 <body class="overflow-clip">
     <nav class="flex flex-row items-center bg-white p-1">
@@ -39,7 +39,7 @@
             <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-                        Masuk Sebagai
+                        Login Sebagai
                     </h1>
                     <form class="space-y-4 md:space-y-6" action="">
                         <div class="flex md:order-2 space-x-3 md:space-x-0 gap-6 items-center justify-center">

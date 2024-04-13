@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Government;
-use App\Http\Requests\StoreGovernmentRequest;
-use App\Http\Requests\UpdateGovernmentRequest;
+use App\Models\User;
+use App\Http\Requests\StoreFarmerRequest;
+use App\Http\Requests\UpdateFarmerRequest;
+use Illuminate\Http\Request;
 
 class GovernmentController extends Controller
 {
@@ -27,9 +29,25 @@ class GovernmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGovernmentRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedRegister = $request->validate([
+            'email'=> 'required',
+            'password'=> 'required',
+        ]);
+
+        $validatedData = $request->validate([
+            'name'=> 'required',
+            'address'=> 'required',
+            'phone_number'=> 'required',
+        ]);
+
+        $validatedRegister['password'] = bcrypt($validatedRegister['password']);
+
+        User::create($validatedRegister);
+        Government::create($validatedData);
+
+        return redirect('/loginDinas');
     }
 
     /**
