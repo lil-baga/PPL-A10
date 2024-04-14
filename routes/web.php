@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FarmerController;
 use App\Http\Controllers\GovernmentController;
+use App\Http\Controllers\FoodController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,12 +35,15 @@ Route::get('/signupDinas', function () {return view('dinas.signupDinas');});
 Route::post('/signupDinas', [GovernmentController::class, 'store']);
 
 // Route Subsidi Pakan
-Route::get('/subsidiPeternak', function () {return view('peternak.subsidiPeternak');});
-Route::get('/addSubsidi', function () {return view('peternak.addSubsidi');});
-Route::get('/editSubsidi', function () {return view('peternak.editSubsidi');});
-Route::get('/subsidiDinas', function () {return view('dinas.subsidiDinas');});
+Route::get('/subsidiPeternak', [FoodController::class, 'index']);
+Route::get('/addSubsidi', [FoodController::class, 'create']);
+Route::post('/addSubsidi', [FoodController::class, 'store']);
+Route::get('/editSubsidi/{id}', [FoodController::class, 'edit'])->name('subsidi.edit');
+Route::put('/editSubsidi/{id}', [FoodController::class, 'update'])->name('subsidi.update');
+Route::delete('/editSubsidi/{id}', [FoodController::class, 'destroy'])->name('subsidi.destroy');
+Route::get('/subsidiDinas',  [FoodController::class, 'dinas_idx']);
 Route::get('/validateSubsidi', function () {return view('dinas.validateSubsidi');});
-Route::get('/subsidiAdmin', function () {return view('admin.subsidiAdmin');});
+Route::get('/subsidiAdmin', [FoodController::class, 'admin_idx']);
 
 // Route Profil
 Route::get('/profilPeternak', function () {return view('peternak.profilPeternak');});

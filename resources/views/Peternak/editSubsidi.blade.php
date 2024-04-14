@@ -54,31 +54,32 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                     Ubah Pengajuan Pakan Subsidi
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="" method="POST">
+                <form class="space-y-4 md:space-y-6" action="{{ route('subsidi.update', $foodSubmissions->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div>
                         <label for="covering" class="block mb-2 text-sm font-medium text-gray-900">Surat Pengantar</label>
-                        <input type="file" name="covering_letter" id="covering_letter" required="">
+                        <input type="file" name="covering_letter" id="covering_letter" value="{{ $foodSubmissions->covering_letter }}" required="">
                     </div>
                     <div>
                         <label for="business" class="block mb-2 text-sm font-medium text-gray-900">Surat Usaha</label>
-                        <input type="file" name="business_letter" id="business_letter" required="">
+                        <input type="file" name="business_letter" id="business_letter" value="{{ $foodSubmissions->business_letter }}" required="">
                     </div>
                     <div>
                         <label for="farm_quantity" class="block mb-2 text-sm font-medium text-gray-900">Jumlah Ternak</label>
-                        <input type="text" name="farm_quantity" id="farm_quantity" placeholder="Jumlah Ternak" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
+                        <input type="text" name="farm_quantity" id="farm_quantity" value="{{ $foodSubmissions->farm_quantity }}" placeholder="Jumlah Ternak" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
                     </div>
                     <div>
                         <label for="food_quantity" class="block mb-2 text-sm font-medium text-gray-900">Ajuan Pakan (Kwintal)</label>
-                        <input type="text" name="food_quantity" id="food_quantity" placeholder="Ajuan Pakan (Kwintal)" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
+                        <input type="text" name="food_quantity" id="food_quantity" value="{{ $foodSubmissions->food_quantity }}" placeholder="Ajuan Pakan (Kwintal)" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
                     </div>
                     <div>
                         <label for="farm_picture" class="block mb-2 text-sm font-medium text-gray-900">Foto Peternakan</label>
-                        <input type="file" name="farm_picture" id="farm_picture" required="">
+                        <input type="file" name="farm_picture" id="farm_picture" value="{{ $foodSubmissions->farm_picture }}" required="">
                     </div>
                     <div>
                         <label for="confirmation_picture" class="block mb-2 text-sm font-medium text-gray-900">Foto Pakan Subsidi Yang Diterima</label>
-                        <input type="file" name="confirmation_picture" id="confirmation_picture">
+                        <input type="file" name="confirmation_picture" id="confirmation_picture" value="{{ $foodSubmissions->confirmation_picture }}">
                     </div>
                     <div class="flex flex-row gap-10">
                       <div class="flex flex-row items-center justify-center gap-6">

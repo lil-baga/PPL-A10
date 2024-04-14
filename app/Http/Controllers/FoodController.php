@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Food;
 use App\Http\Requests\StoreFoodRequest;
 use App\Http\Requests\UpdateFoodRequest;
+use Illuminate\Http\Request;
 
 class FoodController extends Controller
 {
@@ -13,23 +14,80 @@ class FoodController extends Controller
      */
     public function index()
     {
-        //
+        $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
+
+        return view('peternak.subsidiPeternak', compact('foodSubmissions'));
     }
 
+    public function dinas_idx()
+    {
+        $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
+
+        return view('dinas.subsidiDinas', compact('foodSubmissions'));
+    }
+
+    public function admin_idx()
+    {
+        $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
+
+        return view('admin.subsidiAdmin', compact('foodSubmissions'));
+    }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        // 
+        return view('peternak.addSubsidi');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFoodRequest $request)
+    public function store(Request $request)
     {
-        //
+        $checkbox = $request->input('confirmation');
+
+        $validatedAdd = $request->validate([
+            'covering_letter'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
+            'business_letter'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
+            'farm_quantity'=> 'required',
+            'food_quantity'=> 'required',
+            'farm_picture'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
+            'validation',
+            'confirm_picture'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
+            'confirmation',
+            'governemnt_note',
+        ]);
+
+        if ($request->hasFile('covering_letter')) {
+            $file = $request->file('covering_letter');
+            $file_name = $file->getClientOriginalName();
+            $file->move('image', $file_name);
+            $validatedAdd['covering_letter'] = $file_name;
+        };
+        if ($request->hasFile('business_letter')) {
+            $file = $request->file('business_letter');
+            $file_name = $file->getClientOriginalName();
+            $file->move('image', $file_name);
+            $validatedAdd['business_letter'] = $file_name;
+        };
+        if ($request->hasFile('farm_picture')) {
+            $file = $request->file('farm_picture');
+            $file_name = $file->getClientOriginalName();
+            $file->move('image', $file_name);
+            $validatedAdd['farm_picture'] = $file_name;
+        };
+        if ($request->hasFile('confirm_picture')) {
+            $file = $request->file('confirm_picture');
+            $file_name = $file->getClientOriginalName();
+            $file->move('image', $file_name);
+            $validatedAdd['confirm_picture'] = $file_name;
+        };
+
+        $validatedAdd['confirmation'] = $checkbox;
+        Food::create($validatedAdd);
+
+        return redirect('/subsidiPeternak')->with('success', 'Pengajuan Berhasil Ditambahkan!');
     }
 
     /**
@@ -43,24 +101,71 @@ class FoodController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Food $food)
+    public function edit(Request $request, $id)
     {
-        //
+        $foodSubmissions = Food::findOrFail($id);
+        return view('peternak.editSubsidi', compact('foodSubmissions'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFoodRequest $request, Food $food)
+    public function update(Request $request, $id)
     {
-        //
+        $foodSubmissions = Food::findOrFail($id);
+        
+        $checkbox = $request->input('confirmation');
+        
+        $validatedUpdate = $request->validate([
+            'covering_letter'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
+            'business_letter'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
+            'farm_quantity'=> 'required',
+            'food_quantity'=> 'required',
+            'farm_picture'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
+            'validation',
+            'confirm_picture'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
+            'confirmation',
+            'governemnt_note',
+        ]);
+
+        if ($request->hasFile('covering_letter')) {
+            $file = $request->file('covering_letter');
+            $file_name = $file->getClientOriginalName();
+            $file->move('image', $file_name);
+            $validatedUpdate['covering_letter'] = $file_name;
+        };
+        if ($request->hasFile('business_letter')) {
+            $file = $request->file('business_letter');
+            $file_name = $file->getClientOriginalName();
+            $file->move('image', $file_name);
+            $validatedUpdate['business_letter'] = $file_name;
+        };
+        if ($request->hasFile('farm_picture')) {
+            $file = $request->file('farm_picture');
+            $file_name = $file->getClientOriginalName();
+            $file->move('image', $file_name);
+            $validatedUpdate['farm_picture'] = $file_name;
+        };
+        if ($request->hasFile('confirm_picture')) {
+            $file = $request->file('confirm_picture');
+            $file_name = $file->getClientOriginalName();
+            $file->move('image', $file_name);
+            $validatedUpdate['confirm_picture'] = $file_name;
+        };
+        
+        $validatedUpdate['confirmation'] = $checkbox;
+
+        $foodSubmissions->update($validatedUpdate);
+        return redirect('/subsidiPeternak')->with('success', 'Pengajuan Berhasil Diubah!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Food $food)
+    public function destroy($id)
     {
-        //
+        $destroy = Food::findOrFail($id);
+        $destroy->delete();
+        return redirect('/subsidiPeternak')->with('success', 'Pengajuan Berhasil Dihapus!');
     }
 }

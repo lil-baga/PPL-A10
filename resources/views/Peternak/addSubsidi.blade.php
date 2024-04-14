@@ -54,14 +54,14 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                     Tambahkan Pengajuan Pakan Subsidi
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="" method="POST">
+                <form class="space-y-4 md:space-y-6" action="/addSubsidi" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div>
-                        <label for="covering" class="block mb-2 text-sm font-medium text-gray-900">Surat Pengantar</label>
+                        <label for="covering_letter" class="block mb-2 text-sm font-medium text-gray-900">Surat Pengantar</label>
                         <input type="file" name="covering_letter" id="covering_letter" required="">
                     </div>
                     <div>
-                        <label for="business" class="block mb-2 text-sm font-medium text-gray-900">Surat Usaha</label>
+                        <label for="business_letter" class="block mb-2 text-sm font-medium text-gray-900">Surat Usaha</label>
                         <input type="file" name="business_letter" id="business_letter" required="">
                     </div>
                     <div>
