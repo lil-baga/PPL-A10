@@ -52,12 +52,17 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
               <path fill-rule="evenodd" d="M12 2.25a.75.75 0 01.75.75v9a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM6.166 5.106a.75.75 0 010 1.06 8.25 8.25 0 1011.668 0 .75.75 0 111.06-1.06c3.808 3.807 3.808 9.98 0 13.788-3.807 3.808-9.98 3.808-13.788 0-3.808-3.807-3.808-9.98 0-13.788a.75.75 0 011.06 0z" clip-rule="evenodd"></path>
             </svg>
-          </div><a href="/">Logout</a>
+          </div><a href="/logout">Logout</a>
         </div>
       </nav>
     </div>
   
     <div class=" w-screen px-0 flex flex-col">
+      @if(Session::has('success'))
+        <div class="bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 text-white font-bold py-2 px-4 rounded" role="alert">
+          {{ Session::get('success') }}
+        </div>
+      @endif
       <table class="w-full min-w-max table-auto text-left">
         <thead>
           <tr>
@@ -97,68 +102,93 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="p-4 border-b border-gray-50">
-                <div class="flex flex-col items-center justify-center">
-                  <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">1</p>
-                </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-                <div class="flex flex-col items-center justify-center">
-                  <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="">suratpengantar.pdf</a></p>
-                </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-              <div class="flex flex-col items-center justify-center">
-                <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="">suratusaha.png</a></p>
-              </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-              <div class="flex flex-col items-center justify-center">
-                <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">2500</p>
-              </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-              <div class="flex flex-col items-center justify-center">
-                <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">12</p>
-              </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-              <div class="flex flex-col items-center justify-center">
-                <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="">peternakan.png</a></p>
-              </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-              <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-1">
-                <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">Diterima</p>
-              </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-              <div class="flex flex-col items-center justify-center">
-                <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">fototerima.png</p>
-              </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-              <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-1">
-                <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">Sudah Diambil</p>
-              </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-              <div class="flex flex-col items-center justify-center">
-                <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">Catatan</p>
-              </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-              <div class="flex flex-row items-center justify-center">
-                <a href="/validateSubsidi" class="bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                  Validasi
-                </a>
-                <a href="#" class="button bg-red-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                  Hapus
-                </a>
-              </div>
-            </td>
-          </tr>
+          @if($foodSubmissions->count() > 0)
+            @foreach($foodSubmissions as $fs)
+              <tr>
+                <td class="p-4 border-b border-gray-400">
+                    <div class="flex flex-col items-center justify-center">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $loop->iteration }}</p>
+                    </div>
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                    <div class="flex flex-col items-center justify-center">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->covering_letter }}" target="_blank">{{ $fs->covering_letter }}</a></p>
+                    </div>
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                  <div class="flex flex-col items-center justify-center">
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->business_letter }}" target="_blank">{{ $fs->business_letter }}</a></p>
+                  </div>
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                  <div class="flex flex-col items-center justify-center">
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->farm_quantity }}</p>
+                  </div>
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                  <div class="flex flex-col items-center justify-center">
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->food_quantity }}</p>
+                  </div>
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                  <div class="flex flex-col items-center justify-center">
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->farm_picture }}" target="_blank">{{ $fs->farm_picture }}</a></p>
+                  </div>
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                  @if($fs->validation == 'Diterima')
+                    <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
+                    </div>
+                  @elseif($fs->validation == 'Ditolak')
+                    <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
+                    </div>
+                  @else
+                    <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-2">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
+                    </div>
+                  @endif
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                  <div class="flex flex-col items-center justify-center">
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->confirmation_picture }}" target="_blank">{{ $fs->confirmation_picture }}</a></p>
+                  </div>
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                  @if($fs->confirmation == 'Sudah Diambil')
+                    <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
+                    </div>
+                  @elseif($fs->confirmation == 'Belum Diambil')
+                    <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
+                    </div>
+                  @else
+                    <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-2">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
+                    </div>
+                  @endif
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                  <div class="flex flex-col items-center justify-center">
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->government_note }}</p>
+                  </div>
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                  <div class="flex flex-row items-center justify-center">
+                    <a href="{{ route('view.validate', $fs->id) }}" class="button bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                      Validasi
+                    </a>
+                  </div>
+                </td>
+              </tr>
+            @endforeach
+          @else
+              <tr>
+                <td class="p-4 border-b border-gray-50" colspan="11">Belum Ada Pengajuan...</td>
+              </tr>
+          @endif
         </tbody>
       </table>
     </div>

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FarmerController;
 use App\Http\Controllers\GovernmentController;
 use App\Http\Controllers\FoodController;
@@ -16,15 +18,20 @@ use App\Http\Controllers\FoodController;
 |
 */
 
+// Route Landing
 Route::get('/', function () {return view('landingpage');});
 
 // Route Login
 Route::get('/login', function () {return view('login');});
 
 Route::get('/loginPeternak', function () {return view('peternak.loginPeternak');});
-Route::post('/loginPeternak', [FarmerController::class, 'authlogin']);
+Route::post('/loginPeternak', [FarmerController::class, 'login']);
 Route::get('/loginDinas', function () {return view('dinas.loginDinas');});
+Route::post('/loginDinas', [GovernmentController::class, 'login']);
 Route::get('/loginAdmin', function () {return view('admin.loginAdmin');});
+Route::post('/loginAdmin', [AdminController::class, 'login']);
+
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 // Route Sign Up
 Route::get('/signup', function () {return view('signup');});
@@ -34,24 +41,31 @@ Route::post('/signupPeternak', [FarmerController::class, 'store']);
 Route::get('/signupDinas', function () {return view('dinas.signupDinas');});
 Route::post('/signupDinas', [GovernmentController::class, 'store']);
 
-// Route Subsidi Pakan
-Route::get('/subsidiPeternak', [FoodController::class, 'index']);
-Route::get('/addSubsidi', [FoodController::class, 'create']);
-Route::post('/addSubsidi', [FoodController::class, 'store']);
-Route::get('/editSubsidi/{id}', [FoodController::class, 'edit'])->name('subsidi.edit');
-Route::put('/editSubsidi/{id}', [FoodController::class, 'update'])->name('subsidi.update');
-Route::delete('/editSubsidi/{id}', [FoodController::class, 'destroy'])->name('subsidi.destroy');
-Route::get('/subsidiDinas',  [FoodController::class, 'dinas_idx']);
-Route::get('/validateSubsidi', function () {return view('dinas.validateSubsidi');});
-Route::get('/subsidiAdmin', [FoodController::class, 'admin_idx']);
+// Route Masing-Masing Role
+Route::middleware(['peternak'])->group(function () {
+    Route::get('/subsidiPeternak', [FoodController::class, 'index']);
+    Route::get('/addSubsidi', [FoodController::class, 'create']);
+    Route::post('/addSubsidi', [FoodController::class, 'store']);
+    Route::get('/editSubsidi/{id}', [FoodController::class, 'edit'])->name('subsidi.edit');
+    Route::put('/editSubsidi/{id}', [FoodController::class, 'update'])->name('subsidi.update');
+    Route::delete('/editSubsidi/{id}', [FoodController::class, 'destroy'])->name('subsidi.destroy');
+    Route::get('/profilPeternak', function () {return view('peternak.profilPeternak');});
+    Route::get('/editprofilPeternak', function () {return view('peternak.editprofilPeternak');});
+});
 
-// Route Profil
-Route::get('/profilPeternak', function () {return view('peternak.profilPeternak');});
-Route::get('/editprofilPeternak', function () {return view('peternak.editprofilPeternak');});
-Route::get('/profilDinas', function () {return view('dinas.profilDinas');});
-Route::get('/editprofilDinas', function () {return view('dinas.editprofilDinas');});
-Route::get('/profilAdmin', function () {return view('admin.profilAdmin');});
-Route::get('/editprofilAdmin', function () {return view('admin.editprofilAdmin');});
+Route::middleware(['dinas'])->group(function () {
+    Route::get('/subsidiDinas',  [FoodController::class, 'indexDinas']);
+    Route::get('/validateSubsidi/{id}',  [FoodController::class, 'dinasValidate'])->name('view.validate');
+    Route::put('/validateSubsidi/{id}', [FoodController::class, 'updateValidation'])->name('subsidi.validate');
+    Route::get('/profilDinas', function () {return view('dinas.profilDinas');});
+    Route::get('/editprofilDinas', function () {return view('dinas.editprofilDinas');});
+});
 
+Route::middleware(['admin'])->group(function () {
+    Route::get('/subsidiAdmin', [FoodController::class, 'indexAdmin']);
+    Route::get('/profilAdmin',  [AdminController::class, 'index'])->name('view.profilAdmin');
+    Route::get('/editprofilAdmin',  [AdminController::class, 'edit'])->name('edit.profilAdmin');
+    Route::put('/editprofilAdmin',  [AdminController::class, 'update'])->name('update.profilAdmin');
+});
 
 

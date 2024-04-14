@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Farmer;
 use App\Models\User;
 use App\Http\Requests\StoreFarmerRequest;
 use App\Http\Requests\UpdateFarmerRequest;
@@ -33,27 +32,28 @@ class FarmerController extends Controller
     public function store(Request $request)
     {
         $validatedRegister = $request->validate([
+            'name'=> 'required',
             'email'=> 'required|email|unique:users',
             'password'=> 'required|min:8',
-        ]);
-
-        $validatedData = $request->validate([
-            'name'=> 'required',
             'address'=> 'required',
             'phone_number'=> 'required',
         ]);
 
         $validatedRegister['password'] = bcrypt($validatedRegister['password']);
-
+        $validatedRegister['roles_id'] = '2';
         User::create($validatedRegister);
-        Farmer::create($validatedData);
 
         return redirect('/loginPeternak');
     }
 
-    public function authlogin(Request $request)
+    public function login(Request $request)
     {
-        return redirect('/subsidiPeternak')->with('failed', 'Gagal Login, Password atau Kata Sandi Salah!');
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect('/subsidiPeternak');
+        } else {
+            return redirect('/loginPeternak')->with('failed', 'Username atau Password Salah!');
+        }
     }
 
     /**

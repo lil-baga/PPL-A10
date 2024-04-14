@@ -44,7 +44,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
               <path fill-rule="evenodd" d="M12 2.25a.75.75 0 01.75.75v9a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM6.166 5.106a.75.75 0 010 1.06 8.25 8.25 0 1011.668 0 .75.75 0 111.06-1.06c3.808 3.807 3.808 9.98 0 13.788-3.807 3.808-9.98 3.808-13.788 0-3.808-3.807-3.808-9.98 0-13.788a.75.75 0 011.06 0z" clip-rule="evenodd"></path>
             </svg>
-          </div><a href="/">Logout</a>
+          </div><a href="/logout">Logout</a>
         </div>
       </nav>
     </div>
@@ -128,11 +128,11 @@
                   </div>
                 </td>
                 <td class="p-4 border-b border-gray-400">
-                  @if($fs->confirmation == 'Diterima')
+                  @if($fs->validation == 'Diterima')
                     <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2">
                       <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
                     </div>
-                  @elseif($fs->confirmation == 'Ditolak')
+                  @elseif($fs->validation == 'Ditolak')
                     <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2">
                       <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
                     </div>

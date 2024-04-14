@@ -19,14 +19,14 @@ class FoodController extends Controller
         return view('peternak.subsidiPeternak', compact('foodSubmissions'));
     }
 
-    public function dinas_idx()
+    public function indexDinas()
     {
         $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
 
         return view('dinas.subsidiDinas', compact('foodSubmissions'));
     }
 
-    public function admin_idx()
+    public function indexAdmin()
     {
         $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
 
@@ -56,7 +56,7 @@ class FoodController extends Controller
             'validation',
             'confirm_picture'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
             'confirmation',
-            'governemnt_note',
+            'government_note',
         ]);
 
         if ($request->hasFile('covering_letter')) {
@@ -107,6 +107,12 @@ class FoodController extends Controller
         return view('peternak.editSubsidi', compact('foodSubmissions'));
     }
 
+    public function dinasValidate(Request $request, $id)
+    {
+        $foodSubmissions = Food::findOrFail($id);
+        return view('dinas.validateSubsidi', compact('foodSubmissions'));
+    }
+
     /**
      * Update the specified resource in storage.
      */
@@ -125,7 +131,7 @@ class FoodController extends Controller
             'validation',
             'confirm_picture'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
             'confirmation',
-            'governemnt_note',
+            'government_note',
         ]);
 
         if ($request->hasFile('covering_letter')) {
@@ -157,6 +163,28 @@ class FoodController extends Controller
 
         $foodSubmissions->update($validatedUpdate);
         return redirect('/subsidiPeternak')->with('success', 'Pengajuan Berhasil Diubah!');
+    }
+
+    public function updateValidation(Request $request, $id)
+    {
+        $foodSubmissions = Food::findOrFail($id);
+        
+        $checkbox = $request->input('validation');
+        
+        $validated = $request->validate([
+            'validation',
+            'government_note',
+        ]);
+
+        $validatedUpdate = [
+            'validation'=> $request->validation,
+            'government_note'=> $request->government_note,
+        ];
+        
+        $validatedUpdate['validation'] = $checkbox;
+
+        $foodSubmissions->update($validatedUpdate);
+        return redirect('/subsidiDinas')->with('success', 'Pengajuan Berhasil Divalidasi!');
     }
 
     /**

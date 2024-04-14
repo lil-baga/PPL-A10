@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\User;
 use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\UpdateAdminRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -13,7 +15,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+
+        return view('admin.profilAdmin', compact('currentuser'));
     }
 
     /**
@@ -32,28 +37,59 @@ class AdminController extends Controller
         //
     }
 
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect('/subsidiAdmin');
+        } else {
+            return redirect('/loginAdmin')->with('failed', 'Username atau Password Salah!');
+        }
+    }
+
     /**
      * Display the specified resource.
      */
-    public function show(Admin $admin)
+    public function show()
     {
-        //
+        // 
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Admin $admin)
+    public function edit()
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+
+        return view('admin.editProfilAdmin', compact('currentuser'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAdminRequest $request, Admin $admin)
+    public function update(Request $request)
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+        
+        $validated= $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'phone_number' => 'required',
+        ]);
+
+        $validatedProfile = [
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'address'=> $request->address,
+            'phone_number'=> $request->phone_number,
+        ];
+
+        $currentuser->update($validatedProfile);
+        return redirect('/profilAdmin')->with('success', 'Profil Anda Berhasil Diubah!');
     }
 
     /**

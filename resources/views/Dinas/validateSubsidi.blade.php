@@ -52,7 +52,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
                   <path fill-rule="evenodd" d="M12 2.25a.75.75 0 01.75.75v9a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM6.166 5.106a.75.75 0 010 1.06 8.25 8.25 0 1011.668 0 .75.75 0 111.06-1.06c3.808 3.807 3.808 9.98 0 13.788-3.807 3.808-9.98 3.808-13.788 0-3.808-3.807-3.808-9.98 0-13.788a.75.75 0 011.06 0z" clip-rule="evenodd"></path>
                 </svg>
-              </div><a href="/">Logout</a>
+              </div><a href="/logout">Logout</a>
             </div>
           </nav>
         </div>
@@ -62,8 +62,9 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                     Validasi Pengajuan Pakan Subsidi
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="" method="POST">
+                <form class="space-y-4 md:space-y-6" action="{{ route('subsidi.validate', $foodSubmissions->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div>
                       <label for="government_note" class="block mb-2 text-sm font-medium text-gray-900">Catatan Dinas</label>
                       <input type="text" name="government_note" id="government_note" placeholder="Beri Catatan" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
