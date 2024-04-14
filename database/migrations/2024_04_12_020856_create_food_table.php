@@ -19,8 +19,9 @@ return new class extends Migration
             $table->integer('food_quantity');
             $table->binary('farm_picture');
             $table->enum('validation', ['Ditolak', 'Diproses', 'Diterima'])->default('Diproses');
-            $table->binary('confirm_picture');
+            $table->binary('confirm_picture')->nullable();
             $table->enum('confirmation', ['Belum Diambil', 'Proses Validasi', 'Sudah Diambil'])->default('Proses Validasi');
+            $table->text('government_note')->nullable();
             $table->timestamps();
         });
     }

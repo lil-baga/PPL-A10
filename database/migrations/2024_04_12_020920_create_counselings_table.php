@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('counselings', function (Blueprint $table) {
             $table->id('id_counseling');
-            $table->binary('covering_letter');
             $table->binary('bussiness_letter');
             $table->integer('farm_quantity');
-            $table->integer('food_quantity');
+            $table->text('theme_request');
             $table->binary('farm_picture');
             $table->enum('validation', ['Ditolak', 'Diproses', 'Diterima'])->default('Diproses');
-            $table->binary('confirm_picture');
-            $table->enum('confirmation', ['Belum Diambil', 'Sudah Diambil'])->default('Belum Diambil');
+            $table->date('counseling_date')->nullable();
+            $table->text('government_note')->nullable();
             $table->timestamps();
         });
     }

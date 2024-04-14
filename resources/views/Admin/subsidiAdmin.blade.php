@@ -21,7 +21,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
               <path fill-rule="evenodd" d="M6.912 3a3 3 0 00-2.868 2.118l-2.411 7.838a3 3 0 00-.133.882V18a3 3 0 003 3h15a3 3 0 003-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0017.088 3H6.912zm13.823 9.75l-2.213-7.191A1.5 1.5 0 0017.088 4.5H6.912a1.5 1.5 0 00-1.434 1.059L3.265 12.75H6.11a3 3 0 012.684 1.658l.256.513a1.5 1.5 0 001.342.829h3.218a1.5 1.5 0 001.342-.83l.256-.512a3 3 0 012.684-1.658h2.844z" clip-rule="evenodd"></path>
             </svg>
-          </div>Pengajuan Subsidi Pakan<div class="grid place-items-center ml-auto justify-self-end">
+          </div><a href="/subsidiAdmin"></a>Pengajuan Pakan Subsidi<div class="grid place-items-center ml-auto justify-self-end">
           </div>
         </div>
         <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
@@ -29,23 +29,23 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
               <path fill-rule="evenodd" d="M6.912 3a3 3 0 00-2.868 2.118l-2.411 7.838a3 3 0 00-.133.882V18a3 3 0 003 3h15a3 3 0 003-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0017.088 3H6.912zm13.823 9.75l-2.213-7.191A1.5 1.5 0 0017.088 4.5H6.912a1.5 1.5 0 00-1.434 1.059L3.265 12.75H6.11a3 3 0 012.684 1.658l.256.513a1.5 1.5 0 001.342.829h3.218a1.5 1.5 0 001.342-.83l.256-.512a3 3 0 012.684-1.658h2.844z" clip-rule="evenodd"></path>
             </svg>
-          </div>Pengajuan Penyuluhan<div class="grid place-items-center ml-auto justify-self-end">
+          </div><a href="#">Pengajuan Penyuluhan</a><div class="grid place-items-center ml-auto justify-self-end">
           </div>
         </div>
         <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
-            <div class="grid place-items-center mr-4">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
-                <path fill-rule="evenodd" d="M6.912 3a3 3 0 00-2.868 2.118l-2.411 7.838a3 3 0 00-.133.882V18a3 3 0 003 3h15a3 3 0 003-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0017.088 3H6.912zm13.823 9.75l-2.213-7.191A1.5 1.5 0 0017.088 4.5H6.912a1.5 1.5 0 00-1.434 1.059L3.265 12.75H6.11a3 3 0 012.684 1.658l.256.513a1.5 1.5 0 001.342.829h3.218a1.5 1.5 0 001.342-.83l.256-.512a3 3 0 012.684-1.658h2.844z" clip-rule="evenodd"></path>
-              </svg>
-            </div>Broadcast<div class="grid place-items-center ml-auto justify-self-end">
-            </div>
+          <div class="grid place-items-center mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
+              <path fill-rule="evenodd" d="M6.912 3a3 3 0 00-2.868 2.118l-2.411 7.838a3 3 0 00-.133.882V18a3 3 0 003 3h15a3 3 0 003-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0017.088 3H6.912zm13.823 9.75l-2.213-7.191A1.5 1.5 0 0017.088 4.5H6.912a1.5 1.5 0 00-1.434 1.059L3.265 12.75H6.11a3 3 0 012.684 1.658l.256.513a1.5 1.5 0 001.342.829h3.218a1.5 1.5 0 001.342-.83l.256-.512a3 3 0 012.684-1.658h2.844z" clip-rule="evenodd"></path>
+            </svg>
+          </div><a href="#">Broadcast</a><div class="grid place-items-center ml-auto justify-self-end">
           </div>
+        </div>
         <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
           <div class="grid place-items-center mr-4">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
               <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd"></path>
             </svg>
-          </div><a href="">Profil</a>
+          </div><a href="/profilAdmin">Profil</a>
         </div>
         <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
           <div class="grid place-items-center mr-4">
@@ -89,7 +89,7 @@
               <p class="antialiased font-sans text-sm text-white flex items-center justify-center gap-2 font-normal leading-none">Konfirmasi</p>
             </th>
             <th class="cursor-pointer border-y border-[#F54C2A] bg-[#F5682A] p-4 transition-colors hover:bg-[#F54C2A]">
-              <p class="antialiased font-sans text-sm text-white flex items-center justify-center gap-2 font-normal leading-none">Aksi</p>
+              <p class="antialiased font-sans text-sm text-white flex items-center justify-center gap-2 font-normal leading-none">Catatan</p>
             </th>
           </tr>
         </thead>
@@ -138,13 +138,6 @@
             <td class="p-4 border-b border-gray-50">
               <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-1">
                 <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">Sudah Diambil</p>
-              </div>
-            </td>
-            <td class="p-4 border-b border-gray-50">
-              <div class="flex flex-row items-center justify-center">
-                <button class="bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                  Lihat
-                </button>
               </div>
             </td>
           </tr>

@@ -54,19 +54,19 @@ class FarmerController extends Controller
     public function authlogin(Request $request)
     {
         $validatedLogin = $request->validate([
-            'email'=> 'required',
+            'email'=> 'required|email|unique:users',
             'password'=> 'required',
         ]);
 
-        $userValidation = User::where([
-            ['email', $request->email],
-            ['password', $request->password]
-        ])->first();
-
-        if ($userValidation == $validatedLogin) {
-            return redirect('/subsidiPeternak');
+        if(Auth::attempt($validatedLogin)){
+            $user = Auth::user()->id;
+            $registrasi = User::where('id_user', $user)->first();   
+            $usercount = User::where('id_user', $user)->count();
+            return redirect('/subsidiPeternak', compact('registrasi', 'usercount'));
+        }else {
+            return redirect('/loginPeternak')->withError('Email atau Kata sandi salah !');
         }
-    }
+        }
 
     /**
      * Display the specified resource.
