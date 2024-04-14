@@ -22,6 +22,7 @@ return new class extends Migration
             $table->binary('confirm_picture')->nullable();
             $table->enum('confirmation', ['Belum Diambil', 'Proses Validasi', 'Sudah Diambil'])->default('Proses Validasi');
             $table->text('government_note')->nullable();
+            $table->foreignId('users_id');
             $table->timestamps();
         });
     }

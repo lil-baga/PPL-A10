@@ -21,5 +21,23 @@ class UserSeeder extends Seeder
             'phone_number' => '081333760081',
             'roles_id' => '1',
         ]);
+
+        User::create([
+            'name' => 'Purwoto',
+            'email' => 'purwoto_dkppk@gmail.com',
+            'password' => bcrypt('purwoto1'),
+            'address' => 'Jl. Letjend Suprapto No.139, Sumbersari, Jember',
+            'phone_number' => '0331337275',
+            'roles_id' => '3',
+        ]);
+
+        User::create([
+            'name' => 'Arifandi',
+            'email' => 'arifandi@gmail.com',
+            'password' => bcrypt('arifandi7'),
+            'address' => 'Jl. Sarangan No.5, Pakusari, Jember,',
+            'phone_number' => '081657832490',
+            'roles_id' => '2',
+        ]);
     }
 }

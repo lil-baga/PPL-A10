@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Food;
 use App\Http\Requests\StoreFoodRequest;
 use App\Http\Requests\UpdateFoodRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class FoodController extends Controller
 {
@@ -14,9 +17,12 @@ class FoodController extends Controller
      */
     public function index()
     {
+        $no = 0;
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
         $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
 
-        return view('peternak.subsidiPeternak', compact('foodSubmissions'));
+        return view('peternak.subsidiPeternak', compact('foodSubmissions', 'id', 'no'));
     }
 
     public function indexDinas()
@@ -45,6 +51,8 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
+        $id = Auth::user()->id;
+
         $checkbox = $request->input('confirmation');
 
         $validatedAdd = $request->validate([
@@ -57,6 +65,7 @@ class FoodController extends Controller
             'confirm_picture'=> 'file|mimes:pdf,jpg,jpeg,svg,png',
             'confirmation',
             'government_note',
+            'users_id',
         ]);
 
         if ($request->hasFile('covering_letter')) {
@@ -85,6 +94,7 @@ class FoodController extends Controller
         };
 
         $validatedAdd['confirmation'] = $checkbox;
+        $validatedAdd['users_id'] = $id;
         Food::create($validatedAdd);
 
         return redirect('/subsidiPeternak')->with('success', 'Pengajuan Berhasil Ditambahkan!');

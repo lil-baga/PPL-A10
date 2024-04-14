@@ -96,91 +96,94 @@
         <tbody>
           @if($foodSubmissions->count() > 0)
             @foreach($foodSubmissions as $fs)
-              <tr>
-                <td class="p-4 border-b border-gray-400">
+              @if($fs->users_id == $id)
+                <tr>
+                  <td class="p-4 border-b border-gray-400">
+                      <div class="flex flex-col items-center justify-center">
+                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $no=+1 }}</p>
+                      </div>
+                  </td>
+                  <td class="p-4 border-b border-gray-400">
+                      <div class="flex flex-col items-center justify-center">
+                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->covering_letter }}" target="_blank">{{ $fs->covering_letter }}</a></p>
+                      </div>
+                  </td>
+                  <td class="p-4 border-b border-gray-400">
                     <div class="flex flex-col items-center justify-center">
-                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $loop->iteration }}</p>
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->business_letter }}" target="_blank">{{ $fs->business_letter }}</a></p>
                     </div>
-                </td>
-                <td class="p-4 border-b border-gray-400">
+                  </td>
+                  <td class="p-4 border-b border-gray-400">
                     <div class="flex flex-col items-center justify-center">
-                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->covering_letter }}" target="_blank">{{ $fs->covering_letter }}</a></p>
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->farm_quantity }}</p>
                     </div>
-                </td>
-                <td class="p-4 border-b border-gray-400">
-                  <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->business_letter }}" target="_blank">{{ $fs->business_letter }}</a></p>
-                  </div>
-                </td>
-                <td class="p-4 border-b border-gray-400">
-                  <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->farm_quantity }}</p>
-                  </div>
-                </td>
-                <td class="p-4 border-b border-gray-400">
-                  <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->food_quantity }}</p>
-                  </div>
-                </td>
-                <td class="p-4 border-b border-gray-400">
-                  <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->farm_picture }}" target="_blank">{{ $fs->farm_picture }}</a></p>
-                  </div>
-                </td>
-                <td class="p-4 border-b border-gray-400">
-                  @if($fs->validation == 'Diterima')
-                    <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2">
-                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
+                  </td>
+                  <td class="p-4 border-b border-gray-400">
+                    <div class="flex flex-col items-center justify-center">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->food_quantity }}</p>
                     </div>
-                  @elseif($fs->validation == 'Ditolak')
-                    <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2">
-                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
+                  </td>
+                  <td class="p-4 border-b border-gray-400">
+                    <div class="flex flex-col items-center justify-center">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->farm_picture }}" target="_blank">{{ $fs->farm_picture }}</a></p>
                     </div>
-                  @else
-                    <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-2">
-                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
+                  </td>
+                  <td class="p-4 border-b border-gray-400">
+                    @if($fs->validation == 'Diterima')
+                      <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2">
+                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
+                      </div>
+                    @elseif($fs->validation == 'Ditolak')
+                      <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2">
+                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
+                      </div>
+                    @else
+                      <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-2">
+                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
+                      </div>
+                    @endif
+                  </td>
+                  <td class="p-4 border-b border-gray-400">
+                    <div class="flex flex-col items-center justify-center">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->confirmation_picture }}" target="_blank">{{ $fs->confirmation_picture }}</a></p>
                     </div>
-                  @endif
-                </td>
-                <td class="p-4 border-b border-gray-400">
-                  <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->confirmation_picture }}" target="_blank">{{ $fs->confirmation_picture }}</a></p>
-                  </div>
-                </td>
-                <td class="p-4 border-b border-gray-400">
-                  @if($fs->confirmation == 'Sudah Diambil')
-                    <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2">
-                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
+                  </td>
+                  <td class="p-4 border-b border-gray-400">
+                    @if($fs->confirmation == 'Sudah Diambil')
+                      <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2">
+                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
+                      </div>
+                    @elseif($fs->confirmation == 'Belum Diambil')
+                      <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2">
+                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
+                      </div>
+                    @else
+                      <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-2">
+                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
+                      </div>
+                    @endif
+                  </td>
+                  <td class="p-4 border-b border-gray-400">
+                    <div class="flex flex-col items-center justify-center">
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->government_note }}</p>
                     </div>
-                  @elseif($fs->confirmation == 'Belum Diambil')
-                    <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2">
-                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
+                  </td>
+                  <td class="p-4 border-b border-gray-400">
+                    <div class="flex flex-row items-center justify-center">
+                      <a href="{{ route('subsidi.edit', $fs->id) }}" class="button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Edit
+                      </a>
+                      <form id='delete' method="POST" action="{{ route('subsidi.destroy', $fs->id) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                            class=" bg-red-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Hapus</button>
+                      </form>
                     </div>
-                  @else
-                    <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-2">
-                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
-                    </div>
-                  @endif
-                </td>
-                <td class="p-4 border-b border-gray-400">
-                  <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->government_note }}</p>
-                  </div>
-                </td>
-                <td class="p-4 border-b border-gray-400">
-                  <div class="flex flex-row items-center justify-center">
-                    <a href="{{ route('subsidi.edit', $fs->id) }}" class="button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Edit
-                    </a>
-                    <form id='delete' method="POST" action="{{ route('subsidi.destroy', $fs->id) }}">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit"
-                          class=" bg-red-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Hapus</button>
-                    </form>
-                  </div>
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              @else
+              @endif
             @endforeach
           @else
               <tr>

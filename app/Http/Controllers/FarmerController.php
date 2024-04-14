@@ -15,7 +15,10 @@ class FarmerController extends Controller
      */
     public function index()
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+
+        return view('peternak.profilPeternak', compact('currentuser'));
     }
 
     /**
@@ -67,17 +70,38 @@ class FarmerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Farmer $farmer)
+    public function edit()
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+
+        return view('peternak.editProfilPeternak', compact('currentuser'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFarmerRequest $request, Farmer $farmer)
+    public function update(Request $request)
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+        
+        $validated= $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'phone_number' => 'required',
+        ]);
+
+        $validatedProfile = [
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'address'=> $request->address,
+            'phone_number'=> $request->phone_number,
+        ];
+
+        $currentuser->update($validatedProfile);
+        return redirect('/profilPeternak')->with('success', 'Profil Anda Berhasil Diubah!');
     }
 
     /**

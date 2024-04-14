@@ -49,16 +49,18 @@ Route::middleware(['peternak'])->group(function () {
     Route::get('/editSubsidi/{id}', [FoodController::class, 'edit'])->name('subsidi.edit');
     Route::put('/editSubsidi/{id}', [FoodController::class, 'update'])->name('subsidi.update');
     Route::delete('/editSubsidi/{id}', [FoodController::class, 'destroy'])->name('subsidi.destroy');
-    Route::get('/profilPeternak', function () {return view('peternak.profilPeternak');});
-    Route::get('/editprofilPeternak', function () {return view('peternak.editprofilPeternak');});
+    Route::get('/profilPeternak',  [FarmerController::class, 'index'])->name('view.profilPeternak');
+    Route::get('/editprofilPeternak',  [FarmerController::class, 'edit'])->name('edit.profilPeternak');
+    Route::put('/editprofilPeternak',  [FarmerController::class, 'update'])->name('update.profilPeternak');
 });
 
 Route::middleware(['dinas'])->group(function () {
     Route::get('/subsidiDinas',  [FoodController::class, 'indexDinas']);
     Route::get('/validateSubsidi/{id}',  [FoodController::class, 'dinasValidate'])->name('view.validate');
     Route::put('/validateSubsidi/{id}', [FoodController::class, 'updateValidation'])->name('subsidi.validate');
-    Route::get('/profilDinas', function () {return view('dinas.profilDinas');});
-    Route::get('/editprofilDinas', function () {return view('dinas.editprofilDinas');});
+    Route::get('/profilDinas',  [GovernmentController::class, 'index'])->name('view.profilDinas');
+    Route::get('/editprofilDinas',  [GovernmentController::class, 'edit'])->name('edit.profilDinas');
+    Route::put('/editprofilDinas',  [GovernmentController::class, 'update'])->name('update.profilDinas');
 });
 
 Route::middleware(['admin'])->group(function () {

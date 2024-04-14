@@ -15,7 +15,10 @@ class GovernmentController extends Controller
      */
     public function index()
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+
+        return view('Dinas.profilDinas', compact('currentuser'));
     }
 
     /**
@@ -79,15 +82,36 @@ class GovernmentController extends Controller
      */
     public function edit()
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+
+        return view('dinas.editProfilDinas', compact('currentuser'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateGovernmentRequest $request, Government $government)
+    public function update(Request $request)
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+        
+        $validated= $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'phone_number' => 'required',
+        ]);
+
+        $validatedProfile = [
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'address'=> $request->address,
+            'phone_number'=> $request->phone_number,
+        ];
+
+        $currentuser->update($validatedProfile);
+        return redirect('/profilDinas')->with('success', 'Profil Anda Berhasil Diubah!');
     }
 
     /**
