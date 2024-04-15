@@ -34,16 +34,23 @@ class GovernmentController extends Controller
      */
     public function store(Request $request)
     {
+        $accessCode = mt_rand(1000, 9999);
+
         $validatedRegister = $request->validate([
             'name'=> 'required',
             'email'=> 'required|email|unique:users',
             'password'=> 'required|min:8',
             'address'=> 'required',
             'phone_number'=> 'required',
+            'access_code',
+            'roles_id',
+
         ]);
 
         $validatedRegister['password'] = bcrypt($validatedRegister['password']);
+        $validatedRegister['access_code'] = $accessCode;
         $validatedRegister['roles_id'] = '3';
+
         User::create($validatedRegister);
 
         return redirect('/loginDinas');
@@ -72,7 +79,7 @@ class GovernmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(Request $request)
     {
         // 
     }
@@ -117,7 +124,7 @@ class GovernmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Government $government)
+    public function destroy(Request $request)
     {
         //
     }

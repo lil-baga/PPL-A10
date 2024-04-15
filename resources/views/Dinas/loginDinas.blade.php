@@ -58,7 +58,7 @@
                         </div>
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Kode Akses</label>
-                            <input type="text" name="accesscode" id="accesscode" placeholder="Kode Akses (Hubungi Admin)" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
+                            <input type="text" name="access_code" id="access_code" placeholder="Kode Akses (Hubungi Admin)" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
                         </div>
                         <button type="submit" class="w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Login</button>
                         <p class="text-sm font-light text-gray-500 ">

@@ -24,6 +24,7 @@ class User extends Authenticatable
         'address',
         'phone_number',
         'roles_id',
+        'access_code'
     ];
 
     protected $primaryKey = 'id';

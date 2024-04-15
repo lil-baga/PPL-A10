@@ -13,6 +13,8 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        $accessCode = mt_rand(1000, 9999);
+
         User::create([
             'name' => 'Admin C&C',
             'email' => 'adminc&c@gmail.com',
@@ -28,6 +30,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('purwoto1'),
             'address' => 'Jl. Letjend Suprapto No.139, Sumbersari, Jember',
             'phone_number' => '0331337275',
+            'access_code' => $accessCode,
             'roles_id' => '3',
         ]);
 

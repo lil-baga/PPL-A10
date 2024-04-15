@@ -62,7 +62,7 @@ class FarmerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Farmer $farmer)
+    public function show(Request $request)
     {
         //
     }
@@ -107,7 +107,7 @@ class FarmerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Farmer $farmer)
+    public function destroy(Request $request)
     {
         //
     }
