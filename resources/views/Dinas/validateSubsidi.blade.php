@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="icon" type="image" href="logoicon.png">
+    <link rel="icon" type="image" href="{{ url("logoicon.png") }}">
     <title>Subsidi Pakan</title>
 </head>
 <body>
     <div class="flex flex-row">
         <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[100vh] w-full max-w-[20rem] p-4 shadow-xl shadow-gray-900/5">
           <div class="mb-2 p-2 flex items-center justify-center">
-            <img src="logobrand.png" alt="" class="flex flex-row w-40 mr-4">
+            <img src="{{ url("logobrand.png") }}" alt="" class="flex flex-row w-40 mr-4">
           </div>
           <nav class="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-gray-700">
             <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all bg-[#F5682A]  text-white outline-none">
@@ -67,21 +67,21 @@
                     @method('PUT')
                     <div>
                       <label for="government_note" class="block mb-2 text-sm font-medium text-gray-900">Catatan Dinas</label>
-                      <input type="text" name="government_note" id="government_note" placeholder="Beri Catatan" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" required="">
+                      <input type="text" name="government_note" id="government_note" placeholder="Beri Catatan" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5">
                     </div>
                     <div class="flex flex-row gap-10">
                         <div class="flex flex-row items-center justify-center gap-6">
                             <div class="flex flex-col items-center justify-center">
                                 <label for="Sudah" class="block mb-2 text-sm font-medium text-gray-900">Diterima</label>
-                                <input type="checkbox" name="validation" id="Sudah" value="Diterima" onclick="if(this.checked) {Belum.checked=false;} {Proses.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
+                                <input type="radio" name="validation" id="Sudah" value="Diterima" @if($foodSubmissions->validation == 'Diterima') checked @endif onclick="if(this.checked) {Belum.checked=false;} {Proses.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
                             </div>
                             <div class="flex flex-col items-center justify-center">
                                 <label for="Proses" class="block mb-2 text-sm font-medium text-gray-900">Diproses</label>
-                                <input type="checkbox" name="validation" id="Proses" value="Diproses" onclick="if(this.checked) {Sudah.checked=false;} {Belum.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
+                                <input type="radio" name="validation" id="Proses" value="Diproses" @if($foodSubmissions->validation == 'Diproses') checked @endif onclick="if(this.checked) {Sudah.checked=false;} {Belum.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
                             </div>
                             <div class="flex flex-col items-center justify-center">
                                 <label for="Belum" class="block mb-2 text-sm font-medium text-gray-900">Ditolak</label>
-                                <input type="checkbox" name="validation" id="Belum" value="Ditolak" onclick="if(this.checked) {Sudah.checked=false;} {Proses.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
+                                <input type="radio" name="validation" id="Belum" value="Ditolak" @if($foodSubmissions->validation == 'Ditolak') checked @endif onclick="if(this.checked) {Sudah.checked=false;} {Proses.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
                             </div>
                         </div>
                     </div>

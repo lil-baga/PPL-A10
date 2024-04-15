@@ -22,7 +22,7 @@ class FoodController extends Controller
         $currentuser = User::find($id);
         $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
 
-        return view('peternak.subsidiPeternak', compact('foodSubmissions', 'id', 'no'));
+        return view('peternak.subsidiPeternak', compact('foodSubmissions','currentuser', 'id', 'no'));
     }
 
     public function indexDinas()
@@ -37,6 +37,33 @@ class FoodController extends Controller
         $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
 
         return view('admin.subsidiAdmin', compact('foodSubmissions'));
+    }
+
+    public function detailSubsidiPeternak(Request $request, $id)
+    {
+        $foodSubmissions = Food::findOrFail($id);
+        $users_id = $foodSubmissions['users_id'];
+        $currentuser = User::find($users_id);
+
+        return view('peternak.detailSubsidiPeternak', compact('foodSubmissions', 'currentuser'));
+    }
+
+    public function detailSubsidiDinas(Request $request, $id)
+    {
+        $foodSubmissions = Food::findOrFail($id);
+        $users_id = $foodSubmissions['users_id'];
+        $currentuser = User::find($users_id);
+
+        return view('dinas.detailSubsidiDinas', compact('foodSubmissions', 'currentuser'));
+    }
+
+    public function detailSubsidiAdmin(Request $request, $id)
+    {
+        $foodSubmissions = Food::findOrFail($id);
+        $users_id = $foodSubmissions['users_id'];
+        $currentuser = User::find($users_id);
+
+        return view('admin.detailSubsidiAdmin', compact('foodSubmissions', 'currentuser'));
     }
     /**
      * Show the form for creating a new resource.

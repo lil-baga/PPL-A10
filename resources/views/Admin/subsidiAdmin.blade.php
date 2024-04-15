@@ -91,6 +91,9 @@
             <th class="cursor-pointer border-y border-[#F54C2A] bg-[#F5682A] p-4 transition-colors hover:bg-[#F54C2A]">
               <p class="antialiased font-sans text-sm text-white flex items-center justify-center gap-2 font-normal leading-none">Catatan</p>
             </th>
+            <th class="cursor-pointer border-y border-[#F54C2A] bg-[#F5682A] p-4 transition-colors hover:bg-[#F54C2A]">
+              <p class="antialiased font-sans text-sm text-white flex items-center justify-center gap-2 font-normal leading-none">Aksi</p>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -104,12 +107,12 @@
                 </td>
                 <td class="p-4 border-b border-gray-400">
                     <div class="flex flex-col items-center justify-center">
-                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->covering_letter }}" target="_blank">{{ $fs->covering_letter }}</a></p>
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->covering_letter }}</p>
                     </div>
                 </td>
                 <td class="p-4 border-b border-gray-400">
                   <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->business_letter }}" target="_blank">{{ $fs->business_letter }}</a></p>
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->business_letter }}</p>
                   </div>
                 </td>
                 <td class="p-4 border-b border-gray-400">
@@ -124,40 +127,40 @@
                 </td>
                 <td class="p-4 border-b border-gray-400">
                   <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->farm_picture }}" target="_blank">{{ $fs->farm_picture }}</a></p>
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->farm_picture }}</p>
                   </div>
                 </td>
                 <td class="p-4 border-b border-gray-400">
-                  @if($fs->confirmation == 'Diterima')
-                    <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-1">
+                  @if($fs->validation == 'Diterima')
+                    <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2">
                       <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
                     </div>
-                  @elseif($fs->confirmation == 'Ditolak')
-                    <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-1">
+                  @elseif($fs->validation == 'Ditolak')
+                    <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2">
                       <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
                     </div>
                   @else
-                    <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-1">
+                    <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-2">
                       <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->validation }}</p>
                     </div>
                   @endif
                 </td>
                 <td class="p-4 border-b border-gray-400">
                   <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->confirmation_picture }}" target="_blank">{{ $fs->confirmation_picture }}</a></p>
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirm_picture }}</p>
                   </div>
                 </td>
                 <td class="p-4 border-b border-gray-400">
                   @if($fs->confirmation == 'Sudah Diambil')
-                    <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-1">
+                    <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2">
                       <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
                     </div>
                   @elseif($fs->confirmation == 'Belum Diambil')
-                    <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-1">
+                    <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2">
                       <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
                     </div>
                   @else
-                    <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-1">
+                    <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-2">
                       <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirmation }}</p>
                     </div>
                   @endif
@@ -165,6 +168,13 @@
                 <td class="p-4 border-b border-gray-400">
                   <div class="flex flex-col items-center justify-center">
                     <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->government_note }}</p>
+                  </div>
+                </td>
+                <td class="p-4 border-b border-gray-400">
+                  <div class="flex flex-row items-center justify-center">
+                    <a href="{{ route('detail.subsidiAdmin', $fs->id) }}" class="button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                      Detail
+                    </a>
                   </div>
                 </td>
               </tr>

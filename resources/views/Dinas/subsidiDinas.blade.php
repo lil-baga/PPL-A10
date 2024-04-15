@@ -59,7 +59,7 @@
   
     <div class=" w-screen px-0 flex flex-col">
       @if(Session::has('success'))
-        <div class="bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 text-white font-bold py-2 px-4 rounded" role="alert">
+        <div class="bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 text-white font-bold py-2 px-4" role="alert">
           {{ Session::get('success') }}
         </div>
       @endif
@@ -112,12 +112,12 @@
                 </td>
                 <td class="p-4 border-b border-gray-400">
                     <div class="flex flex-col items-center justify-center">
-                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->covering_letter }}" target="_blank">{{ $fs->covering_letter }}</a></p>
+                      <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->covering_letter }}</p>
                     </div>
                 </td>
                 <td class="p-4 border-b border-gray-400">
                   <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->business_letter }}" target="_blank">{{ $fs->business_letter }}</a></p>
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->business_letter }}</p>
                   </div>
                 </td>
                 <td class="p-4 border-b border-gray-400">
@@ -132,7 +132,7 @@
                 </td>
                 <td class="p-4 border-b border-gray-400">
                   <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->farm_picture }}" target="_blank">{{ $fs->farm_picture }}</a></p>
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->farm_picture }}</p>
                   </div>
                 </td>
                 <td class="p-4 border-b border-gray-400">
@@ -152,7 +152,7 @@
                 </td>
                 <td class="p-4 border-b border-gray-400">
                   <div class="flex flex-col items-center justify-center">
-                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal"><a href="image/{{ $fs->confirmation_picture }}" target="_blank">{{ $fs->confirmation_picture }}</a></p>
+                    <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">{{ $fs->confirm_picture }}</p>
                   </div>
                 </td>
                 <td class="p-4 border-b border-gray-400">
@@ -177,8 +177,8 @@
                 </td>
                 <td class="p-4 border-b border-gray-400">
                   <div class="flex flex-row items-center justify-center">
-                    <a href="{{ route('view.validate', $fs->id) }}" class="button bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                      Validasi
+                    <a href="{{ route('detail.subsidiDinas', $fs->id) }}" class="button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                      Detail
                     </a>
                   </div>
                 </td>

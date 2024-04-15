@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <link rel="icon" type="image" href="logoicon.png">
+    <link rel="icon" type="image" href="{{ url("logoicon.png") }}">
     <title>Subsidi Pakan</title>
 </head>
 <body>
     <div class="flex flex-row">
         <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[100vh] w-full max-w-[20rem] p-4 shadow-xl shadow-gray-900/5">
           <div class="mb-2 p-2 flex items-center justify-center">
-            <img src="logobrand.png" alt="" class="flex flex-row w-40 mr-4">
+            <img src="{{ url("logobrand.png") }}" alt="" class="flex flex-row w-40 mr-4">
           </div>
           <nav class="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-gray-700">
             <div role="button" tabindex="0" class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all bg-[#F5682A]  text-white outline-none">
@@ -59,11 +59,11 @@
                     @method('PUT')
                     <div>
                         <label for="covering" class="block mb-2 text-sm font-medium text-gray-900">Surat Pengantar</label>
-                        <input type="file" name="covering_letter" id="covering_letter" value="{{ $foodSubmissions->covering_letter }}" required="">
+                        <input type="file" name="covering_letter" id="covering_letter" value="{{ $foodSubmissions->covering_letter }}">
                     </div>
                     <div>
                         <label for="business" class="block mb-2 text-sm font-medium text-gray-900">Surat Usaha</label>
-                        <input type="file" name="business_letter" id="business_letter" value="{{ $foodSubmissions->business_letter }}" required="">
+                        <input type="file" name="business_letter" id="business_letter" value="{{ $foodSubmissions->business_letter }}">
                     </div>
                     <div>
                         <label for="farm_quantity" class="block mb-2 text-sm font-medium text-gray-900">Jumlah Ternak</label>
@@ -75,25 +75,25 @@
                     </div>
                     <div>
                         <label for="farm_picture" class="block mb-2 text-sm font-medium text-gray-900">Foto Peternakan</label>
-                        <input type="file" name="farm_picture" id="farm_picture" value="{{ $foodSubmissions->farm_picture }}" required="">
+                        <input type="file" name="farm_picture" id="farm_picture" value="{{ $foodSubmissions->farm_picture }}">
                     </div>
                     <div>
-                        <label for="confirmation_picture" class="block mb-2 text-sm font-medium text-gray-900">Foto Pakan Subsidi Yang Diterima</label>
-                        <input type="file" name="confirmation_picture" id="confirmation_picture" value="{{ $foodSubmissions->confirmation_picture }}">
+                        <label for="confirm_picture" class="block mb-2 text-sm font-medium text-gray-900">Foto Pakan Subsidi Yang Diterima</label>
+                        <input type="file" name="confirm_picture" id="confirm_picture" value="{{ $foodSubmissions->confirm_picture }}">
                     </div>
                     <div class="flex flex-row gap-10">
                       <div class="flex flex-row items-center justify-center gap-6">
                           <div class="flex flex-col items-center justify-center">
                               <label for="Sudah" class="block mb-2 text-sm font-medium text-gray-900">Sudah Diambil</label>
-                              <input type="checkbox" name="confirmation" id="Sudah" value="Sudah Diambil" onclick="if(this.checked) {Belum.checked=false;} {Proses.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
+                              <input type="radio" name="confirmation" id="Sudah" value="Sudah Diambil" @if($foodSubmissions->confirmation == 'Sudah Diambil') checked @endif onclick="if(this.checked) {Belum.checked=false;} {Proses.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
                           </div>
                           <div class="flex flex-col items-center justify-center">
                               <label for="Proses" class="block mb-2 text-sm font-medium text-gray-900"> Proses Validasi</label>
-                              <input type="checkbox" name="confirmation" id="Proses" value="Proses Validasi" onclick="if(this.checked) {Sudah.checked=false;} {Belum.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
+                              <input type="radio" name="confirmation" id="Proses" value="Proses Validasi" @if($foodSubmissions->confirmation == 'Proses Validasi') checked @endif onclick="if(this.checked) {Sudah.checked=false;} {Belum.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
                           </div>
                           <div class="flex flex-col items-center justify-center">
                               <label for="Belum" class="block mb-2 text-sm font-medium text-gray-900"> Belum Diambil</label>
-                              <input type="checkbox" name="confirmation" id="Belum" value="Belum Diambil" onclick="if(this.checked) {Sudah.checked=false;} {Proses.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
+                              <input type="radio" name="confirmation" id="Belum" value="Belum Diambil" @if($foodSubmissions->confirmation == 'Belum Diambil') checked @endif onclick="if(this.checked) {Sudah.checked=false;} {Proses.checked=false;}" class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
                           </div>
                       </div>
                     </div>

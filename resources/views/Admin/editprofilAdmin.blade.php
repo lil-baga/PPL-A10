@@ -60,7 +60,7 @@
         <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-                    Edit Profil Admin
+                    Edit Profil
                 </h1>
                 <form class="space-y-4 md:space-y-6" action="{{ route('update.profilAdmin', $currentuser->id) }}" method="POST" enctype="multipart/form-data">
                   @csrf

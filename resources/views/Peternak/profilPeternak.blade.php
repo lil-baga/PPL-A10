@@ -51,13 +51,13 @@
 
         <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
           @if(Session::has('success'))
-            <div class="bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 text-white font-bold py-2 px-4 rounded" role="alert">
+            <div class="bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 text-white font-bold py-2 px-4" role="alert">
               {{ Session::get('success') }}
             </div>
           @endif
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-                    Profil Peternak
+                    Profil
                 </h1>
                 <form class="space-y-4 md:space-y-6" action="{{ route('edit.profilPeternak') }}" method="GET" enctype="multipart/form-data">
                     @csrf

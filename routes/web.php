@@ -44,6 +44,7 @@ Route::post('/signupDinas', [GovernmentController::class, 'store']);
 // Route Masing-Masing Role
 Route::middleware(['peternak'])->group(function () {
     Route::get('/subsidiPeternak', [FoodController::class, 'index']);
+    Route::get('/detailSubsidiPeternak/{id}', [FoodController::class, 'detailSubsidiPeternak'])->name('detail.subsidiPeternak');
     Route::get('/addSubsidi', [FoodController::class, 'create']);
     Route::post('/addSubsidi', [FoodController::class, 'store']);
     Route::get('/editSubsidi/{id}', [FoodController::class, 'edit'])->name('subsidi.edit');
@@ -56,6 +57,7 @@ Route::middleware(['peternak'])->group(function () {
 
 Route::middleware(['dinas'])->group(function () {
     Route::get('/subsidiDinas',  [FoodController::class, 'indexDinas']);
+    Route::get('/detailSubsidiDinas/{id}', [FoodController::class, 'detailSubsidiDinas'])->name('detail.subsidiDinas');
     Route::get('/validateSubsidi/{id}',  [FoodController::class, 'dinasValidate'])->name('view.validate');
     Route::put('/validateSubsidi/{id}', [FoodController::class, 'updateValidation'])->name('subsidi.validate');
     Route::get('/profilDinas',  [GovernmentController::class, 'index'])->name('view.profilDinas');
@@ -65,6 +67,7 @@ Route::middleware(['dinas'])->group(function () {
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/subsidiAdmin', [FoodController::class, 'indexAdmin']);
+    Route::get('/detailSubsidiAdmin/{id}', [FoodController::class, 'detailSubsidiAdmin'])->name('detail.subsidiAdmin');
     Route::get('/profilAdmin',  [AdminController::class, 'index'])->name('view.profilAdmin');
     Route::get('/editprofilAdmin',  [AdminController::class, 'edit'])->name('edit.profilAdmin');
     Route::put('/editprofilAdmin',  [AdminController::class, 'update'])->name('update.profilAdmin');
