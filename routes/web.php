@@ -19,26 +19,42 @@ use App\Http\Controllers\FoodController;
 */
 
 // Route Landing
-Route::get('/', function () {return view('landingpage');});
+Route::get('/', function () {
+    return view('landingpage');
+});
 
 // Route Login
-Route::get('/login', function () {return view('login');});
+Route::get('/login', function () {
+    return view('login');
+});
 
-Route::get('/loginPeternak', function () {return view('peternak.loginPeternak');});
+Route::get('/loginPeternak', function () {
+    return view('peternak.loginPeternak');
+});
 Route::post('/loginPeternak', [FarmerController::class, 'login']);
-Route::get('/loginDinas', function () {return view('dinas.loginDinas');});
+Route::get('/loginDinas', function () {
+    return view('dinas.loginDinas');
+});
 Route::post('/loginDinas', [GovernmentController::class, 'login']);
-Route::get('/loginAdmin', function () {return view('admin.loginAdmin');});
+Route::get('/loginAdmin', function () {
+    return view('admin.loginAdmin');
+});
 Route::post('/loginAdmin', [AdminController::class, 'login']);
 
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 // Route Sign Up
-Route::get('/signup', function () {return view('signup');});
+Route::get('/signup', function () {
+    return view('signup');
+});
 
-Route::get('/signupPeternak', function () {return view('peternak.signupPeternak');});
+Route::get('/signupPeternak', function () {
+    return view('peternak.signupPeternak');
+});
 Route::post('/signupPeternak', [FarmerController::class, 'store']);
-Route::get('/signupDinas', function () {return view('dinas.signupDinas');});
+Route::get('/signupDinas', function () {
+    return view('dinas.signupDinas');
+});
 Route::post('/signupDinas', [GovernmentController::class, 'store']);
 
 // Route Masing-Masing Role
@@ -72,5 +88,3 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/editprofilAdmin',  [AdminController::class, 'edit'])->name('edit.profilAdmin');
     Route::put('/editprofilAdmin',  [AdminController::class, 'update'])->name('update.profilAdmin');
 });
-
-
