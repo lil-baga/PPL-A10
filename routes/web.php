@@ -67,7 +67,7 @@ Route::middleware(['peternak'])->group(function () {
     Route::put('/editSubsidi/{id}', [FoodController::class, 'update'])->name('subsidi.update');
     Route::delete('/editSubsidi/{id}', [FoodController::class, 'destroy'])->name('subsidi.destroy');
     Route::get('/profilPeternak',  [FarmerController::class, 'index'])->name('view.profilPeternak');
-    Route::get('/editprofilPeternak',  [FarmerController::class, 'edit'])->name('edit.profilPeternak');
+    Route::get('/editprofilPeternak/{id}',  [FarmerController::class, 'edit'])->name('edit.profilPeternak');
     Route::put('/editprofilPeternak',  [FarmerController::class, 'update'])->name('update.profilPeternak');
 });
 
@@ -77,7 +77,7 @@ Route::middleware(['dinas'])->group(function () {
     Route::get('/validateSubsidi/{id}',  [FoodController::class, 'dinasValidate'])->name('view.validate');
     Route::put('/validateSubsidi/{id}', [FoodController::class, 'updateValidation'])->name('subsidi.validate');
     Route::get('/profilDinas',  [GovernmentController::class, 'index'])->name('view.profilDinas');
-    Route::get('/editprofilDinas',  [GovernmentController::class, 'edit'])->name('edit.profilDinas');
+    Route::get('/editprofilDinas/{id}',  [GovernmentController::class, 'edit'])->name('edit.profilDinas');
     Route::put('/editprofilDinas',  [GovernmentController::class, 'update'])->name('update.profilDinas');
 });
 
@@ -85,6 +85,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/subsidiAdmin', [FoodController::class, 'indexAdmin']);
     Route::get('/detailSubsidiAdmin/{id}', [FoodController::class, 'detailSubsidiAdmin'])->name('detail.subsidiAdmin');
     Route::get('/profilAdmin',  [AdminController::class, 'index'])->name('view.profilAdmin');
-    Route::get('/editprofilAdmin',  [AdminController::class, 'edit'])->name('edit.profilAdmin');
+    Route::get('/editprofilAdmin/{id}',  [AdminController::class, 'edit'])->name('edit.profilAdmin');
     Route::put('/editprofilAdmin',  [AdminController::class, 'update'])->name('update.profilAdmin');
 });
