@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +13,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $id = Auth::user()->id;
+        $roles_id = Auth::user()->roles_id;
+        $currentuser = User::find($id);
+
+        return view('profil.profilUser', compact('currentuser'));
     }
 
     /**
@@ -29,7 +31,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserRequest $request)
+    public function store(Request $request)
     {
         // 
     }
@@ -45,17 +47,38 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+
+        return view('profil.editProfil', compact('currentuser'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(Request $request)
     {
-        //
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+        
+        $validated= $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'phone_number' => 'required',
+        ]);
+
+        $validatedProfile = [
+            'name'=> $request->name,
+            'email'=> $request->email,
+            'address'=> $request->address,
+            'phone_number'=> $request->phone_number,
+        ];
+
+        $currentuser->update($validatedProfile);
+        return redirect('/profilUser')->with('success', 'Profil Anda Berhasil Diubah!');
     }
 
     public function logout(Request $request)

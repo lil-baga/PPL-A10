@@ -6,7 +6,7 @@
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                 Validasi Pengajuan Pakan Subsidi
             </h1>
-            <form class="space-y-4 md:space-y-6" action="{{ route('subsidi.validate', $foodSubmissions->id) }}" method="POST"
+            <form class="space-y-4 md:space-y-6" action="{{ route('validate.subsidi', $foodSubmissions->id) }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

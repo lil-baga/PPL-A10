@@ -1,4 +1,4 @@
-@extends('Layout.navbarPeternak')
+@extends('Layout.navbarDashboard')
 @section('title', '| Edit Subsidi')
 @section('content')
     <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
@@ -6,7 +6,7 @@
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                 Ubah Pengajuan Pakan Subsidi
             </h1>
-            <form class="space-y-4 md:space-y-6" action="{{ route('subsidi.update', $foodSubmissions->id) }}" method="POST"
+            <form class="space-y-4 md:space-y-6" action="{{ route('update.subsidi', $foodSubmissions->id) }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

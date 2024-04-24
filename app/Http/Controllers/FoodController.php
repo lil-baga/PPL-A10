@@ -22,55 +22,24 @@ class FoodController extends Controller
         $currentuser = User::find($id);
         $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
 
-        return view('peternak.subsidiPeternak', compact('foodSubmissions','currentuser', 'id', 'no'));
+        return view('subsidi.subsidiPakan', compact('foodSubmissions','currentuser', 'id', 'no'));
     }
 
-    public function indexDinas()
-    {
-        $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
-
-        return view('dinas.subsidiDinas', compact('foodSubmissions'));
-    }
-
-    public function indexAdmin()
-    {
-        $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
-
-        return view('admin.subsidiAdmin', compact('foodSubmissions'));
-    }
-
-    public function detailSubsidiPeternak(Request $request, $id)
+    public function detail(Request $request, $id)
     {
         $foodSubmissions = Food::findOrFail($id);
         $users_id = $foodSubmissions['users_id'];
         $currentuser = User::find($users_id);
 
-        return view('peternak.detailSubsidiPeternak', compact('foodSubmissions', 'currentuser'));
+        return view('subsidi.detailSubsidi', compact('foodSubmissions', 'currentuser'));
     }
 
-    public function detailSubsidiDinas(Request $request, $id)
-    {
-        $foodSubmissions = Food::findOrFail($id);
-        $users_id = $foodSubmissions['users_id'];
-        $currentuser = User::find($users_id);
-
-        return view('dinas.detailSubsidiDinas', compact('foodSubmissions', 'currentuser'));
-    }
-
-    public function detailSubsidiAdmin(Request $request, $id)
-    {
-        $foodSubmissions = Food::findOrFail($id);
-        $users_id = $foodSubmissions['users_id'];
-        $currentuser = User::find($users_id);
-
-        return view('admin.detailSubsidiAdmin', compact('foodSubmissions', 'currentuser'));
-    }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('peternak.addSubsidi');
+        return view('subsidi.addSubsidi');
     }
 
     /**
@@ -124,7 +93,7 @@ class FoodController extends Controller
         $validatedAdd['users_id'] = $id;
         Food::create($validatedAdd);
 
-        return redirect('/subsidiPeternak')->with('success', 'Pengajuan Berhasil Ditambahkan!');
+        return redirect('/subsidiPakan')->with('success', 'Pengajuan Berhasil Ditambahkan!');
     }
 
     /**
@@ -141,13 +110,13 @@ class FoodController extends Controller
     public function edit(Request $request, $id)
     {
         $foodSubmissions = Food::findOrFail($id);
-        return view('peternak.editSubsidi', compact('foodSubmissions'));
+        return view('subsidi.editSubsidi', compact('foodSubmissions'));
     }
 
     public function dinasValidate(Request $request, $id)
     {
         $foodSubmissions = Food::findOrFail($id);
-        return view('dinas.validateSubsidi', compact('foodSubmissions'));
+        return view('subsidi.validateSubsidi', compact('foodSubmissions'));
     }
 
     /**
@@ -199,7 +168,7 @@ class FoodController extends Controller
         $validatedUpdate['confirmation'] = $checkbox;
 
         $foodSubmissions->update($validatedUpdate);
-        return redirect('/subsidiPeternak')->with('success', 'Pengajuan Berhasil Diubah!');
+        return redirect('/subsidiPakan')->with('success', 'Pengajuan Berhasil Diubah!');
     }
 
     public function updateValidation(Request $request, $id)
@@ -221,7 +190,7 @@ class FoodController extends Controller
         $validatedUpdate['validation'] = $checkbox;
 
         $foodSubmissions->update($validatedUpdate);
-        return redirect('/subsidiDinas')->with('success', 'Pengajuan Berhasil Divalidasi!');
+        return redirect('/subsidiPakan')->with('success', 'Pengajuan Berhasil Divalidasi!');
     }
 
     /**
@@ -231,6 +200,6 @@ class FoodController extends Controller
     {
         $destroy = Food::findOrFail($id);
         $destroy->delete();
-        return redirect('/subsidiPeternak')->with('success', 'Pengajuan Berhasil Dihapus!');
+        return redirect('/subsidiPakan')->with('success', 'Pengajuan Berhasil Dihapus!');
     }
 }

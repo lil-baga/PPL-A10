@@ -1,4 +1,4 @@
-@extends('Layout.navbarDinas')
+@extends('Layout.navbarDashboard')
 @section('title', '| Detail Subsidi')
 @section('content')
     <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
@@ -104,9 +104,46 @@
                     required="">
             </div>
             <div class="flex-col items-center justify-center">
-                <a href="{{ route('subsidi.validate', $foodSubmissions->id) }}"
-                    class="items-center justify-center w-full button bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Validasi</a>
+                @if(Auth::user()->roles_id == 2)
+                    <a href="{{ route('edit.subsidi', $foodSubmissions->id) }}"
+                        class="items-center justify-center w-full button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 hover:cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ubah</a>
+                    <button id="deleteButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal"
+                        class="items-center justify-center w-full button bg-red-500 inset-y-0 left-0 top-0 mt-4 flex flex-col-reverse bottom-0 hover:cursor-pointer hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                        type="button">Hapus</button>
+                    <div id="deleteModal" tabindex="-1" aria-hidden="true"
+                        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+                        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+                            <div class="relative p-4 text-center bg-white rounded-lg shadow sm:p-5">
+                                <p class="mb-4 text-gray-900">Yakin Ingin Menghapus Pengajuan?</p>
+                                <div class="flex justify-center items-center space-x-4">
+                                    <button data-modal-toggle="deleteModal" type="button"
+                                        class="py-2 px-3 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                        Tidak
+                                    </button>
+                                    <form id='delete' method="POST"
+                                        action="{{ route('destroy.subsidi', $foodSubmissions->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="py-2 px-3 text-sm font-medium text-center text-white bg-red-500 rounded hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300">
+                                            Iya
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @elseif(Auth::user()->roles_id == 3)
+                    <a href="{{ route('view.validate', $foodSubmissions->id) }}"
+                        class="items-center justify-center w-full button bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Validasi</a>
+                @else
+                @endif
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('deleteButton').click();
+        });
+    </script>
 @endsection

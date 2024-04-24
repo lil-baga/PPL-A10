@@ -1,5 +1,11 @@
-@extends('Layout.navbarAdmin')
-@section('title', '| Profil Admin')
+@extends('Layout.navbarDashboard')
+@if ($currentuser->roles_id == 2)
+    @section('title', '| Profil Peternak')
+@elseif($currentuser->roles_id == 3)
+    @section('title', '| Profil Dinas')
+@else
+    @section('title', '| Profil Admin')
+@endif
 @section('content')
     <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
         @if (Session::has('success'))
@@ -12,8 +18,7 @@
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                 Profil
             </h1>
-            <form class="space-y-4 md:space-y-6" action="{{ route('edit.profilAdmin') }}" method="GET"
-                enctype="multipart/form-data">
+            <form class="space-y-4 md:space-y-6" action="" method="GET" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
@@ -44,7 +49,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                         required="">
                 </div>
-                <a href="{{ route('edit.profilAdmin', $currentuser->id) }}"
+                <a href="{{ route('edit.profil', $currentuser->id) }}"
                     class="items-center justify-center w-full button bg-[#F5682A] hover:bg-[#F54C2A] inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 hover:cursor-pointer text-white font-bold py-2 px-4 rounded">Ubah</a>
             </form>
         </div>
