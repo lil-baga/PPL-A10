@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\FoodController;
+use App\Http\Controllers\C_User;
+use App\Http\Controllers\C_Login;
+use App\Http\Controllers\C_SignUp;
+use App\Http\Controllers\C_Subsidi;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,48 +18,48 @@ use App\Http\Controllers\FoodController;
 */
 
 // Route Landing
-Route::get('/', function () {return view('landingpage');})->name('landing');
+Route::get('/', function () {return view('V_halamanUtama');})->name('landing');
 
 // Route Login
 Route::get('/loginRole', function () {return view('loginRole');})->name('login.role');
-Route::get('/loginPeternak', [LoginController::class, 'farmer']);
-Route::get('/loginDinas', [LoginController::class, 'government']);
-Route::get('/loginAdmin', [LoginController::class, 'admin']);
-Route::get('/login', function () {return view('login');})->name('view.login');
-Route::post('/login', [LoginController::class, 'login']);
-Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/loginPeternak', [C_Login::class, 'farmer']);
+Route::get('/loginDinas', [C_Login::class, 'government']);
+Route::get('/loginAdmin', [C_Login::class, 'admin']);
+Route::get('/login', function () {return view('V_Login');})->name('view.login');
+Route::post('/login', [C_Login::class, 'login']);
+Route::get('/logout', [C_User::class, 'logout'])->name('logout');
 
 // Route Sign Up
 Route::get('/signupRole', function () {return view('signupRole');})->name('signup.role');
-Route::get('/signupPeternak', [RegisterController::class, 'farmer']);
-Route::get('/signupDinas', [RegisterController::class, 'government']);
-Route::get('/signup', function () {return view('signup');})->name('view.signup');
-Route::post('/signupPeternak', [RegisterController::class, 'registerFarmer']);
-Route::post('/signupDinas', [RegisterController::class, 'registerGovernment']);
-Route::post('/signup', [RegisterController::class, 'signup']);
+Route::get('/signupPeternak', [C_SignUp::class, 'farmer']);
+Route::get('/signupDinas', [C_SignUp::class, 'government']);
+Route::get('/signup', function () {return view('V_SignUp');})->name('view.signup');
+Route::post('/signupPeternak', [C_SignUp::class, 'registerFarmer']);
+Route::post('/signupDinas', [C_SignUp::class, 'registerGovernment']);
+Route::post('/signup', [C_SignUp::class, 'signup']);
 
 // Route Profil Akun
-Route::get('/profilUser',  [UserController::class, 'index'])->name('view.profil');
-Route::get('/editProfil/{id}',  [UserController::class, 'edit'])->name('edit.profil');
-Route::put('/editProfil',  [UserController::class, 'update'])->name('update.profil');
+Route::get('/profilUser',  [C_User::class, 'index'])->name('view.profil');
+Route::get('/editProfil/{id}',  [C_User::class, 'edit'])->name('edit.profil');
+Route::put('/editProfil',  [C_User::class, 'update'])->name('update.profil');
 
 // Route Fitur Subsidi Pakan (Global)
-Route::get('/subsidiPakan', [FoodController::class, 'index'])->name('view.subsidi');
-Route::get('/detailSubsidi/{id}', [FoodController::class, 'detail'])->name('detail.subsidi');
+Route::get('/subsidiPakan', [C_Subsidi::class, 'index'])->name('view.subsidi');
+Route::get('/detailSubsidi/{id}', [C_Subsidi::class, 'detail'])->name('detail.subsidi');
 
 // Route Peternak
 Route::middleware(['peternak'])->group(function () {
-    Route::get('/addSubsidi', [FoodController::class, 'create']);
-    Route::post('/addSubsidi', [FoodController::class, 'store']);
-    Route::get('/editSubsidi/{id}', [FoodController::class, 'edit'])->name('edit.subsidi');
-    Route::put('/editSubsidi/{id}', [FoodController::class, 'update'])->name('update.subsidi');
-    Route::delete('/editSubsidi/{id}', [FoodController::class, 'destroy'])->name('destroy.subsidi');
+    Route::get('/addSubsidi', [C_Subsidi::class, 'create']);
+    Route::post('/addSubsidi', [C_Subsidi::class, 'store']);
+    Route::get('/editSubsidi/{id}', [C_Subsidi::class, 'edit'])->name('edit.subsidi');
+    Route::put('/editSubsidi/{id}', [C_Subsidi::class, 'update'])->name('update.subsidi');
+    Route::delete('/editSubsidi/{id}', [C_Subsidi::class, 'destroy'])->name('destroy.subsidi');
 });
 
 // Route Dinas
 Route::middleware(['dinas'])->group(function () {
-    Route::get('/validateSubsidi/{id}',  [FoodController::class, 'dinasValidate'])->name('view.validate');
-    Route::put('/validateSubsidi/{id}', [FoodController::class, 'updateValidation'])->name('validate.subsidi');
+    Route::get('/validateSubsidi/{id}',  [C_Subsidi::class, 'dinasValidate'])->name('view.validate');
+    Route::put('/validateSubsidi/{id}', [C_Subsidi::class, 'updateValidation'])->name('validate.subsidi');
 });
 
 // Route Admin

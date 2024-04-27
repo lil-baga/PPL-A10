@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('address');
             $table->string('phone_number');
-            $table->foreignId('roles_id')->nullable();
-            $table->integer('access_code')->nullable();
+            $table->foreignId('roles_id');
+            $table->integer('access_code')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });
