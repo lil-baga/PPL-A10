@@ -11,15 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('counselings', function (Blueprint $table) {
+        Schema::create('penyuluhan', function (Blueprint $table) {
             $table->id();
-            $table->binary('bussiness_letter');
-            $table->integer('farm_quantity');
-            $table->text('theme_request');
-            $table->binary('farm_picture');
-            $table->enum('validation', ['Ditolak', 'Diproses', 'Diterima'])->default('Diproses');
-            $table->date('counseling_date')->nullable();
-            $table->text('government_note')->nullable();
+            $table->binary('surat_pengantar');
+            $table->integer('suhu_kandang');
+            $table->integer('kadar_air');
+            $table->integer('kadar_pakan');
+            $table->text('kondisi_ayam');
+            $table->binary('foto_ayam');
+            $table->binary('foto_peternakan');
+            $table->enum('validasi', ['Ditolak', 'Diproses', 'Diterima'])->default('Diproses');
+            $table->date('tanggal_penyuluhan')->nullable();
+            $table->text('catatan')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('counselings');
+        Schema::dropIfExists('penyuluhan');
     }
 };

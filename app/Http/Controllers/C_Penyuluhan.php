@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Counseling;
+use App\Models\Penyuluhan;
 use App\Http\Requests\StoreCounselingRequest;
 use App\Http\Requests\UpdateCounselingRequest;
 
@@ -35,7 +35,7 @@ class C_Penyuluhan extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Counseling $counseling)
+    public function show()
     {
         //
     }
@@ -43,7 +43,7 @@ class C_Penyuluhan extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Counseling $counseling)
+    public function edit()
     {
         //
     }
@@ -51,7 +51,7 @@ class C_Penyuluhan extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCounselingRequest $request, Counseling $counseling)
+    public function update(UpdateCounselingRequest $request, )
     {
         //
     }
@@ -59,7 +59,7 @@ class C_Penyuluhan extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Counseling $counseling)
+    public function destroy()
     {
         //
     }

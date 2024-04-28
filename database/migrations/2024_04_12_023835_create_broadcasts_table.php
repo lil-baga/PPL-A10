@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('broadcasts', function (Blueprint $table) {
             $table->id();
-            $table->binary('covering_letter');
+            $table->binary('surat_pengantar');
             $table->timestamps();
         });
     }

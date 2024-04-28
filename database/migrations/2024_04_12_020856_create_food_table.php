@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('food', function (Blueprint $table) {
+        Schema::create('subsidi', function (Blueprint $table) {
             $table->id();
-            $table->binary('covering_letter');
-            $table->binary('business_letter');
-            $table->integer('farm_quantity');
-            $table->integer('food_quantity');
-            $table->binary('farm_picture');
-            $table->enum('validation', ['Ditolak', 'Diproses', 'Diterima'])->default('Diproses');
-            $table->binary('confirm_picture')->nullable();
-            $table->enum('confirmation', ['Belum Diambil', 'Proses Validasi', 'Sudah Diambil'])->default('Proses Validasi');
-            $table->text('government_note')->nullable();
+            $table->binary('surat_pengantar');
+            $table->binary('surat_usaha');
+            $table->integer('jumlah_ternak');
+            $table->integer('jumlah_pakan');
+            $table->binary('foto_peternakan');
+            $table->enum('validasi', ['Ditolak', 'Diproses', 'Diterima'])->default('Diproses');
+            $table->binary('foto_konfirmasi')->nullable();
+            $table->enum('konfirmasi', ['Belum Diambil', 'Proses Validasi', 'Sudah Diambil'])->default('Proses Validasi');
+            $table->text('catatan')->nullable();
             $table->foreignId('users_id');
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('food');
+        Schema::dropIfExists('subsidi');
     }
 };

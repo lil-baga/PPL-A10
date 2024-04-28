@@ -16,30 +16,30 @@ class UserSeeder extends Seeder
         $accessCode = mt_rand(1000, 9999);
 
         User::create([
-            'name' => 'Admin C&C',
+            'nama' => 'Admin C&C',
             'email' => 'adminc&c@gmail.com',
             'password' => bcrypt('adminroot123'),
-            'address' => 'Jl. Admin Gg. Database No. 4',
-            'phone_number' => '081333760081',
+            'alamat' => 'Jl. Admin Gg. Database No. 4',
+            'kontak' => '081333760081',
             'roles_id' => '1',
         ]);
 
         User::create([
-            'name' => 'Purwoto',
+            'nama' => 'Purwoto',
             'email' => 'purwoto_dkppk@gmail.com',
             'password' => bcrypt('purwoto1'),
-            'address' => 'Jl. Letjend Suprapto No.139, Sumbersari, Jember',
-            'phone_number' => '0331337275',
-            'access_code' => $accessCode,
+            'alamat' => 'Jl. Letjend Suprapto No.139, Sumbersari, Jember',
+            'kontak' => '0331337275',
+            'kode_akses' => $accessCode,
             'roles_id' => '3',
         ]);
 
         User::create([
-            'name' => 'Arifandi',
+            'nama' => 'Arifandi',
             'email' => 'arifandi@gmail.com',
             'password' => bcrypt('arifandi7'),
-            'address' => 'Jl. Sarangan No.5, Pakusari, Jember,',
-            'phone_number' => '081657832490',
+            'alamat' => 'Jl. Sarangan No.5, Pakusari, Jember,',
+            'kontak' => '081657832490',
             'roles_id' => '2',
         ]);
     }

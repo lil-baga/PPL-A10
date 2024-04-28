@@ -16,14 +16,14 @@
         @endif
         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-                Profil
+                Profil Anda
             </h1>
             <form class="space-y-4 md:space-y-6" action="" method="GET" enctype="multipart/form-data">
                 @csrf
                 <div>
-                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
-                    <input type="text" name="name" id="name" placeholder="Nama" readonly
-                        value="{{ $currentuser->name }}"
+                    <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>
+                    <input type="text" name="nama" id="nama" placeholder="Nama Lengkap" readonly
+                        value="{{ $currentuser->nama }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                         required="">
                 </div>
@@ -35,17 +35,17 @@
                         required="">
                 </div>
                 <div>
-                    <label for="address" class="block mb-2 text-sm font-medium text-gray-900">Address</label>
-                    <input type="text" name="address" id="address" placeholder="Jalan Alamat Anda" readonly
-                        value="{{ $currentuser->address }}"
+                    <label for="alamat" class="block mb-2 text-sm font-medium text-gray-900">Alamat</label>
+                    <input type="text" name="alamat" id="alamat" placeholder="Alamat Anda" readonly
+                        value="{{ $currentuser->alamat }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                         required="">
                 </div>
                 <div>
-                    <label for="phone_number" class="block mb-2 text-sm font-medium text-gray-900">Nomor
+                    <label for="kontak" class="block mb-2 text-sm font-medium text-gray-900">Nomor
                         Telepon</label>
-                    <input type="text" name="phone_number" id="phone_number" placeholder="Nomor Telepon" readonly
-                        value="{{ $currentuser->phone_number }}"
+                    <input type="text" name="kontak" id="kontak" placeholder="081xxxxxxxxx" readonly
+                        value="{{ $currentuser->kontak }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                         required="">
                 </div>

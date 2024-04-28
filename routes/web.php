@@ -58,8 +58,8 @@ Route::middleware(['peternak'])->group(function () {
 
 // Route Dinas
 Route::middleware(['dinas'])->group(function () {
-    Route::get('/validateSubsidi/{id}',  [C_Subsidi::class, 'dinasValidate'])->name('view.validate');
-    Route::put('/validateSubsidi/{id}', [C_Subsidi::class, 'updateValidation'])->name('validate.subsidi');
+    Route::get('/validateSubsidi/{id}',  [C_Subsidi::class, 'dinasValidasi'])->name('view.validate');
+    Route::put('/validateSubsidi/{id}', [C_Subsidi::class, 'updateValidasi'])->name('validate.subsidi');
 });
 
 // Route Admin

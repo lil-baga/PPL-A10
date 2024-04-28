@@ -13,99 +13,99 @@
                 Detail Pengajuan Pakan Subsidi
             </h1>
             <div class="flex flex-row gap-10">
-                <p class="block text-sm font-medium text-gray-900"><b>Nama:</b> {{ $currentuser->name }}</p>
-                <p class="block text-sm font-medium text-gray-900"><b>Alamat:</b> {{ $currentuser->address }}</p>
+                <p class="block text-sm font-medium text-gray-900"><b>Nama:</b> {{ $currentuser->nama }}</p>
+                <p class="block text-sm font-medium text-gray-900"><b>Alamat:</b> {{ $currentuser->alamat }}</p>
                 <p class="block text-sm font-medium text-gray-900"><b>Nomor Telepon:</b>
-                    {{ $currentuser->phone_number }}</p>
+                    {{ $currentuser->kontak }}</p>
             </div>
             <div>
                 <p class="block font-medium text-sm text-gray-900">Surat Pengantar:
                 <p class="block mb-1 font-medium text-sm text-gray-900"><a
-                        href="{{ url("image/$foodSubmissions->covering_letter") }}" target="_blank"
-                        class="hover:text-[#F5682A]">{{ $foodSubmissions->covering_letter }}</a></p>
+                        href="{{ url("foto_surat/$subsidiPakan->surat_pengantar") }}" target="_blank"
+                        class="hover:text-[#F5682A]">{{ $subsidiPakan->surat_pengantar }}</a></p>
             </div>
             <div>
                 <p class="block font-medium text-sm text-gray-900">Surat Usaha:
                 <p class="block mb-1 font-medium text-sm text-gray-900"><a
-                        href="{{ url("image/$foodSubmissions->business_letter") }}" target="_blank"
-                        class="hover:text-[#F5682A]">{{ $foodSubmissions->business_letter }}</a></p>
+                        href="{{ url("foto_surat/$subsidiPakan->surat_usaha") }}" target="_blank"
+                        class="hover:text-[#F5682A]">{{ $subsidiPakan->surat_usaha }}</a></p>
             </div>
             <div>
-                <label for="farm_quantity" class="block mb-1 font-medium text-sm text-gray-900">Jumlah
+                <label for="jumlah_ternak" class="block mb-1 font-medium text-sm text-gray-900">Jumlah
                     Ternak</label>
-                <input type="text" name="name" id="farm_quantity" placeholder="Jumlah Ternak" readonly
-                    value="{{ $foodSubmissions->farm_quantity }}"
+                <input type="text" name="name" id="jumlah_ternak" placeholder="Jumlah Ternak" readonly
+                    value="{{ $subsidiPakan->jumlah_ternak }}"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                     required="">
             </div>
             <div>
-                <label for="food_quantity" class="block mb-1 font-medium text-sm text-gray-900">Ajuan Pakan
+                <label for="jumlah_pakan" class="block mb-1 font-medium text-sm text-gray-900">Ajuan Pakan
                     (Kwintal)</label>
-                <input type="text" name="name" id="food_quantity" placeholder="Ajuan Pakan (Kwintal)" readonly
-                    value="{{ $foodSubmissions->food_quantity }}"
+                <input type="text" name="name" id="jumlah_pakan" placeholder="Ajuan Pakan (Kwintal)" readonly
+                    value="{{ $subsidiPakan->jumlah_pakan }}"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                     required="">
             </div>
             <div>
                 <p class="block font-medium text-sm text-gray-900">Status Validasi</p>
-                @if ($foodSubmissions->validation == 'Diterima')
+                @if ($subsidiPakan->validasi == 'Diterima')
                     <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2 w-36">
-                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">
-                            {{ $foodSubmissions->validation }}</p>
+                        <p class="block antialiased text-sm leading-normal text-gray-900 font-normal">
+                            {{ $subsidiPakan->validasi }}</p>
                     </div>
-                @elseif($foodSubmissions->validation == 'Ditolak')
+                @elseif($subsidiPakan->validasi == 'Ditolak')
                     <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2 w-36">
-                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">
-                            {{ $foodSubmissions->validation }}</p>
+                        <p class="block antialiased text-sm leading-normal text-gray-900 font-normal">
+                            {{ $subsidiPakan->validasi }}</p>
                     </div>
                 @else
                     <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-2 w-36">
-                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">
-                            {{ $foodSubmissions->validation }}</p>
+                        <p class="block antialiased text-sm leading-normal text-gray-900 font-normal">
+                            {{ $subsidiPakan->validasi }}</p>
                     </div>
                 @endif
             </div>
             <div>
                 <p class="block font-medium text-sm text-gray-900">Foto Peternakan:</p>
                 <p class="block mb-1 font-medium text-sm text-gray-900"><a
-                        href="{{ url("image/$foodSubmissions->farm_picture") }}" target="_blank"
-                        class="hover:text-[#F5682A]">{{ $foodSubmissions->farm_picture }}</a></p>
+                        href="{{ url("foto_peternak/$subsidiPakan->foto_peternakan") }}" target="_blank"
+                        class="hover:text-[#F5682A]">{{ $subsidiPakan->foto_peternakan }}</a></p>
             </div>
             <div>
                 <p class="block font-medium text-sm text-gray-900">Foto Pakan Subsidi Yang Diterima:</p>
                 <p class="block mb-1 font-medium text-sm text-gray-900"><a
-                        href="{{ url("image/$foodSubmissions->confirm_picture") }}" target="_blank"
-                        class="hover:text-[#F5682A]">{{ $foodSubmissions->confirm_picture }}</a></p>
+                        href="{{ url("foto_peternak/$subsidiPakan->foto_konfirmasi") }}" target="_blank"
+                        class="hover:text-[#F5682A]">{{ $subsidiPakan->foto_konfirmasi }}</a></p>
             </div>
             <div>
                 <p class="block font-medium text-sm text-gray-900">Status Konfirmasi</p>
-                @if ($foodSubmissions->confirmation == 'Sudah Diambil')
+                @if ($subsidiPakan->konfirmasi == 'Sudah Diambil')
                     <div class="flex flex-col items-center justify-center bg-green-300 rounded-full p-2 w-36">
-                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">
-                            {{ $foodSubmissions->confirmation }}</p>
+                        <p class="block antialiased text-sm leading-normal text-gray-900 font-normal">
+                            {{ $subsidiPakan->konfirmasi }}</p>
                     </div>
-                @elseif($foodSubmissions->confirmation == 'Belum Diambil')
+                @elseif($subsidiPakan->konfirmasi == 'Belum Diambil')
                     <div class="flex flex-col items-center justify-center bg-red-300 rounded-full p-2 w-36">
-                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">
-                            {{ $foodSubmissions->confirmation }}</p>
+                        <p class="block antialiased text-sm leading-normal text-gray-900 font-normal">
+                            {{ $subsidiPakan->konfirmasi }}</p>
                     </div>
                 @else
                     <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-full p-2 w-36">
-                        <p class="block antialiased font-sans text-sm leading-normal text-gray-900 font-normal">
-                            {{ $foodSubmissions->confirmation }}</p>
+                        <p class="block antialiased text-sm leading-normal text-gray-900 font-normal">
+                            {{ $subsidiPakan->konfirmasi }}</p>
                     </div>
                 @endif
             </div>
             <div>
-                <label for="government_note" class="block mb-1 font-medium text-sm text-gray-900">Catatan</label>
-                <input type="text" name="name" id="government_note" placeholder="-" readonly
-                    value="{{ $foodSubmissions->government_note }}"
+                <label for="catatan" class="block mb-1 font-medium text-sm text-gray-900">Catatan</label>
+                <input type="text" name="name" id="catatan" placeholder="Belum ada catatan..." readonly
+                    value="{{ $subsidiPakan->catatan }}"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                     required="">
             </div>
             <div class="flex-col items-center justify-center">
                 @if(Auth::user()->roles_id == 2)
-                    <a href="{{ route('edit.subsidi', $foodSubmissions->id) }}"
+                    <a href="{{ route('edit.subsidi', $subsidiPakan->id) }}"
                         class="items-center justify-center w-full button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 hover:cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ubah</a>
                     <button id="deleteButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal"
                         class="items-center justify-center w-full button bg-red-500 inset-y-0 left-0 top-0 mt-4 flex flex-col-reverse bottom-0 hover:cursor-pointer hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
@@ -121,7 +121,7 @@
                                         Tidak
                                     </button>
                                     <form id='delete' method="POST"
-                                        action="{{ route('destroy.subsidi', $foodSubmissions->id) }}">
+                                        action="{{ route('destroy.subsidi', $subsidiPakan->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                 @elseif(Auth::user()->roles_id == 3)
-                    <a href="{{ route('view.validate', $foodSubmissions->id) }}"
+                    <a href="{{ route('view.validate', $subsidiPakan->id) }}"
                         class="items-center justify-center w-full button bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 ml-2 hover:cursor-pointer hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Validasi</a>
                 @else
                 @endif

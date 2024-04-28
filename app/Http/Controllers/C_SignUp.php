@@ -41,11 +41,11 @@ class C_SignUp extends Controller
     public function registerFarmer(Request $request)
     {
         $validatedRegister = $request->validate([
-            'name'=> 'required',
+            'nama'=> 'required',
             'email'=> 'required|email|unique:users',
             'password'=> 'required|min:8',
-            'address'=> 'required',
-            'phone_number'=> 'required|min:12',
+            'alamat'=> 'required',
+            'kontak'=> 'required|min:12',
         ]);
 
         $validatedRegister['password'] = bcrypt($validatedRegister['password']);
@@ -61,12 +61,12 @@ class C_SignUp extends Controller
         $accessCode = mt_rand(1000, 9999);
 
         $validatedRegister = $request->validate([
-            'name'=> 'required',
+            'nama'=> 'required',
             'email'=> 'required|email|unique:users',
             'password'=> 'required|min:8',
-            'address'=> 'required',
-            'phone_number'=> 'required|min:12',
-            'access_code',
+            'alamat'=> 'required',
+            'kontak'=> 'required|min:12',
+            'kode_akses',
             'roles_id',
 
         ]);

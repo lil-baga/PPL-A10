@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Food;
+use App\Models\Subsidi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,18 +18,18 @@ class C_Subsidi extends Controller
         $no = 0;
         $id = Auth::user()->id;
         $currentuser = User::find($id);
-        $foodSubmissions = Food::orderBy('created_at', 'ASC')->get();
+        $subsidiPakan = Subsidi::orderBy('created_at', 'ASC')->get();
 
-        return view('subsidi.V_Subsidi', compact('foodSubmissions','currentuser', 'id', 'no'));
+        return view('subsidi.V_Subsidi', compact('subsidiPakan','currentuser', 'id', 'no'));
     }
 
     public function detail(Request $request, $id)
     {
-        $foodSubmissions = Food::findOrFail($id);
-        $users_id = $foodSubmissions['users_id'];
+        $subsidiPakan = Subsidi::findOrFail($id);
+        $users_id = $subsidiPakan['users_id'];
         $currentuser = User::find($users_id);
 
-        return view('subsidi.V_detailSubsidi', compact('foodSubmissions', 'currentuser'));
+        return view('subsidi.V_detailSubsidi', compact('subsidiPakan', 'currentuser'));
     }
 
     /**
@@ -47,57 +47,44 @@ class C_Subsidi extends Controller
     {
         $id = Auth::user()->id;
 
-        $checkbox = $request->input('confirmation');
-
         $validatedAdd = $request->validate([
-            'covering_letter'=> 'file|mimes:pdf',
-            'business_letter'=> 'file|mimes:pdf',
-            'farm_quantity'=> 'required',
-            'food_quantity'=> 'required',
-            'farm_picture'=> 'file|mimes:jpg,jpeg,png',
-            'validation',
-            'confirm_picture'=> 'file|mimes:jpg,jpeg,png',
-            'confirmation',
-            'government_note',
+            'surat_pengantar'=> 'required|file|mimes:jpg,jpeg,png',
+            'surat_usaha'=> 'required|file|mimes:jpg,jpeg,png',
+            'jumlah_ternak'=> 'required',
+            'jumlah_pakan'=> 'required',
+            'foto_peternakan'=> 'required|file|mimes:jpg,jpeg,png',
             'users_id',
         ]);
 
-        if ($request->hasFile('covering_letter')) {
-            $file = $request->file('covering_letter');
+        if ($request->hasFile('surat_pengantar')) {
+            $file = $request->file('surat_pengantar');
             $file_name = $file->getClientOriginalName();
-            $file->move('pdf', $file_name);
-            $validatedAdd['covering_letter'] = $file_name;
+            $file->move('foto_surat', $file_name);
+            $validatedAdd['surat_pengantar'] = $file_name;
         };
-        if ($request->hasFile('business_letter')) {
-            $file = $request->file('business_letter');
+        if ($request->hasFile('surat_usaha')) {
+            $file = $request->file('surat_usaha');
             $file_name = $file->getClientOriginalName();
-            $file->move('pdf', $file_name);
-            $validatedAdd['business_letter'] = $file_name;
+            $file->move('foto_surat', $file_name);
+            $validatedAdd['surat_usaha'] = $file_name;
         };
-        if ($request->hasFile('farm_picture')) {
-            $file = $request->file('farm_picture');
+        if ($request->hasFile('foto_peternakan')) {
+            $file = $request->file('foto_peternakan');
             $file_name = $file->getClientOriginalName();
-            $file->move('image', $file_name);
-            $validatedAdd['farm_picture'] = $file_name;
-        };
-        if ($request->hasFile('confirm_picture')) {
-            $file = $request->file('confirm_picture');
-            $file_name = $file->getClientOriginalName();
-            $file->move('image', $file_name);
-            $validatedAdd['confirm_picture'] = $file_name;
+            $file->move('foto_peternak', $file_name);
+            $validatedAdd['foto_peternakan'] = $file_name;
         };
 
-        $validatedAdd['confirmation'] = $checkbox;
         $validatedAdd['users_id'] = $id;
-        Food::create($validatedAdd);
+        Subsidi::create($validatedAdd);
 
-        return redirect('/V_Subsidi')->with('success', 'Pengajuan Berhasil Ditambahkan!');
+        return redirect('subsidiPakan')->with('success', 'Pengajuan Berhasil Ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Food $food)
+    public function show()
     {
         //
     }
@@ -107,14 +94,14 @@ class C_Subsidi extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $foodSubmissions = Food::findOrFail($id);
-        return view('subsidi.V_editSubsidi', compact('foodSubmissions'));
+        $subsidiPakan = Subsidi::findOrFail($id);
+        return view('subsidi.V_editSubsidi', compact('subsidiPakan'));
     }
 
-    public function dinasValidate(Request $request, $id)
+    public function dinasValidasi(Request $request, $id)
     {
-        $foodSubmissions = Food::findOrFail($id);
-        return view('subsidi.V_validasiSubsidi', compact('foodSubmissions'));
+        $subsidiPakan = Subsidi::findOrFail($id);
+        return view('subsidi.V_validasiSubsidi', compact('subsidiPakan'));
     }
 
     /**
@@ -122,73 +109,73 @@ class C_Subsidi extends Controller
      */
     public function update(Request $request, $id)
     {
-        $foodSubmissions = Food::findOrFail($id);
+        $subsidiPakan = Subsidi::findOrFail($id);
         
-        $checkbox = $request->input('confirmation');
+        $checkbox = $request->input('konfirmasi');
         
         $validatedUpdate = $request->validate([
-            'covering_letter'=> 'file|mimes:pdf',
-            'business_letter'=> 'file|mimes:pdf',
-            'farm_quantity'=> 'required',
-            'food_quantity'=> 'required',
-            'farm_picture'=> 'file|mimes:jpg,jpeg,png',
-            'validation',
-            'confirm_picture'=> 'file|mimes:jpg,jpeg,png',
-            'confirmation',
-            'government_note',
+            'surat_pengantar'=> 'required|file|mimes:jpg,jpeg,png',
+            'surat_usaha'=> 'required|file|mimes:jpg,jpeg,png',
+            'jumlah_ternak'=> 'required',
+            'jumlah_pakan'=> 'required',
+            'foto_peternakan'=> 'required|file|mimes:jpg,jpeg,png',
+            'validasi',
+            'foto_konfirmasi'=> 'required|file|mimes:jpg,jpeg,png',
+            'konfirmasi',
+            'catatan',
         ]);
 
-        if ($request->hasFile('covering_letter')) {
-            $file = $request->file('covering_letter');
+        if ($request->hasFile('surat_pengantar')) {
+            $file = $request->file('surat_pengantar');
             $file_name = $file->getClientOriginalName();
-            $file->move('pdf', $file_name);
-            $validatedUpdate['covering_letter'] = $file_name;
+            $file->move('foto_surat', $file_name);
+            $validatedUpdate['surat_pengantar'] = $file_name;
         };
-        if ($request->hasFile('business_letter')) {
-            $file = $request->file('business_letter');
+        if ($request->hasFile('surat_usaha')) {
+            $file = $request->file('surat_usaha');
             $file_name = $file->getClientOriginalName();
-            $file->move('pdf', $file_name);
-            $validatedUpdate['business_letter'] = $file_name;
+            $file->move('foto_surat', $file_name);
+            $validatedUpdate['surat_usaha'] = $file_name;
         };
-        if ($request->hasFile('farm_picture')) {
-            $file = $request->file('farm_picture');
+        if ($request->hasFile('foto_peternakan')) {
+            $file = $request->file('foto_peternakan');
             $file_name = $file->getClientOriginalName();
-            $file->move('image', $file_name);
-            $validatedUpdate['farm_picture'] = $file_name;
+            $file->move('foto_peternak', $file_name);
+            $validatedUpdate['foto_peternakan'] = $file_name;
         };
-        if ($request->hasFile('confirm_picture')) {
-            $file = $request->file('confirm_picture');
+        if ($request->hasFile('foto_konfirmasi')) {
+            $file = $request->file('foto_konfirmasi');
             $file_name = $file->getClientOriginalName();
-            $file->move('image', $file_name);
-            $validatedUpdate['confirm_picture'] = $file_name;
+            $file->move('foto_peternak', $file_name);
+            $validatedUpdate['foto_konfirmasi'] = $file_name;
         };
         
-        $validatedUpdate['confirmation'] = $checkbox;
+        $validatedUpdate['konfirmasi'] = $checkbox;
 
-        $foodSubmissions->update($validatedUpdate);
-        return redirect('/V_Subsidi')->with('success', 'Pengajuan Berhasil Diubah!');
+        $subsidiPakan->update($validatedUpdate);
+        return redirect('subsidiPakan')->with('success', 'Pengajuan Berhasil Diubah!');
     }
 
-    public function updateValidation(Request $request, $id)
+    public function updateValidasi(Request $request, $id)
     {
-        $foodSubmissions = Food::findOrFail($id);
+        $subsidiPakan = Subsidi::findOrFail($id);
         
-        $checkbox = $request->input('validation');
+        $checkbox = $request->input('validasi');
         
         $validated = $request->validate([
-            'validation',
-            'government_note',
+            'validasi',
+            'catatan',
         ]);
 
         $validatedUpdate = [
-            'validation'=> $request->validation,
-            'government_note'=> $request->government_note,
+            'validasi'=> $request->validasi,
+            'catatan'=> $request->catatan,
         ];
         
-        $validatedUpdate['validation'] = $checkbox;
+        $validatedUpdate['validasi'] = $checkbox;
 
-        $foodSubmissions->update($validatedUpdate);
-        return redirect('/V_Subsidi')->with('success', 'Pengajuan Berhasil Divalidasi!');
+        $subsidiPakan->update($validatedUpdate);
+        return redirect('subsidiPakan')->with('success', 'Pengajuan Berhasil Divalidasi!');
     }
 
     /**
@@ -196,8 +183,8 @@ class C_Subsidi extends Controller
      */
     public function destroy($id)
     {
-        $destroy = Food::findOrFail($id);
+        $destroy = Subsidi::findOrFail($id);
         $destroy->delete();
-        return redirect('/V_Subsidi')->with('success', 'Pengajuan Berhasil Dihapus!');
+        return redirect('subsidiPakan')->with('success', 'Pengajuan Berhasil Dihapus!');
     }
 }

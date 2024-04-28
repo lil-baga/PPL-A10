@@ -53,9 +53,9 @@ class C_Login extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email'=> 'required',
-            'password'=> 'required|min:8',
-            'access_code'=> 'required|max:4',
+            'email'=> 'required|email',
+            'password'=> 'required',
+            'kode_akses'=> 'required',
         ]);
 
         if (Auth::attempt($credentials)) {

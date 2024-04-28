@@ -64,10 +64,10 @@ class C_User extends Controller
         $currentuser = User::find($id);
         
         $validatedProfile= $request->validate([
-            'name' => 'required',
+            'nama' => 'required',
             'email' => 'required',
-            'address' => 'required',
-            'phone_number' => 'required',
+            'alamat' => 'required',
+            'kontak' => 'required',
         ]);
 
         $currentuser->update($validatedProfile);

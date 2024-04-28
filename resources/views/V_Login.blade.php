@@ -26,7 +26,7 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                 required="">
                             @error('email')
-                                <p class="text-red-500 text-sm font-bold py-2" role="alert">{{ $message }}</p>
+                                <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
@@ -35,27 +35,27 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                 required="">
                             @error('password')
-                                <p class="text-red-500 text-sm font-bold py-2" role="alert">{{ $message }}</p>
+                                <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="hidden">
-                            <label for="access_code" class="block mb-2 text-sm font-medium text-gray-900 ">Kode
+                            <label for="kode_akses" class="block mb-2 text-sm font-medium text-gray-900 ">Kode
                                 Akses</label>
-                            <input type="text" name="access_code" id="access_code"
+                            <input type="text" name="kode_akses" id="kode_akses"
                                 placeholder="Kode Akses (Hubungi Admin)"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5" value="0"
                                 required="">
                         </div>
                         @if ($roles_id == 3)
                             <div>
-                                <label for="access_code" class="block mb-2 text-sm font-medium text-gray-900 ">Kode
+                                <label for="kode_akses" class="block mb-2 text-sm font-medium text-gray-900 ">Kode
                                     Akses</label>
-                                <input type="text" name="access_code" id="access_code"
+                                <input type="text" name="kode_akses" id="kode_akses"
                                     placeholder="Kode Akses (Hubungi Admin)"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                     required="">
-                                @error('access_code')
-                                    <p class="text-red-500 text-sm font-bold py-2" role="alert">{{ $message }}</p>
+                                @error('kode_akses')
+                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
                         @else

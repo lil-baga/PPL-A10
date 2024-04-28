@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
+use App\Models\Berita;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
 
@@ -35,7 +35,7 @@ class C_Berita extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(News $news)
+    public function show()
     {
         //
     }
@@ -43,7 +43,7 @@ class C_Berita extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(News $news)
+    public function edit()
     {
         //
     }
@@ -51,7 +51,7 @@ class C_Berita extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateNewsRequest $request, News $news)
+    public function update(UpdateNewsRequest $request, )
     {
         //
     }
@@ -59,7 +59,7 @@ class C_Berita extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(News $news)
+    public function destroy()
     {
         //
     }
