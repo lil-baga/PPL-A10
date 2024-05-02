@@ -27,7 +27,7 @@ Route::get('/loginDinas', [C_Login::class, 'government']);
 Route::get('/loginAdmin', [C_Login::class, 'admin']);
 Route::get('/login', function () {return view('V_Login');})->name('view.login');
 Route::post('/login', [C_Login::class, 'login']);
-Route::get('/logout', [C_User::class, 'logout'])->name('logout');
+Route::get('/logout', [C_Login::class, 'logout'])->name('logout');
 
 // Route Sign Up
 Route::get('/signupRole', function () {return view('signupRole');})->name('signup.role');

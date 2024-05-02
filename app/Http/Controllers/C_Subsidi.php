@@ -114,13 +114,13 @@ class C_Subsidi extends Controller
         $checkbox = $request->input('konfirmasi');
         
         $validatedUpdate = $request->validate([
-            'surat_pengantar'=> 'required|file|mimes:jpg,jpeg,png',
-            'surat_usaha'=> 'required|file|mimes:jpg,jpeg,png',
+            'surat_pengantar'=> 'file|mimes:jpg,jpeg,png',
+            'surat_usaha'=> 'file|mimes:jpg,jpeg,png',
             'jumlah_ternak'=> 'required',
             'jumlah_pakan'=> 'required',
-            'foto_peternakan'=> 'required|file|mimes:jpg,jpeg,png',
+            'foto_peternakan'=> 'file|mimes:jpg,jpeg,png',
             'validasi',
-            'foto_konfirmasi'=> 'required|file|mimes:jpg,jpeg,png',
+            'foto_konfirmasi'=> 'file|mimes:jpg,jpeg,png',
             'konfirmasi',
             'catatan',
         ]);

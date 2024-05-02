@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
             'nama' => 'Arifandi',
             'email' => 'arifandi@gmail.com',
             'password' => bcrypt('arifandi7'),
-            'alamat' => 'Jl. Sarangan No.5, Pakusari, Jember,',
+            'alamat' => 'Jl. Sarangan No.5, Pakusari, Jember',
             'kontak' => '081657832490',
             'roles_id' => '2',
         ]);

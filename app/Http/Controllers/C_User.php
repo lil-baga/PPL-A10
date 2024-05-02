@@ -74,17 +74,6 @@ class C_User extends Controller
         return redirect('/profilUser')->with('success', 'Profil Anda Berhasil Diubah!');
     }
 
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/');
-    }
-
     /**
      * Remove the specified resource from storage.
      */
