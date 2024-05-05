@@ -1,5 +1,5 @@
 @extends('Layout.navbarDashboard')
-@section('title', '| Subsidi Pakan')
+@section('title', '| Penyuluhan Ternak')
 @section('content')
     <div class="w-screen px-0 flex flex-col">
         @if (Session::has('success'))
@@ -20,7 +20,7 @@
         @endif
         <div class="mt-4">
             <h1 class="text-2xl font-bold text-gray-900 text-center">
-                Pengajuan Pakan Subsidi
+                Pengajuan Penyuluhan Ternak
             </h1>
         </div>
         <div class="p-4 w-full rounded-[64px] overflow-auto">
@@ -37,15 +37,23 @@
                         </th>
                         <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
                             <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
-                                Surat Usaha</p>
+                                Suhu Kandang (Celcius)</p>
                         </th>
                         <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
                             <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
-                                Jumlah Ternak (Ekor)</p>
+                                Kadar Air (Liter)</p>
                         </th>
                         <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
                             <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
-                                Ajuan Pakan (Kwintal)</p>
+                                Kadar Pakan (Kilogram)</p>
+                        </th>
+                        <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
+                            <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
+                                Kondisi Ayam</p>
+                        </th>
+                        <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
+                            <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
+                                Foto Ayam</p>
                         </th>
                         <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
                             <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
@@ -57,11 +65,7 @@
                         </th>
                         <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
                             <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
-                                Foto Penerimaan</p>
-                        </th>
-                        <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
-                            <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
-                                Konfirmasi</p>
+                                Tanggal Penyuluhan</p>
                         </th>
                         <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
                             <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
@@ -74,11 +78,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if ($subsidiPakan->count() > 0)
+                    @if ($penyuluhanTernak->count() > 0)
                         <?php $no = 1; ?>
                         @if (Auth::user()->roles_id == 2)
-                            @foreach ($subsidiPakan as $sp)
-                                @if ($sp->users_id == $id)
+                            @foreach ($penyuluhanTernak as $pt)
+                                @if ($pt->users_id == $id)
                                     <tr class="border border-gray-300">
                                         <td class="p-4">
                                             <div class="flex flex-col items-center justify-center">
@@ -89,41 +93,53 @@
                                         <td class="p-4">
                                             <div class="flex flex-col items-center justify-center">
                                                 <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                    {{ $sp->surat_pengantar }}</p>
+                                                    {{ $pt->surat_pengantar }}</p>
                                             </div>
                                         </td>
                                         <td class="p-4">
                                             <div class="flex flex-col items-center justify-center">
                                                 <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                    {{ $sp->surat_usaha }}</p>
+                                                    {{ $pt->suhu_kandang }}</p>
                                             </div>
                                         </td>
                                         <td class="p-4">
                                             <div class="flex flex-col items-center justify-center">
                                                 <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                    {{ $sp->jumlah_ternak }}</p>
+                                                    {{ $pt->kadar_air }}</p>
                                             </div>
                                         </td>
                                         <td class="p-4">
                                             <div class="flex flex-col items-center justify-center">
                                                 <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                    {{ $sp->jumlah_pakan }}</p>
+                                                    {{ $pt->kadar_pakan }}</p>
                                             </div>
                                         </td>
                                         <td class="p-4">
                                             <div class="flex flex-col items-center justify-center">
                                                 <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                    {{ $sp->foto_peternakan }}</p>
+                                                    {{ $pt->kondisi_ayam }}</p>
                                             </div>
                                         </td>
                                         <td class="p-4">
-                                            @if ($sp->validasi == 'Diterima')
+                                            <div class="flex flex-col items-center justify-center">
+                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                    {{ $pt->foto_ayam }}</p>
+                                            </div>
+                                        </td>
+                                        <td class="p-4">
+                                            <div class="flex flex-col items-center justify-center">
+                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                    {{ $pt->foto_peternakan }}</p>
+                                            </div>
+                                        </td>
+                                        <td class="p-4">
+                                            @if ($pt->validasi == 'Diterima')
                                                 <div
                                                     class="flex flex-col items-center justify-center bg-green-400 rounded-full p-2">
                                                     <p class="flex antialiased leading-normal text-gray-900 font-normal">
                                                     </p>
                                                 </div>
-                                            @elseif($sp->validasi == 'Ditolak')
+                                            @elseif($pt->validasi == 'Ditolak')
                                                 <div
                                                     class="flex flex-col items-center justify-center bg-red-400 rounded-full p-2">
                                                     <p class="flex antialiased leading-normal text-gray-900 font-normal">
@@ -140,39 +156,18 @@
                                         <td class="p-4">
                                             <div class="flex flex-col items-center justify-center">
                                                 <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                    {{ $sp->foto_konfirmasi }}</p>
+                                                    {{ $pt->tanggal_penyuluhan }}</p>
                                             </div>
-                                        </td>
-                                        <td class="p-4">
-                                            @if ($sp->konfirmasi == 'Sudah Diambil')
-                                                <div
-                                                    class="flex flex-col items-center justify-center bg-green-400 rounded-full p-2">
-                                                    <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                    </p>
-                                                </div>
-                                            @elseif($sp->konfirmasi == 'Belum Diambil')
-                                                <div
-                                                    class="flex flex-col items-center justify-center bg-red-400 rounded-full p-2">
-                                                    <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                    </p>
-                                                </div>
-                                            @else
-                                                <div
-                                                    class="flex flex-col items-center justify-center bg-yellow-400 rounded-full p-2">
-                                                    <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                    </p>
-                                                </div>
-                                            @endif
                                         </td>
                                         <td class="p-4">
                                             <div class="flex flex-col items-center justify-center">
                                                 <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                    {{ $sp->catatan }}</p>
+                                                    {{ $pt->catatan }}</p>
                                             </div>
                                         </td>
                                         <td class="p-4">
                                             <div class="flex flex-row items-center justify-center">
-                                                <a href="{{ route('detail.subsidi', $sp->id) }}"
+                                                <a href="{{ route('detail.penyuluhan', $pt->id) }}"
                                                     class="button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded">
                                                     Detail
                                                 </a>
@@ -183,112 +178,101 @@
                                 @endif
                             @endforeach
                         @else
-                            @foreach ($subsidiPakan as $sp)
-                                <tr class="border border-gray-300">
-                                    <td class="p-4">
-                                        <div class="flex flex-col items-center justify-center">
+                            @foreach ($penyuluhanTernak as $pt)
+                                <td class="p-4">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                            {{ $no++ }}</p>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                            {{ $pt->surat_pengantar }}</p>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                            {{ $pt->suhu_kandang }}</p>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                            {{ $pt->kadar_air }}</p>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                            {{ $pt->kadar_pakan }}</p>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                            {{ $pt->kondisi_ayam }}</p>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                            {{ $pt->foto_ayam }}</p>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                            {{ $pt->foto_peternakan }}</p>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    @if ($pt->validasi == 'Diterima')
+                                        <div
+                                            class="flex flex-col items-center justify-center bg-green-400 rounded-full p-2">
                                             <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                {{ $no++ }}</p>
+                                            </p>
                                         </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex flex-col items-center justify-center">
+                                    @elseif($pt->validasi == 'Ditolak')
+                                        <div class="flex flex-col items-center justify-center bg-red-400 rounded-full p-2">
                                             <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                {{ $sp->surat_pengantar }}</p>
+                                            </p>
                                         </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex flex-col items-center justify-center">
+                                    @else
+                                        <div
+                                            class="flex flex-col items-center justify-center bg-yellow-400 rounded-full p-2">
                                             <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                {{ $sp->surat_usaha }}</p>
+                                            </p>
                                         </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex flex-col items-center justify-center">
-                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                {{ $sp->jumlah_ternak }}</p>
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex flex-col items-center justify-center">
-                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                {{ $sp->jumlah_pakan }}</p>
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex flex-col items-center justify-center">
-                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                {{ $sp->foto_peternakan }}</p>
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        @if ($sp->validasi == 'Diterima')
-                                            <div
-                                                class="flex flex-col items-center justify-center bg-green-400 rounded-full p-2">
-                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                </p>
-                                            </div>
-                                        @elseif($sp->validasi == 'Ditolak')
-                                            <div
-                                                class="flex flex-col items-center justify-center bg-red-400 rounded-full p-2">
-                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                </p>
-                                            </div>
-                                        @else
-                                            <div
-                                                class="flex flex-col items-center justify-center bg-yellow-400 rounded-full p-2">
-                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                </p>
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex flex-col items-center justify-center">
-                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                {{ $sp->foto_konfirmasi }}</p>
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        @if ($sp->konfirmasi == 'Sudah Diambil')
-                                            <div
-                                                class="flex flex-col items-center justify-center bg-green-400 rounded-full p-2">
-                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                </p>
-                                            </div>
-                                        @elseif($sp->konfirmasi == 'Belum Diambil')
-                                            <div
-                                                class="flex flex-col items-center justify-center bg-red-400 rounded-full p-2">
-                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                </p>
-                                            </div>
-                                        @else
-                                            <div
-                                                class="flex flex-col items-center justify-center bg-yellow-400 rounded-full p-2">
-                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                </p>
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex flex-col items-center justify-center">
-                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                                {{ $sp->catatan }}</p>
-                                        </div>
-                                    </td>
-                                    <td class="p-4">
-                                        <div class="flex flex-row items-center justify-center">
-                                            <a href="{{ route('detail.subsidi', $sp->id) }}"
-                                                class="button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded">
-                                                Detail
-                                            </a>
-                                        </div>
-                                    </td>
+                                    @endif
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                            {{ $pt->tanggal_penyuluhan }}</p>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                            {{ $pt->catatan }}</p>
+                                    </div>
+                                </td>
+                                <td class="p-4">
+                                    <div class="flex flex-row items-center justify-center">
+                                        <a href="{{ route('detail.penyuluhan', $pt->id) }}"
+                                            class="button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded">
+                                            Detail
+                                        </a>
+                                    </div>
+                                </td>
                                 </tr>
                             @endforeach
                         @endif
                     @else
                         <tr>
-                            <td class="p-4 border-gray-50" colspan="11">Belum Ada Pengajuan...</td>
+                            <td class="p-4 border-gray-50" colspan="12">Belum Ada Pengajuan...</td>
                         </tr>
                     @endif
                 </tbody>
@@ -296,7 +280,7 @@
         </div>
         @if (Auth::user()->roles_id == 2)
             <div class="flex flex-row items-center justify-center">
-                <a href="/tambahSubsidi"
+                <a href="/tambahPenyuluhan"
                     class="button bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse mt-6 bottom-0 hover:cursor-pointer hover:bg-green-700 text-white font-medium py-2 px-4 rounded">
                     Tambah
                 </a>

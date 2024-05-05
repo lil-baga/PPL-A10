@@ -1,12 +1,12 @@
 @extends('Layout.navbarDashboard')
-@section('title', '| Tambah Subsidi')
+@section('title', '| Tambah Penyuluhan')
 @section('content')
     <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-                Tambahkan Pengajuan Pakan Subsidi
+                Tambahkan Pengajuan Penyuluhan Ternak
             </h1>
-            <form class="space-y-4 md:space-y-6" action="/tambahSubsidi" method="POST" enctype="multipart/form-data" novalidate>
+            <form class="space-y-4 md:space-y-6" action="/tambahPenyuluhan" method="POST" enctype="multipart/form-data" novalidate>
                 @csrf
                 <div>
                     <label for="surat_pengantar" class="block mb-2 text-sm font-medium text-gray-900">Surat
@@ -17,30 +17,48 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="surat_usaha" class="block mb-2 text-sm font-medium text-gray-900">Surat
-                        Usaha</label>
-                    <input type="file" name="surat_usaha" id="surat_usaha" required="">
-                    @error('surat_usaha')
+                    <label for="suhu_kandang" class="block mb-2 text-sm font-medium text-gray-900">Suhu
+                        Kandang (Celcius)</label>
+                    <input type="number" name="suhu_kandang" id="suhu_kandang" placeholder="Suhu Kandang"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
+                        required="">
+                    @error('suhu_kandang')
                         <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
-                    <label for="jumlah_ternak" class="block mb-2 text-sm font-medium text-gray-900">Jumlah
-                        Ternak (Ekor)</label>
-                    <input type="number" name="jumlah_ternak" id="jumlah_ternak" placeholder="Jumlah Ternak"
+                    <label for="kadar_air" class="block mb-2 text-sm font-medium text-gray-900">Kadar
+                        Air (Liter)</label>
+                    <input type="number" name="kadar_air" id="kadar_air" placeholder="Kadar Air"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="">
-                    @error('jumlah_ternak')
+                    @error('kadar_air')
                         <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
-                    <label for="jumlah_pakan" class="block mb-2 text-sm font-medium text-gray-900">Ajuan Pakan
-                        (Kwintal)</label>
-                    <input type="number" name="jumlah_pakan" id="jumlah_pakan" placeholder="Ajuan Pakan (Kwintal)"
+                    <label for="kadar_pakan" class="block mb-2 text-sm font-medium text-gray-900">Kadar Pakan
+                        (Kilogram)</label>
+                    <input type="number" name="kadar_pakan" id="kadar_pakan" placeholder="Kadar Pakan"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="">
-                    @error('jumlah_pakan')
+                    @error('kadar_pakan')
+                        <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label for="kondisi_ayam" class="block mb-2 text-sm font-medium text-gray-900">Kondisi Ayam</label>
+                    <div
+                    class="overflow-hidden rounded-lg w-96 border border-gray-300 shadow-sm focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
+                        <textarea id="kondisi_ayam" name="kondisi_ayam" class="p-2 w-96 resize-none border-none align-top focus:ring-0 sm:text-sm"
+                            rows="4" placeholder="Jelaskan Kondisi Ayam Anda..."></textarea>
+                    </div>
+                </div>
+                <div>
+                    <label for="foto_ayam" class="block mb-2 text-sm font-medium text-gray-900">Foto
+                        Ayam</label>
+                    <input type="file" name="foto_ayam" id="foto_ayam" required="">
+                    @error('foto_ayam')
                         <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>

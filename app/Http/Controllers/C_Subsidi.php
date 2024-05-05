@@ -162,7 +162,7 @@ class C_Subsidi extends Controller
         
         $checkbox = $request->input('validasi');
         
-        $validated = $request->validate([
+        $validated= $request->validate([
             'validasi',
             'catatan',
         ]);

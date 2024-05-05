@@ -1,10 +1,10 @@
 @extends('Layout.navbarDashboard')
-@section('title', '| Detail Subsidi')
+@section('title', '| Detail Penyuluhan')
 @section('content')
     <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
         <div class="p-6 space-y-4">
             <h1 class="text-2xl font-bold text-gray-900 text-center">
-                Detail Pengajuan Pakan Subsidi
+                Detail Pengajuan Penyuluhan Ternak
             </h1>
             <div class="p-6 flex flex-row gap-64">
                 <div class="gap-10">
@@ -16,98 +16,98 @@
                     <div>
                         <p class="flex font-medium text-sm text-gray-900">Surat Pengantar:
                         <p class="flex mb-1 font-medium text-sm text-gray-900"><a
-                                href="{{ url("foto_surat/$subsidiPakan->surat_pengantar") }}" target="_blank"
-                                class="hover:text-[#F5682A]">{{ $subsidiPakan->surat_pengantar }}</a></p>
+                                href="{{ url("foto_surat/$penyuluhanTernak->surat_pengantar") }}" target="_blank"
+                                class="hover:text-[#F5682A]">{{ $penyuluhanTernak->surat_pengantar }}</a></p>
                     </div>
                     <div>
-                        <label for="jumlah_ternak" class="flex mb-1 font-medium text-sm text-gray-900">Jumlah
-                            Ternak</label>
-                        <input type="text" name="jumlah_ternak" id="jumlah_ternak" placeholder="Jumlah Ternak" readonly
-                            value="{{ $subsidiPakan->jumlah_ternak }}"
+                        <label for="kadar_air" class="flex mb-1 font-medium text-sm text-gray-900">Kadar
+                            Air (Liter)</label>
+                        <input type="text" name="kadar_air" id="kadar_air" placeholder="Kadar Air" readonly
+                            value="{{ $penyuluhanTernak->kadar_air }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] flex w-full p-2.5"
                             required="">
                     </div>
                     <div>
-                        <p class="flex font-medium text-sm text-gray-900">Foto Peternakan:</p>
+                        <p class="flex font-medium text-sm text-gray-900">Foto Ayam:</p>
                         <p class="flex mb-1 font-medium text-sm text-gray-900"><a
-                                href="{{ url("foto_peternak/$subsidiPakan->foto_peternakan") }}" target="_blank"
-                                class="hover:text-[#F5682A]">{{ $subsidiPakan->foto_peternakan }}</a></p>
+                                href="{{ url("foto_peternak/$penyuluhanTernak->foto_ayam") }}" target="_blank"
+                                class="hover:text-[#F5682A]">{{ $penyuluhanTernak->foto_ayam }}</a></p>
                     </div>
                     <div>
-                        <p class="flex font-medium text-sm text-gray-900">Foto Pakan Subsidi Yang Diterima:</p>
+                        <p class="flex font-medium text-sm text-gray-900">Foto Peternakan:</p>
                         <p class="flex mb-1 font-medium text-sm text-gray-900"><a
-                                href="{{ url("foto_peternak/$subsidiPakan->foto_konfirmasi") }}" target="_blank"
-                                class="hover:text-[#F5682A]">{{ $subsidiPakan->foto_konfirmasi }}</a></p>
+                                href="{{ url("foto_peternak/$penyuluhanTernak->foto_peternakan") }}" target="_blank"
+                                class="hover:text-[#F5682A]">{{ $penyuluhanTernak->foto_peternakan }}</a></p>
                     </div>
                 </div>
                 <div class="flex flex-col items-start justify-inline-start max-w-[512px] gap-8">
                     <div>
-                        <p class="flex font-medium text-sm text-gray-900">Surat Usaha:
-                        <p class="flex mb-1 font-medium text-sm text-gray-900"><a
-                                href="{{ url("foto_surat/$subsidiPakan->surat_usaha") }}" target="_blank"
-                                class="hover:text-[#F5682A]">{{ $subsidiPakan->surat_usaha }}</a></p>
+                        <label for="suhu_kandang" class="flex mb-1 font-medium text-sm text-gray-900">Suhu
+                            Kandang (Celcius)</label>
+                        <input type="text" name="suhu_kandang" id="suhu_kandang" placeholder="Suhu Kandang" readonly
+                            value="{{ $penyuluhanTernak->suhu_kandang }}"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] flex w-full p-2.5"
+                            required="">
                     </div>
                     <div>
-                        <label for="jumlah_pakan" class="flex mb-1 font-medium text-sm text-gray-900">Ajuan Pakan
-                            (Kwintal)</label>
-                        <input type="text" name="jumlah_pakan" id="jumlah_pakan" placeholder="Ajuan Pakan (Kwintal)"
-                            readonly value="{{ $subsidiPakan->jumlah_pakan }}"
+                        <label for="kadar_pakan" class="flex mb-1 font-medium text-sm text-gray-900">Kadar Pakan
+                            (Kilogram)</label>
+                        <input type="text" name="kadar_pakan" id="kadar_pakan" placeholder="Kadar Pakan" readonly
+                            value="{{ $penyuluhanTernak->kadar_pakan }}"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] flex w-full p-2.5"
                             required="">
                     </div>
                     <div>
                         <p class="flex font-medium text-sm text-gray-900">Status Validasi</p>
-                        @if ($subsidiPakan->validasi == 'Diterima')
+                        @if ($penyuluhanTernak->validasi == 'Diterima')
                             <div class="flex flex-col items-center justify-center bg-green-300 rounded-lg p-2 w-36">
                                 <p class="flex antialiased text-sm leading-normal text-green-700 font-medium">
-                                    {{ $subsidiPakan->validasi }}</p>
+                                    {{ $penyuluhanTernak->validasi }}</p>
                             </div>
-                        @elseif($subsidiPakan->validasi == 'Ditolak')
+                        @elseif($penyuluhanTernak->validasi == 'Ditolak')
                             <div class="flex flex-col items-center justify-center bg-red-300 rounded-lg p-2 w-36">
                                 <p class="flex antialiased text-sm leading-normal text-red-700 font-medium">
-                                    {{ $subsidiPakan->validasi }}</p>
+                                    {{ $penyuluhanTernak->validasi }}</p>
                             </div>
                         @else
                             <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-lg p-2 w-36">
                                 <p class="flex antialiased text-sm leading-normal text-yellow-700 font-medium">
-                                    {{ $subsidiPakan->validasi }}</p>
+                                    {{ $penyuluhanTernak->validasi }}</p>
                             </div>
                         @endif
                     </div>
                     <div>
-                        <p class="flex font-medium text-sm text-gray-900">Status Konfirmasi</p>
-                        @if ($subsidiPakan->konfirmasi == 'Sudah Diambil')
-                            <div class="flex flex-col items-center justify-center bg-green-300 rounded-lg p-2 w-36">
-                                <p class="flex antialiased text-sm leading-normal text-green-700 font-medium">
-                                    {{ $subsidiPakan->konfirmasi }}</p>
-                            </div>
-                        @elseif($subsidiPakan->konfirmasi == 'Belum Diambil')
-                            <div class="flex flex-col items-center justify-center bg-red-300 rounded-lg p-2 w-36">
-                                <p class="flex antialiased text-sm leading-normal text-red-700 font-medium">
-                                    {{ $subsidiPakan->konfirmasi }}</p>
-                            </div>
-                        @else
-                            <div class="flex flex-col items-center justify-center bg-yellow-300 rounded-lg p-2 w-36">
-                                <p class="flex antialiased text-sm leading-normal text-yellow-700 font-medium">
-                                    {{ $subsidiPakan->konfirmasi }}</p>
-                            </div>
-                        @endif
+                        <label for="tanggal_penyuluhan" class="flex mb-1 font-medium text-sm text-gray-900">Tanggal
+                            Penyuluhan</label>
+                        <input type="text" name="tanggal_penyuluhan" id="tanggal_penyuluhan"
+                            placeholder="Belum ada tanggal..." readonly value="{{ $penyuluhanTernak->tanggal_penyuluhan }}"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] flex w-full p-2.5"
+                            required="">
                     </div>
+                </div>
+            </div>
+            <div class="px-6 -mt-12">
+                <div>
+                    <label for="kondisi_ayam" class="flex mb-1 font-medium text-sm text-gray-900">Kondisi Ayam</label>
+                    <input type="text" name="kondisi_ayam" id="kondisi_ayam" placeholder="Belum ada penjelasan..."
+                        readonly value="{{ $penyuluhanTernak->kondisi_ayam }}"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] flex w-full p-2.5"
+                        required="">
                 </div>
             </div>
             <div class="px-6 -mt-12">
                 <div>
                     <label for="catatan" class="flex mb-1 font-medium text-sm text-gray-900">Catatan</label>
                     <input type="text" name="catatan" id="catatan" placeholder="Belum ada catatan..." readonly
-                        value="{{ $subsidiPakan->catatan }}"
+                        value="{{ $penyuluhanTernak->catatan }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] flex w-full p-2.5"
                         required="">
                 </div>
             </div>
             <div class="flex flex-row items-center justify-center gap-8 w-full">
                 @if (Auth::user()->roles_id == 2)
-                    @if ($subsidiPakan->validasi == 'Diterima')
-                        <a href="{{ route('edit.subsidi', $subsidiPakan->id) }}"
+                    @if ($penyuluhanTernak->validasi == 'Diterima')
+                        <a href="{{ route('edit.penyuluhan', $penyuluhanTernak->id) }}"
                             class="items-center justify-center w-full button bg-blue-500 flex hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded">Ubah</a>
                     @else
                     @endif
@@ -125,7 +125,7 @@
                                         Tidak
                                     </button>
                                     <form id='delete' method="POST"
-                                        action="{{ route('destroy.subsidi', $subsidiPakan->id) }}">
+                                        action="{{ route('destroy.penyuluhan', $penyuluhanTernak->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
@@ -138,7 +138,7 @@
                         </div>
                     </div>
                 @elseif(Auth::user()->roles_id == 3)
-                    <a href="{{ route('view.validsubsidi', $subsidiPakan->id) }}"
+                    <a href="{{ route('view.validpenyuluhan', $penyuluhanTernak->id) }}"
                         class="items-center justify-center w-full button bg-green-500 flex hover:cursor-pointer hover:bg-green-700 text-white font-medium py-2 px-4 rounded">Validasi</a>
                 @else
                 @endif

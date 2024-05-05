@@ -42,5 +42,14 @@ class UserSeeder extends Seeder
             'kontak' => '081657832490',
             'roles_id' => '2',
         ]);
+
+        User::create([
+            'nama' => 'Riyan',
+            'email' => 'riyan@gmail.com',
+            'password' => bcrypt('riyan333'),
+            'alamat' => 'Jl. Sritanjung No.55, Sumbersari, Kabupaten Jember',
+            'kontak' => '082879264510',
+            'roles_id' => '2',
+        ]);
     }
 }

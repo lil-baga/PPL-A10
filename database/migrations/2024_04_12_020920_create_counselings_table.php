@@ -23,6 +23,7 @@ return new class extends Migration
             $table->enum('validasi', ['Ditolak', 'Diproses', 'Diterima'])->default('Diproses');
             $table->date('tanggal_penyuluhan')->nullable();
             $table->text('catatan')->nullable();
+            $table->foreignId('users_id');
             $table->timestamps();
         });
     }

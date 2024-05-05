@@ -54,7 +54,7 @@
                                     d="M18.779 24c6.075 0 11-4.925 11-11s-4.925-11-11-11s-11 4.925-11 11c0 2.327.722 4.485 1.955 6.263a3.747 3.747 0 0 0-3.454 1.012l-3.182 3.182a3.75 3.75 0 1 0 5.304 5.303l3.182-3.182a3.747 3.747 0 0 0 1.005-3.483A10.949 10.949 0 0 0 18.78 24Zm0-2a9 9 0 1 1 0-18a9 9 0 0 1 0 18Z" />
                             </g>
                         </svg>
-                    </div><a href="#">Pengajuan Penyuluhan</a>
+                    </div><a href="/penyuluhanTernak">Pengajuan Penyuluhan</a>
                 </div>
                 <div role="button" tabindex="0"
                     class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-all hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">

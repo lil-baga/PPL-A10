@@ -5,6 +5,7 @@ use App\Http\Controllers\C_User;
 use App\Http\Controllers\C_Login;
 use App\Http\Controllers\C_SignUp;
 use App\Http\Controllers\C_Subsidi;
+use App\Http\Controllers\C_Penyuluhan;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,19 +48,30 @@ Route::put('/editProfil',  [C_User::class, 'update'])->name('update.profil');
 Route::get('/subsidiPakan', [C_Subsidi::class, 'index'])->name('view.subsidi');
 Route::get('/detailSubsidi/{id}', [C_Subsidi::class, 'detail'])->name('detail.subsidi');
 
+// Route Fitur Penyuluhan Ternak (Global)
+Route::get('/penyuluhanTernak', [C_Penyuluhan::class, 'index'])->name('view.penyuluhan');
+Route::get('/detailPenyuluhan/{id}', [C_Penyuluhan::class, 'detail'])->name('detail.penyuluhan');
+
 // Route Peternak
 Route::middleware(['peternak'])->group(function () {
-    Route::get('/addSubsidi', [C_Subsidi::class, 'create']);
-    Route::post('/addSubsidi', [C_Subsidi::class, 'store']);
+    Route::get('/tambahSubsidi', [C_Subsidi::class, 'create']);
+    Route::post('/tambahSubsidi', [C_Subsidi::class, 'store']);
     Route::get('/editSubsidi/{id}', [C_Subsidi::class, 'edit'])->name('edit.subsidi');
     Route::put('/editSubsidi/{id}', [C_Subsidi::class, 'update'])->name('update.subsidi');
     Route::delete('/editSubsidi/{id}', [C_Subsidi::class, 'destroy'])->name('destroy.subsidi');
+    Route::get('/tambahPenyuluhan', [C_Penyuluhan::class, 'create']);
+    Route::post('/tambahPenyuluhan', [C_Penyuluhan::class, 'store']);
+    Route::get('/editPenyuluhan/{id}', [C_Penyuluhan::class, 'edit'])->name('edit.penyuluhan');
+    Route::put('/editPenyuluhan/{id}', [C_Penyuluhan::class, 'update'])->name('update.penyuluhan');
+    Route::delete('/editPenyuluhan/{id}', [C_Penyuluhan::class, 'destroy'])->name('destroy.penyuluhan');
 });
 
 // Route Dinas
 Route::middleware(['dinas'])->group(function () {
-    Route::get('/validateSubsidi/{id}',  [C_Subsidi::class, 'dinasValidasi'])->name('view.validate');
-    Route::put('/validateSubsidi/{id}', [C_Subsidi::class, 'updateValidasi'])->name('validate.subsidi');
+    Route::get('/validasiSubsidi/{id}',  [C_Subsidi::class, 'dinasValidasi'])->name('view.validsubsidi');
+    Route::put('/validasiSubsidi/{id}', [C_Subsidi::class, 'updateValidasi'])->name('validasi.subsidi');
+    Route::get('/validasiPenyuluhan/{id}',  [C_Penyuluhan::class, 'dinasValidasi'])->name('view.validpenyuluhan');
+    Route::put('/validasiPenyuluhan/{id}', [C_Penyuluhan::class, 'updateValidasi'])->name('validasi.penyuluhan');
 });
 
 // Route Admin
