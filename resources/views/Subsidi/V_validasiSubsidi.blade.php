@@ -11,10 +11,12 @@
                 @csrf
                 @method('PUT')
                 <div>
-                    <label for="catatan" class="block mb-2 text-sm font-medium text-gray-900">Catatan
-                        Dinas</label>
-                    <input type="text" name="catatan" id="catatan" placeholder="Beri Catatan"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5">
+                    <label for="catatan" class="block mb-2 text-sm font-medium text-gray-900">Catatan</label>
+                    <div
+                    class="overflow-hidden rounded-lg w-96 border border-gray-300 shadow-sm focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
+                        <textarea id="catatan" name="catatan" class="p-2 w-96 resize-none border-none align-top focus:ring-0 sm:text-sm"
+                            rows="4" placeholder="Berikan Catatan..."></textarea>
+                    </div>
                 </div>
                 <div class="flex flex-row gap-10">
                     <div class="flex flex-row items-center justify-center gap-6">
@@ -42,7 +44,7 @@
                     </div>
                 </div>
                 <button type="submit"
-                    class="w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Validasi</button>
+                    class="items-center justify-center w-full bg-green-500 hover:bg-green-700 flex hover:cursor-pointer text-white font-medium py-2 px-4 rounded">Validasi</button>
             </form>
         </div>
     </div>

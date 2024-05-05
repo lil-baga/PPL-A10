@@ -9,13 +9,23 @@
 @section('content')
     <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
         @if (Session::has('success'))
-            <div class="bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 text-white font-bold py-2 px-4"
-                role="alert">
-                {{ Session::get('success') }}
+            <div class="rounded-md bg-green-50 p-4">
+                <p class="flex items-center text-sm font-medium text-green-600">
+                    <span class="pr-3">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="10" cy="10" r="10" fill="currentColor"></circle>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M14.1203 6.78954C14.3865 7.05581 14.3865 7.48751 14.1203 7.75378L9.12026 12.7538C8.85399 13.02 8.42229 13.02 8.15602 12.7538L5.88329 10.4811C5.61703 10.2148 5.61703 9.78308 5.88329 9.51682C6.14956 9.25055 6.58126 9.25055 6.84753 9.51682L8.63814 11.3074L13.156 6.78954C13.4223 6.52328 13.854 6.52328 14.1203 6.78954Z"
+                                fill="white"></path>
+                        </svg>
+                    </span>
+                    {{ Session::get('success') }}
+                </p>
             </div>
         @endif
-        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+        <div class="p-6 space-y-4">
+            <h1 class="text-2xl font-bold text-gray-900 text-center">
                 Profil Anda
             </h1>
             <form class="space-y-4 md:space-y-6" action="" method="GET" enctype="multipart/form-data">
@@ -50,7 +60,7 @@
                         required="">
                 </div>
                 <a href="{{ route('edit.profil', $currentuser->id) }}"
-                    class="items-center justify-center w-full button bg-[#F5682A] hover:bg-[#F54C2A] inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 hover:cursor-pointer text-white font-bold py-2 px-4 rounded">Ubah</a>
+                    class="items-center justify-center w-full bg-[#F5682A] hover:bg-[#F54C2A] flex hover:cursor-pointer text-white font-medium py-2 px-4 rounded">Ubah</a>
             </form>
         </div>
     </div>

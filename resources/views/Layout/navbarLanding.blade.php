@@ -23,7 +23,7 @@
     <title>Chick&Check @yield('title')</title>
 </head>
 
-<body class="overflow-clip font-[poppins]">
+<body class="overflow-clip font-[poppins] font-medium">
     <nav class="flex flex-row items-center bg-white p-1">
         <div class="w-full flex flex-wrap items-center justify-between p-2">
             <a href="/" class="flex items-center space-x-3 ">

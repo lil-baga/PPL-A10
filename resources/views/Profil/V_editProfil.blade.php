@@ -2,8 +2,8 @@
 @section('title', '| Edit Profil')
 @section('content')
     <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
-        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+        <div class="p-6 space-y-4">
+            <h1 class="text-2xl font-bold text-gray-900 text-center">
                 Edit Profil
             </h1>
             <form class="space-y-4 md:space-y-6" action="{{ route('update.profil', $currentuser->id) }}" method="POST"
@@ -51,7 +51,7 @@
                     @enderror
                 </div>
                 <button type="submit"
-                    class="w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Simpan</button>
+                    class="items-center justify-center w-full bg-[#F5682A] hover:bg-[#F54C2A] flex hover:cursor-pointer text-white font-medium py-2 px-4 rounded">Simpan</button>
             </form>
         </div>
     </div>

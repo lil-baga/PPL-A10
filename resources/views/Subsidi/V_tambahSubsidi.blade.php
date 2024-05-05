@@ -26,9 +26,9 @@
                 </div>
                 <div>
                     <label for="jumlah_ternak" class="block mb-2 text-sm font-medium text-gray-900">Jumlah
-                        Ternak</label>
+                        Ternak (Ekor)</label>
                     <input type="number" name="jumlah_ternak" id="jumlah_ternak" placeholder="Jumlah Ternak"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5 remove-arrow"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="">
                     @error('jumlah_ternak')
                         <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
@@ -38,7 +38,7 @@
                     <label for="jumlah_pakan" class="block mb-2 text-sm font-medium text-gray-900">Ajuan Pakan
                         (Kwintal)</label>
                     <input type="number" name="jumlah_pakan" id="jumlah_pakan" placeholder="Ajuan Pakan (Kwintal)"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5 remove-arrow"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="">
                     @error('jumlah_pakan')
                         <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
@@ -53,7 +53,7 @@
                     @enderror
                 </div>
                 <button type="submit"
-                    class="w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Tambahkan</button>
+                    class="items-center justify-center w-full bg-green-500 hover:bg-green-700 flex hover:cursor-pointer text-white font-medium py-2 px-4 rounded">Tambahkan</button>
             </form>
         </div>
     </div>
