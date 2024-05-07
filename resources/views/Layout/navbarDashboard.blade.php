@@ -26,7 +26,7 @@
 <body class="font-[poppins] font-medium">
     <div class="flex flex-row">
         <div
-            class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[100vh] w-full max-w-[320px] p-4 shadow-xl shadow-gray-900/5">
+            class="relative flex flex-col bg-clip-border bg-white text-gray-700 h-full w-full max-w-[320px] p-4">
             <div class="mb-2 p-2 flex items-center justify-center">
                 <img src="{{ url('logobrand.png') }}" alt="" class="flex flex-row w-40 mr-4">
             </div>
@@ -63,7 +63,7 @@
                             <path fill="currentColor"
                                 d="M17.212 2.237a.75.75 0 0 0-1.423-.474l-.75 2.249a.75.75 0 0 0 1.423.474l.75-2.249Zm4.568-.017a.75.75 0 0 1 0 1.06l-2.5 2.5a.75.75 0 1 1-1.06-1.06l2.5-2.5a.75.75 0 0 1 1.06 0Zm-8.91 1.52a2.325 2.325 0 0 0-3.794.577L3.178 16.56a1.8 1.8 0 0 0 .387 2.09l1.439 1.358a1.8 1.8 0 0 0 1.964.336l1.417-.628a4 4 0 0 0 7.314-3.24l3.42-1.516a2.325 2.325 0 0 0 .758-3.712L12.87 3.741Zm1.457 13.342a2.5 2.5 0 0 1-4.569 2.024l4.569-2.024ZM19 8.249a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1-.75-.75Z" />
                         </svg>
-                    </div><a href="#">Broadcast Informasi</a>
+                    </div><a href="/broadcastBerita">Broadcast Informasi</a>
                     <div class="grid place-items-center ml-auto justify-self-end">
                     </div>
                 </div>

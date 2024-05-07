@@ -7,7 +7,7 @@
     @section('title', '| Profil Admin')
 @endif
 @section('content')
-    <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
+    <div class="w-full bg-white rounded-lg md:mt-0 xl:p-0">
         @if (Session::has('success'))
             <div class="rounded-md bg-green-50 p-4">
                 <p class="flex items-center text-sm font-medium text-green-600">
@@ -24,11 +24,11 @@
                 </p>
             </div>
         @endif
-        <div class="p-6 space-y-4">
+        <div class="px-6 py-4">
             <h1 class="text-2xl font-bold text-gray-900 text-center">
                 Profil Anda
             </h1>
-            <form class="space-y-4 md:space-y-6" action="" method="GET" enctype="multipart/form-data">
+            <form class="space-y-4" action="" method="GET" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>

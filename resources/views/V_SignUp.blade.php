@@ -7,11 +7,11 @@
             <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-2xl xl:p-0">
                 <div class="space-y-4 md:space-y-6 sm:p-8">
                     @if ($roles_id == 2)
-                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Sign Up Peternak
                         </h1>
                     @else
-                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Sign Up Dinas
                         </h1>
                     @endif
@@ -25,7 +25,7 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                     required="">
                                 @error('nama')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
@@ -34,16 +34,16 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                     required="">
                                 @error('alamat')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
                                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
-                                <input type="email" name="email" id="email" placeholder="nameemail@gmail.com"
+                                <input type="email" name="email" id="email" placeholder="email@gmail.com"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                     required="">
                                 @error('email')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
@@ -53,7 +53,7 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5 remove-arrow"
                                     required="">
                                 @error('kontak')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
@@ -62,7 +62,7 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                     required="">
                                 @error('password')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
                             <button type="submit"
@@ -82,7 +82,7 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                     required="">
                                 @error('nama')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
@@ -91,7 +91,7 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                     required="">
                                 @error('alamat')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
@@ -100,7 +100,7 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                     required="">
                                 @error('email')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div>
@@ -110,7 +110,7 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5 remove-arrow"
                                     required="">
                                 @error('kontak')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}
                                     </p>
                                 @enderror
                             </div>
@@ -121,7 +121,7 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                     required="">
                                 @error('password')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{$message}}</p>
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{$message}}</p>
                                 @enderror
                             </div>
                             <button type="submit"

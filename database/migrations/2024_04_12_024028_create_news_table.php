@@ -16,7 +16,7 @@ return new class extends Migration
             $table->binary('thumbnail');
             $table->string('judul');
             $table->text('isi');
-            $table->binary('surat_pengantar');
+            $table->foreignId('users_id');
             $table->timestamps();
         });
     }

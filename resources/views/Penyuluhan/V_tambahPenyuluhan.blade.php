@@ -1,8 +1,8 @@
 @extends('Layout.navbarDashboard')
 @section('title', '| Tambah Penyuluhan')
 @section('content')
-    <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
-        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+    <div class="w-full bg-white rounded-lg md:mt-0 xl:p-0">
+        <div class="px-6 py-4">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                 Tambahkan Pengajuan Penyuluhan Ternak
             </h1>
@@ -13,7 +13,7 @@
                         Pengantar</label>
                     <input type="file" name="surat_pengantar" id="surat_pengantar" required="">
                     @error('surat_pengantar')
-                        <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                        <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
@@ -23,7 +23,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="">
                     @error('suhu_kandang')
-                        <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                        <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
@@ -33,7 +33,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="">
                     @error('kadar_air')
-                        <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                        <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
@@ -43,13 +43,13 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="">
                     @error('kadar_pakan')
-                        <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                        <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
                     <label for="kondisi_ayam" class="block mb-2 text-sm font-medium text-gray-900">Kondisi Ayam</label>
                     <div
-                    class="overflow-hidden rounded-lg w-96 border border-gray-300 shadow-sm focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
+                    class="overflow-hidden rounded-lg w-96 border border-gray-300 focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
                         <textarea id="kondisi_ayam" name="kondisi_ayam" class="p-2 w-96 resize-none border-none align-top focus:ring-0 sm:text-sm"
                             rows="4" placeholder="Jelaskan Kondisi Ayam Anda..."></textarea>
                     </div>
@@ -59,7 +59,7 @@
                         Ayam</label>
                     <input type="file" name="foto_ayam" id="foto_ayam" required="">
                     @error('foto_ayam')
-                        <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                        <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
@@ -67,7 +67,7 @@
                         Peternakan</label>
                     <input type="file" name="foto_peternakan" id="foto_peternakan" required="">
                     @error('foto_peternakan')
-                        <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                        <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>
                 <button type="submit"

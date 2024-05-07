@@ -1,8 +1,8 @@
 @extends('Layout.navbarDashboard')
 @section('title', '| Validasi Penyuluhan')
 @section('content')
-    <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
-        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+    <div class="w-full bg-white rounded-lg md:mt-0 xl:p-0">
+        <div class="px-6 py-4">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                 Validasi Pengajuan Penyuluhan Ternak
             </h1>
@@ -14,7 +14,7 @@
                     <div>
                         <label for="tanggal_penyuluhan" class="block mb-2 text-sm font-medium text-gray-900">Tanggal Penyuluhan</label>
                         <div
-                            class="overflow-hidden rounded-lg w-96 border border-gray-300 shadow-sm focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
+                            class="overflow-hidden rounded-lg w-96 border border-gray-300 focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
                             <input type="datetime-local" id="tanggal_penyuluhan" name="tanggal_penyuluhan" class="p-2 w-96 resize-none border-none align-top focus:ring-0 sm:text-sm"
                                 rows="4" placeholder="Berikan Tanggal Penyuluhan...">
                         </div>
@@ -22,7 +22,7 @@
                     <div>
                         <label for="catatan" class="block mb-2 text-sm font-medium text-gray-900">Catatan</label>
                         <div
-                            class="overflow-hidden rounded-lg w-96 border border-gray-300 shadow-sm focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
+                            class="overflow-hidden rounded-lg w-96 border border-gray-300 focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
                             <textarea id="catatan" name="catatan" class="p-2 w-96 resize-none border-none align-top focus:ring-0 sm:text-sm"
                                 rows="4" placeholder="Berikan Catatan..."></textarea>
                         </div>

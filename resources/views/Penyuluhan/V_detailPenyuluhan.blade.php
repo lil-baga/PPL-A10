@@ -1,8 +1,8 @@
 @extends('Layout.navbarDashboard')
 @section('title', '| Detail Penyuluhan')
 @section('content')
-    <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
-        <div class="p-6 space-y-4">
+    <div class="w-full bg-white rounded-lg md:mt-0 xl:p-0">
+        <div class="px-6 py-4">
             <h1 class="text-2xl font-bold text-gray-900 text-center">
                 Detail Pengajuan Penyuluhan Ternak
             </h1>
@@ -117,7 +117,7 @@
                     <div id="deleteModal" tabindex="-1" aria-hidden="true"
                         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                         <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-                            <div class="relative p-4 text-center bg-white rounded-lg shadow sm:p-5">
+                            <div class="relative p-4 text-center bg-white rounded-lg sm:p-5">
                                 <p class="mb-4 text-gray-900">Yakin Ingin Menghapus Pengajuan?</p>
                                 <div class="flex justify-center items-center space-x-4">
                                     <button data-modal-toggle="deleteModal" type="button"

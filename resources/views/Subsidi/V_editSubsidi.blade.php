@@ -1,8 +1,8 @@
 @extends('Layout.navbarDashboard')
 @section('title', '| Edit Subsidi')
 @section('content')
-    <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
-        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+    <div class="w-full bg-white rounded-lg md:mt-0 xl:p-0">
+        <div class="px-6 py-4">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                 Ubah Pengajuan Pakan Subsidi
             </h1>
@@ -29,7 +29,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="">
                     @error('jumlah_ternak')
-                        <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                        <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
@@ -40,7 +40,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="">
                     @error('jumlah_pakan')
-                        <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                        <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>

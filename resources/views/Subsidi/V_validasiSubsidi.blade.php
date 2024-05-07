@@ -1,8 +1,8 @@
 @extends('Layout.navbarDashboard')
 @section('title', '| Validasi Subsidi')
 @section('content')
-    <div class="w-full bg-white rounded-lg shadow md:mt-0 xl:p-0">
-        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+    <div class="w-full bg-white rounded-lg md:mt-0 xl:p-0">
+        <div class="px-6 py-4">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                 Validasi Pengajuan Pakan Subsidi
             </h1>

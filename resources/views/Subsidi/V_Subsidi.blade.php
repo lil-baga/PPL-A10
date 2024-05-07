@@ -18,12 +18,12 @@
                 </p>
             </div>
         @endif
-        <div class="mt-4">
+        <div class="px-6 py-4">
             <h1 class="text-2xl font-bold text-gray-900 text-center">
                 Pengajuan Pakan Subsidi
             </h1>
         </div>
-        <div class="p-4 w-full rounded-[64px] overflow-auto">
+        <div class="py-4 px-12 w-full overflow-auto">
             <table class="w-full table-auto text-center text-sm">
                 <thead>
                     <tr class="border border-[#F5682A] bg-[#F5682A]">

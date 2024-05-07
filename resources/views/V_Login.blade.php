@@ -6,15 +6,15 @@
             <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     @if ($roles_id == 2)
-                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Login Peternak
                         </h1>
                     @elseif ($roles_id == 3)
-                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Login Dinas
                         </h1>
                     @else
-                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Login Admin
                         </h1>
                     @endif
@@ -26,7 +26,7 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                 required="">
                             @error('email')
-                                <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                             @enderror
                         </div>
                         <div>
@@ -35,7 +35,7 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                 required="">
                             @error('password')
-                                <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="hidden">
@@ -55,7 +55,7 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                     required="">
                                 @error('kode_akses')
-                                    <p class="text-red-500 text-sm font-bold py-2 capitalize" role="alert">{{ $message }}</p>
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                                 @enderror
                             </div>
                         @else

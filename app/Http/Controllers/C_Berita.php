@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
-use App\Http\Requests\StoreNewsRequest;
-use App\Http\Requests\UpdateNewsRequest;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class C_Berita extends Controller
 {
@@ -13,7 +14,21 @@ class C_Berita extends Controller
      */
     public function index()
     {
-        //
+        $no = 0;
+        $id = Auth::user()->id;
+        $currentuser = User::find($id);
+        $broadcastBerita = Berita::orderBy('created_at', 'DESC')->get();
+
+        return view('berita.V_Berita', compact('broadcastBerita', 'currentuser', 'id', 'no'));
+    }
+
+    public function detail(Request $request, $id)
+    {
+        $broadcastBerita = Berita::findOrFail($id);
+        $users_id = $broadcastBerita['users_id'];
+        $currentuser = User::find($users_id);
+
+        return view('berita.V_detailBerita', compact('broadcastBerita', 'currentuser'));
     }
 
     /**
@@ -21,15 +36,34 @@ class C_Berita extends Controller
      */
     public function create()
     {
-        //
+        return view('berita.V_tambahBerita');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreNewsRequest $request)
+    public function store(Request $request)
     {
-        //
+        $id = Auth::user()->id;
+
+        $validatedAdd = $request->validate([
+            'thumbnail'=> 'required|file|mimes:jpg,jpeg,png',
+            'judul'=> 'required',
+            'isi'=> 'required',
+            'users_id',
+        ]);
+
+        if ($request->hasFile('thumbnail')) {
+            $file = $request->file('thumbnail');
+            $file_name = $file->getClientOriginalName();
+            $file->move('foto_berita', $file_name);
+            $validatedAdd['thumbnail'] = $file_name;
+        };
+
+        $validatedAdd['users_id'] = $id;
+        Berita::create($validatedAdd);
+
+        return redirect('broadcastBerita')->with('success', 'Berita Berhasil Ditambahkan!');
     }
 
     /**
@@ -43,24 +77,52 @@ class C_Berita extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(Request $request, $id)
     {
-        //
+        $broadcastBerita = Berita::findOrFail($id);
+        return view('berita.V_editBerita', compact('broadcastBerita'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateNewsRequest $request, )
+    public function update(Request $request, $id)
     {
-        //
+        $broadcastBerita = Berita::findOrFail($id);
+
+        $validatedUpdate = $request->validate([
+            'thumbnail'=> '|file|mimes:jpg,jpeg,png',
+            'judul',
+            'isi',
+            'users_id',
+        ]);
+
+        if ($request->hasFile('thumbnail')) {
+            $file = $request->file('thumbnail');
+            $file_name = $file->getClientOriginalName();
+            $file->move('foto_berita', $file_name);
+            $validatedUpdate['thumbnail'] = $file_name;
+        };
+
+        $isiBerita = [
+            'isi'=>$request->isi,
+        ];
+
+        $validatedUpdate['users_id'] = $id;
+        $validatedUpdate['isi'] = $isiBerita;
+
+        $broadcastBerita->update($validatedUpdate);
+
+        return redirect('broadcastBerita')->with('success', 'Berita Berhasil Diubah!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy()
+    public function destroy($id)
     {
-        //
+        $destroy = Berita::findOrFail($id);
+        $destroy->delete();
+        return redirect('broadcastBerita')->with('success', 'Berita Berhasil Dihapus!');
     }
 }

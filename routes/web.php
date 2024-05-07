@@ -6,6 +6,7 @@ use App\Http\Controllers\C_Login;
 use App\Http\Controllers\C_SignUp;
 use App\Http\Controllers\C_Subsidi;
 use App\Http\Controllers\C_Penyuluhan;
+use App\Http\Controllers\C_Berita;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,9 @@ Route::get('/detailSubsidi/{id}', [C_Subsidi::class, 'detail'])->name('detail.su
 Route::get('/penyuluhanTernak', [C_Penyuluhan::class, 'index'])->name('view.penyuluhan');
 Route::get('/detailPenyuluhan/{id}', [C_Penyuluhan::class, 'detail'])->name('detail.penyuluhan');
 
+// Route Fitur Berita (Global)
+Route::get('/broadcastBerita',  [C_Berita::class, 'index'])->name('view.berita');
+
 // Route Peternak
 Route::middleware(['peternak'])->group(function () {
     Route::get('/tambahSubsidi', [C_Subsidi::class, 'create']);
@@ -72,6 +76,11 @@ Route::middleware(['dinas'])->group(function () {
     Route::put('/validasiSubsidi/{id}', [C_Subsidi::class, 'updateValidasi'])->name('validasi.subsidi');
     Route::get('/validasiPenyuluhan/{id}',  [C_Penyuluhan::class, 'dinasValidasi'])->name('view.validpenyuluhan');
     Route::put('/validasiPenyuluhan/{id}', [C_Penyuluhan::class, 'updateValidasi'])->name('validasi.penyuluhan');
+    Route::get('/tambahBerita', [C_Berita::class, 'create']);
+    Route::post('/tambahBerita', [C_Berita::class, 'store']);
+    Route::get('/editBerita/{id}', [C_Berita::class, 'edit'])->name('edit.berita');
+    Route::put('/editBerita/{id}', [C_Berita::class, 'update'])->name('update.berita');
+    Route::delete('/editBerita/{id}', [C_Berita::class, 'destroy'])->name('destroy.berita');
 });
 
 // Route Admin
