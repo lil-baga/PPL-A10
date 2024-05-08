@@ -86,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            <div class="px-6 -mt-12">
+            <div class="px-6">
                 <div>
                     <label for="kondisi_ayam" class="flex mb-1 font-medium text-sm text-gray-900">Kondisi Ayam</label>
                     <input type="text" name="kondisi_ayam" id="kondisi_ayam" placeholder="Belum ada penjelasan..."
@@ -95,7 +95,7 @@
                         required="">
                 </div>
             </div>
-            <div class="px-6 -mt-12">
+            <div class="px-6 mt-4">
                 <div>
                     <label for="catatan" class="flex mb-1 font-medium text-sm text-gray-900">Catatan</label>
                     <input type="text" name="catatan" id="catatan" placeholder="Belum ada catatan..." readonly
@@ -104,7 +104,7 @@
                         required="">
                 </div>
             </div>
-            <div class="flex flex-row items-center justify-center gap-8 w-full">
+            <div class="flex flex-row items-center justify-center gap-8 w-full mt-4">
                 @if (Auth::user()->roles_id == 2)
                     @if ($penyuluhanTernak->validasi == 'Diterima')
                         <a href="{{ route('edit.penyuluhan', $penyuluhanTernak->id) }}"
@@ -139,7 +139,7 @@
                     </div>
                 @elseif(Auth::user()->roles_id == 3)
                     <a href="{{ route('view.validpenyuluhan', $penyuluhanTernak->id) }}"
-                        class="items-center justify-center w-full button bg-green-500 flex hover:cursor-pointer hover:bg-green-700 text-white font-medium py-2 px-4 rounded">Validasi</a>
+                        class="mt-4 items-center justify-center w-full button bg-green-500 flex hover:cursor-pointer hover:bg-green-700 text-white font-medium py-2 px-4 rounded">Validasi</a>
                 @else
                 @endif
             </div>

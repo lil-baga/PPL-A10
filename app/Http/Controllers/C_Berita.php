@@ -91,10 +91,9 @@ class C_Berita extends Controller
         $broadcastBerita = Berita::findOrFail($id);
 
         $validatedUpdate = $request->validate([
-            'thumbnail'=> '|file|mimes:jpg,jpeg,png',
-            'judul',
-            'isi',
-            'users_id',
+            'thumbnail'=> 'file|mimes:jpg,jpeg,png',
+            'judul'=> 'required',
+            'isi'=> 'required',
         ]);
 
         if ($request->hasFile('thumbnail')) {
@@ -108,8 +107,7 @@ class C_Berita extends Controller
             'isi'=>$request->isi,
         ];
 
-        $validatedUpdate['users_id'] = $id;
-        $validatedUpdate['isi'] = $isiBerita;
+        $validatedUpdate['isi'] = $isiBerita['isi'];
 
         $broadcastBerita->update($validatedUpdate);
 

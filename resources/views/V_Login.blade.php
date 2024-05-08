@@ -6,15 +6,15 @@
             <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     @if ($roles_id == 2)
-                        <h1 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Login Peternak
                         </h1>
                     @elseif ($roles_id == 3)
-                        <h1 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Login Dinas
                         </h1>
                     @else
-                        <h1 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Login Admin
                         </h1>
                     @endif
@@ -39,7 +39,7 @@
                             @enderror
                         </div>
                         <div class="hidden">
-                            <label for="kode_akses" class="block mb-2 text-sm font-medium text-gray-900 ">Kode
+                            <label for="kode_akses" class="block mb-2 text-sm fbolddium text-gray-900 ">Kode
                                 Akses</label>
                             <input type="text" name="kode_akses" id="kode_akses"
                                 placeholder="Kode Akses (Hubungi Admin)"

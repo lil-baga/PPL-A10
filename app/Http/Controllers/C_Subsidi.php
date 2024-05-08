@@ -162,17 +162,17 @@ class C_Subsidi extends Controller
         
         $checkbox = $request->input('validasi');
         
-        $validated= $request->validate([
-            'validasi',
+        $validatedUpdate= $request->validate([
+            'validasi'=> 'required',
             'catatan',
         ]);
 
-        $validatedUpdate = [
-            'validasi'=> $request->validasi,
+        $isiCatatan = [
             'catatan'=> $request->catatan,
         ];
         
         $validatedUpdate['validasi'] = $checkbox;
+        $validatedUpdate['catatan'] = $isiCatatan['catatan'];
 
         $subsidiPakan->update($validatedUpdate);
         return redirect('subsidiPakan')->with('success', 'Pengajuan Berhasil Divalidasi!');

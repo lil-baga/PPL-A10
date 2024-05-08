@@ -25,10 +25,10 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="isi" class="block mb-2 text-sm font-medium text-gray-900">Kondisi Ayam</label>
+                    <label for="isi" class="block mb-2 text-sm font-medium text-gray-900">Isi Berita</label>
                     <div
-                    class="overflow-hidden rounded-lg w-1/2 border border-gray-300 focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
-                        <textarea id="isi" name="isi" class="p-2 w-1/2 resize-none border-none align-top focus:ring-0 sm:text-sm" placeholder="Tuliskan Isi Berita..."></textarea>
+                    class="overflow-hidden rounded-lg w-1/2 h-64 border border-gray-300 focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
+                        <textarea id="isi" name="isi" class="p-2 w-full h-full resize-none border-none align-top focus:ring-0 sm:text-sm" placeholder="Tuliskan Isi Berita..."></textarea>
                     </div>
                     @error('isi')
                     <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>

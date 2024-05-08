@@ -13,10 +13,14 @@
                 <div>
                     <label for="catatan" class="block mb-2 text-sm font-medium text-gray-900">Catatan</label>
                     <div
-                        class="overflow-hidden rounded-lg w-96 border border-gray-300 shadow-sm focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
-                        <textarea id="catatan" name="catatan" class="p-2 w-96 resize-none border-none align-top focus:ring-0 sm:text-sm"
-                            rows="4" placeholder="Berikan Catatan..."></textarea>
+                        class="overflow-hidden rounded-lg w-1/2 h-64 border border-gray-300 focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
+                        <textarea id="catatan" name="catatan"
+                            class="p-2 w-full h-full resize-none border-none align-top focus:ring-0 sm:text-sm"
+                            placeholder="Tuliskan catatan...">{{ $subsidiPakan->catatan }}</textarea>
                     </div>
+                    @error('catatan')
+                        <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="flex flex-row gap-10">
                     <div class="flex flex-row items-center justify-center gap-6">

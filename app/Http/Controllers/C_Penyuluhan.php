@@ -158,19 +158,18 @@ class C_Penyuluhan extends Controller
         
         $checkbox = $request->input('validasi');
         
-        $validated = $request->validate([
-            'validasi',
+        $validatedUpdate = $request->validate([
+            'validasi'=> 'required',
             'tanggal_penyuluhan',
             'catatan',
         ]);
 
-        $validatedUpdate = [
-            'validasi'=> $request->validasi,
-            'tanggal_penyuluhan'=> $request->tanggal_penyuluhan,
+        $isiCatatan = [
             'catatan'=> $request->catatan,
         ];
         
         $validatedUpdate['validasi'] = $checkbox;
+        $validatedUpdate['catatan'] = $isiCatatan['catatan'];
 
         $penyuluhanTernak->update($validatedUpdate);
         return redirect('penyuluhanTernak')->with('success', 'Pengajuan Berhasil Divalidasi!');

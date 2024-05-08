@@ -7,11 +7,11 @@
             <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-2xl xl:p-0">
                 <div class="space-y-4 md:space-y-6 sm:p-8">
                     @if ($roles_id == 2)
-                        <h1 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Sign Up Peternak
                         </h1>
                     @else
-                        <h1 class="text-xl font-medium leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                             Sign Up Dinas
                         </h1>
                     @endif
