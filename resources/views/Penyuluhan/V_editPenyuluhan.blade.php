@@ -17,7 +17,7 @@
                 </div>
                 <div>
                     <label for="suhu_kandang" class="block mb-2 text-sm font-medium text-gray-900">Suhu
-                        Kandang (Celcius)</label>
+                        Kandang (°C)</label>
                     <input type="number" name="suhu_kandang" id="suhu_kandang" placeholder="Suhu Kandang"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="" value="{{ $penyuluhanTernak->suhu_kandang }}">
@@ -27,7 +27,7 @@
                 </div>
                 <div>
                     <label for="kadar_air" class="block mb-2 text-sm font-medium text-gray-900">Kadar
-                        Air (Liter)</label>
+                        Air (L)</label>
                     <input type="number" name="kadar_air" id="kadar_air" placeholder="Kadar Air"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="" value="{{ $penyuluhanTernak->kadar_air }}">
@@ -36,8 +36,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="kadar_pakan" class="block mb-2 text-sm font-medium text-gray-900">Kadar Pakan
-                        (Kilogram)</label>
+                    <label for="kadar_pakan" class="block mb-2 text-sm font-medium text-gray-900">Kadar Pakan (Kg)</label>
                     <input type="number" name="kadar_pakan" id="kadar_pakan" placeholder="Kadar Pakan"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                         required="" value="{{ $penyuluhanTernak->kadar_pakan }}">

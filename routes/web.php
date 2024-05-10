@@ -55,6 +55,7 @@ Route::get('/detailPenyuluhan/{id}', [C_Penyuluhan::class, 'detail'])->name('det
 
 // Route Fitur Berita (Global)
 Route::get('/broadcastBerita',  [C_Berita::class, 'index'])->name('view.berita');
+Route::get('/detailBerita/{id}',  [C_Berita::class, 'detail'])->name('detail.berita');
 
 // Route Peternak
 Route::middleware(['peternak'])->group(function () {

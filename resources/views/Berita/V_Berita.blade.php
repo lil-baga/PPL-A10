@@ -23,6 +23,16 @@
                 Berita Terkini
             </h1>
         </div>
+        @if (Auth::user()->roles_id == 3)
+            <div class="flex flex-row items-center justify-center">
+                <a href="/tambahBerita"
+                    class="button bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse mt-6 bottom-0 hover:cursor-pointer hover:bg-green-700 text-white font-medium py-2 px-4 rounded">
+                    Tambah
+                </a>
+            </div>
+            <br>
+        @else
+        @endif
         @if ($broadcastBerita->count() > 0)
             <?php $no = 1; ?>
             @foreach ($broadcastBerita as $bb)
@@ -37,7 +47,7 @@
                                 <p class="truncate tracking-tight text-gray-900">{{ $bb->isi }}</p>
                             </div>
                             <div class="flex gap-4">
-                                <a href="#"
+                                <a href="{{ route('detail.berita', $bb->id) }}"
                                     class="items-center justify-center w-48 h-10 bg-[#F5682A] hover:bg-[#F54C2A] flex hover:cursor-pointer text-white font-medium py-2 px-4 rounded">
                                     Selengkapnya
                                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
@@ -55,7 +65,8 @@
                                                 d="m15.909 4.561l-4.47-4.47c-.146-.146-.338-.113-.427.073l-.599 1.248l4.175 4.175l1.248-.599c.186-.089.219-.282.073-.427zM9.615 2.115L5.5 2.458c-.273.034-.501.092-.58.449v.001C3.804 8.268 0 13.499 0 13.499l.896.896l4.25-4.25a1.5 1.5 0 1 1 .707.707l-4.25 4.25l.896.896s5.231-3.804 10.591-4.92h.001c.357-.078.415-.306.449-.58l.343-4.115l-4.269-4.269z" />
                                         </svg>
                                     </a>
-                                    <button id="deleteButton/{{ $bb->id }}" data-modal-target="deleteModal/{{ $bb->id }}"
+                                    <button id="deleteButton/{{ $bb->id }}"
+                                        data-modal-target="deleteModal/{{ $bb->id }}"
                                         data-modal-toggle="deleteModal/{{ $bb->id }}"
                                         class="items-center justify-center w-16 h-10 button bg-red-500 flex hover:cursor-pointer hover:bg-red-700 text-white font-medium py-2 px-4 rounded"
                                         type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -71,7 +82,8 @@
                                             <div class="relative p-4 text-center bg-white rounded-lg sm:p-5">
                                                 <p class="mb-4 text-gray-900">Yakin Ingin Menghapus Berita?</p>
                                                 <div class="flex justify-center items-center space-x-4">
-                                                    <button data-modal-toggle="deleteModal/{{ $bb->id }}" type="button"
+                                                    <button data-modal-toggle="deleteModal/{{ $bb->id }}"
+                                                        type="button"
                                                         class="py-2 px-3 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-700">
                                                         Tidak
                                                     </button>
@@ -97,16 +109,6 @@
             @endforeach
         @else
             <h1 class="py-4 px-12 text-m font-medium text-gray-900">Belum Ada Berita...</h1>
-        @endif
-        @if (Auth::user()->roles_id == 3)
-            <div class="flex flex-row items-center justify-center">
-                <a href="/tambahBerita"
-                    class="button bg-green-500 inset-y-0 left-0 top-0 flex flex-col-reverse mt-6 bottom-0 hover:cursor-pointer hover:bg-green-700 text-white font-medium py-2 px-4 rounded">
-                    Tambah
-                </a>
-            </div>
-            <br>
-        @else
         @endif
     </div>
 @endsection

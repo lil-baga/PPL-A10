@@ -61,7 +61,7 @@
                         @else
                         @endif
                         <button type="submit"
-                            class="w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Login</button>
+                            class="w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Login</button>
                         <p class="text-sm font-light text-gray-500 ">
                             Belum memiliki akun? <a href="/signupRole"
                                 class="font-medium text-[#F5682A] hover:text-[#F54C2A] hover:underline">Sign Up</a>

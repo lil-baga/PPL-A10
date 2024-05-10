@@ -37,15 +37,15 @@
                         </th>
                         <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
                             <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
-                                Suhu Kandang (Celcius)</p>
+                                Suhu Kandang (°C)</p>
                         </th>
                         <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
                             <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
-                                Kadar Air (Liter)</p>
+                                Kadar Air (L)</p>
                         </th>
                         <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
                             <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
-                                Kadar Pakan (Kilogram)</p>
+                                Kadar Pakan (Kg)</p>
                         </th>
                         <th class="cursor-pointer p-3 transition-colors hover:bg-[#F54C2A]">
                             <p class="antialias text-white flex items-center justify-center gap-2 font-normal">
@@ -179,94 +179,96 @@
                             @endforeach
                         @else
                             @foreach ($penyuluhanTernak as $pt)
-                                <td class="p-4">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            {{ $no++ }}</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            {{ $pt->surat_pengantar }}</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            {{ $pt->suhu_kandang }}</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            {{ $pt->kadar_air }}</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            {{ $pt->kadar_pakan }}</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            {{ $pt->kondisi_ayam }}</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            {{ $pt->foto_ayam }}</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            {{ $pt->foto_peternakan }}</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    @if ($pt->validasi == 'Diterima')
-                                        <div
-                                            class="flex flex-col items-center justify-center bg-green-400 rounded-full p-2">
+                                <tr class="border border-gray-300">
+                                    <td class="p-4">
+                                        <div class="flex flex-col items-center justify-center">
                                             <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            </p>
+                                                {{ $no++ }}</p>
                                         </div>
-                                    @elseif($pt->validasi == 'Ditolak')
-                                        <div class="flex flex-col items-center justify-center bg-red-400 rounded-full p-2">
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex flex-col items-center justify-center">
                                             <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            </p>
+                                                {{ $pt->surat_pengantar }}</p>
                                         </div>
-                                    @else
-                                        <div
-                                            class="flex flex-col items-center justify-center bg-yellow-400 rounded-full p-2">
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex flex-col items-center justify-center">
                                             <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            </p>
+                                                {{ $pt->suhu_kandang }}</p>
                                         </div>
-                                    @endif
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            {{ $pt->tanggal_penyuluhan }}</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex flex-col items-center justify-center">
-                                        <p class="flex antialiased leading-normal text-gray-900 font-normal">
-                                            {{ $pt->catatan }}</p>
-                                    </div>
-                                </td>
-                                <td class="p-4">
-                                    <div class="flex flex-row items-center justify-center">
-                                        <a href="{{ route('detail.penyuluhan', $pt->id) }}"
-                                            class="button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded">
-                                            Detail
-                                        </a>
-                                    </div>
-                                </td>
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex flex-col items-center justify-center">
+                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                {{ $pt->kadar_air }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex flex-col items-center justify-center">
+                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                {{ $pt->kadar_pakan }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex flex-col items-center justify-center">
+                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                {{ $pt->kondisi_ayam }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex flex-col items-center justify-center">
+                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                {{ $pt->foto_ayam }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex flex-col items-center justify-center">
+                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                {{ $pt->foto_peternakan }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="p-4">
+                                        @if ($pt->validasi == 'Diterima')
+                                            <div
+                                                class="flex flex-col items-center justify-center bg-green-400 rounded-full p-2">
+                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                </p>
+                                            </div>
+                                        @elseif($pt->validasi == 'Ditolak')
+                                            <div
+                                                class="flex flex-col items-center justify-center bg-red-400 rounded-full p-2">
+                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                </p>
+                                            </div>
+                                        @else
+                                            <div
+                                                class="flex flex-col items-center justify-center bg-yellow-400 rounded-full p-2">
+                                                <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                </p>
+                                            </div>
+                                        @endif
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex flex-col items-center justify-center">
+                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                {{ $pt->tanggal_penyuluhan }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex flex-col items-center justify-center">
+                                            <p class="flex antialiased leading-normal text-gray-900 font-normal">
+                                                {{ $pt->catatan }}</p>
+                                        </div>
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex flex-row items-center justify-center">
+                                            <a href="{{ route('detail.penyuluhan', $pt->id) }}"
+                                                class="button bg-blue-500 inset-y-0 left-0 top-0 flex flex-col-reverse bottom-0 hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded">
+                                                Detail
+                                            </a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         @endif
