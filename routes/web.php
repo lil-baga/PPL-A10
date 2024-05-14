@@ -20,7 +20,7 @@ use App\Http\Controllers\C_Berita;
 */
 
 // Route Landing
-Route::get('/', function () {return view('V_halamanUtama');})->name('landing');
+Route::get('/', function () {return view('V_landingPage');})->name('landing');
 
 // Route Login
 Route::get('/loginRole', function () {return view('loginRole');})->name('login.role');

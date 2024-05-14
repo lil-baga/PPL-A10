@@ -1,7 +1,7 @@
 @extends('Layout.navbarDashboard')
 @section('title', '| Detail Penyuluhan')
 @section('content')
-    <div class="w-full bg-white rounded-lg md:mt-0 xl:p-0">
+    <div class="w-full bg-white border-l-4 border-gray-200">
         <div class="px-6 py-4">
             <h1 class="text-2xl font-bold text-gray-900 text-center">
                 Detail Pengajuan Penyuluhan Ternak

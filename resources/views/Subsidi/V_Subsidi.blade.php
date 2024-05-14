@@ -1,9 +1,9 @@
 @extends('Layout.navbarDashboard')
 @section('title', '| Subsidi Pakan')
 @section('content')
-    <div class="w-screen px-0 flex flex-col">
+    <div class="w-screen px-0 flex flex-col border-l-4 border-gray-200">
         @if (Session::has('success'))
-            <div class="rounded-md bg-green-50 p-4">
+            <div class="bg-green-50 p-4 transition-opacity duration-300" role="alert">
                 <p class="flex items-center text-sm font-medium text-green-600">
                     <span class="pr-3">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"

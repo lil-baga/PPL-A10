@@ -6,7 +6,7 @@
             <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     @if (Session::has('failed'))
-                    <div class="rounded-md bg-red-50 p-4">
+                    <div class=" bg-red-50 p-4">
                         <p class="flex items-center text-sm font-medium text-red-600">
                            <span class="pr-3">
                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">

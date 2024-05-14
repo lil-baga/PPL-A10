@@ -1,7 +1,7 @@
 @extends('Layout.navbarDashboard')
 @section('title', '| {{ $broadcastBerita->judul }}')
 @section('content')
-    <div class="w-screen px-0 flex flex-col">
+    <div class="w-screen px-0 flex flex-col border-l-4 border-gray-200">
         <div class="mt-4">
             <h1 class="text-2xl font-bold text-gray-900 text-center">
                 {{ $broadcastBerita->judul }}

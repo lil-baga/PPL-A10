@@ -7,7 +7,7 @@
     @section('title', '| Profil Admin')
 @endif
 @section('content')
-    <div class="w-full bg-white rounded-lg md:mt-0 xl:p-0">
+    <div class="w-full bg-white border-l-4 border-gray-200">
         @if (Session::has('success'))
             <div class="rounded-md bg-green-50 p-4">
                 <p class="flex items-center text-sm font-medium text-green-600">

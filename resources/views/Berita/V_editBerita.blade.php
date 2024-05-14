@@ -1,7 +1,7 @@
 @extends('Layout.navbarDashboard')
 @section('title', '| Edit Berita')
 @section('content')
-    <div class="w-full bg-white rounded-lg md:mt-0 xl:p-0">
+    <div class="w-full bg-white border-l-4 border-gray-200">
         <div class="px-6 py-4">
             <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
                 Edit Berita
