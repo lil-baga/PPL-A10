@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('alamat');
+            $table->foreignId('kecamatan_id');
             $table->string('kontak');
             $table->foreignId('roles_id');
             $table->integer('kode_akses')->default('0');

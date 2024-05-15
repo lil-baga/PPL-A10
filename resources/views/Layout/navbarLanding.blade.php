@@ -23,8 +23,8 @@
     <title>Chick&Check @yield('title')</title>
 </head>
 
-<body class="overflow-clip font-[poppins] font-medium">
-    <nav class="flex flex-row items-center bg-white p-2">
+<body class="font-[poppins] font-medium overflow-clip">
+    <nav class="fixed top-0 left-0 z-20 w-full p-2 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between">
         <div class="w-full flex flex-wrap items-center justify-between p-2">
             <a href="/" class="flex items-center space-x-3 ">
                 <img src="{{ url('logobrand.png') }}" class="h-8" alt="Chick & Check Logo" />
@@ -35,23 +35,15 @@
                 <a href="/signupRole"
                     class="button text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:bg-transparent focus:text-[#F5682A] focus:ring-2 focus:ring-[#F5682A] font-medium rounded-lg text-sm px-4 py-2 text-center">Sign Up</a>
             </div>
-            {{-- <div class="items-center justify-evenly hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-                <ul class="text-sm flex flex-row font-medium rounded-lg bg-transparent gap-24">
-                    <li>
-                        <a href="#"
-                            class="px-6 py-2 transition-all text-[#F5682A] rounded-lg hover:bg-[#F5682A] hover:text-white hidden">Subsidi</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="px-6 py-2 transition-all text-[#F5682A] rounded-lg hover:bg-[#F5682A] hover:text-white hidden">Penyuluhan</a>
-                    </li>
-                </ul>
-            </div> --}}
         </div>
     </nav>
 
     @yield('content')
 
+    <footer class="bottom-0 left-0 z-10 w-full p-4 bg-white shadow md:flex md:items-center md:justify-between">
+        <span class="text-sm text-[#F5682A] sm:text-center">© 2024 <a href="/" class="hover:underline">Kelompok A10™ - Chick&Check</a>
+        </span>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 

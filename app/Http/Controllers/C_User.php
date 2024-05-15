@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,8 +17,10 @@ class C_User extends Controller
         $id = Auth::user()->id;
         $roles_id = Auth::user()->roles_id;
         $currentuser = User::find($id);
+        $kecamatan_id = Auth::user()->kecamatan_id;
+        $kecamatan = Kecamatan::find($kecamatan_id);
 
-        return view('profil.V_Profil', compact('currentuser'));
+        return view('profil.V_Profil', compact('currentuser', 'kecamatan'));
     }
 
     /**
@@ -51,8 +54,11 @@ class C_User extends Controller
     {
         $id = Auth::user()->id;
         $currentuser = User::find($id);
+        $kecamatan_table= Kecamatan::all();
+        $kecamatan_id = Auth::user()->kecamatan_id;
+        $kecamatan = Kecamatan::find($kecamatan_id);
 
-        return view('profil.V_editProfil', compact('currentuser'));
+        return view('profil.V_editProfil', compact('currentuser', 'kecamatan', 'kecamatan_table', 'kecamatan_id'));
     }
 
     /**
@@ -67,6 +73,7 @@ class C_User extends Controller
             'nama' => 'required',
             'email' => 'required',
             'alamat' => 'required',
+            'kecamatan_id' => 'required',
             'kontak' => 'required',
         ]);
 

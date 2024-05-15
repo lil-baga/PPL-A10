@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'alamat',
+        'kecamatan_id',
         'kontak',
         'roles_id',
         'kode_akses'

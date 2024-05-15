@@ -1,7 +1,7 @@
 @extends('Layout.navbarLanding')
 @section('title', '| Landing Page')
 @section('content')
-    <div class="absolute flex flex-row h-full w-full">
+    <div class="flex flex-row h-full w-full">
         <section class="bg-cover bg-center bg-no-repeat bg-[url('fotopakan.png')] bg-gray-700 bg-blend-multiply w-1/2 h-full">
             <div class="px-4 mx-auto max-w-screen-xl text-center items-center justify-center py-[400px]">
                 <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">

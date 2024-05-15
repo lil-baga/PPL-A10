@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Kecamatan;
 use Illuminate\Http\Request;
 
 class C_SignUp extends Controller
@@ -18,13 +19,15 @@ class C_SignUp extends Controller
     public function farmer()
     {
         $roles_id = 2;
-        return view('V_SignUp', compact('roles_id'));
+        $kecamatan_id = Kecamatan::all();
+        return view('V_SignUp', compact('roles_id', 'kecamatan_id'));
     }
 
     public function government()
     {
         $roles_id = 3;
-        return view('V_SignUp', compact('roles_id'));
+        $kecamatan = Kecamatan::all();
+        return view('V_SignUp', compact('roles_id', 'kecamatan_id'));
     }
 
     /**
@@ -45,6 +48,7 @@ class C_SignUp extends Controller
             'email'=> 'required|email|unique:users',
             'password'=> 'required|min:8',
             'alamat'=> 'required',
+            'kecamatan'=> 'required',
             'kontak'=> 'required|min:12',
         ]);
 
@@ -65,6 +69,7 @@ class C_SignUp extends Controller
             'email'=> 'required|email|unique:users',
             'password'=> 'required|min:8',
             'alamat'=> 'required',
+            'kecamatan'=> 'required',
             'kontak'=> 'required|min:12',
             'kode_akses',
             'roles_id',
