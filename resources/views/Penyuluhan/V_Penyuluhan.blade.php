@@ -1,4 +1,4 @@
-@extends('Layout.navbarDashboard')
+@extends('Layout.Sidebar')
 @section('title', '| Penyuluhan Ternak')
 @section('content')
     <div class="w-screen px-0 flex flex-col border-l-4 border-gray-200">

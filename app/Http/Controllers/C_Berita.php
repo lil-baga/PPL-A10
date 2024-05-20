@@ -56,7 +56,7 @@ class C_Berita extends Controller
         if ($request->hasFile('thumbnail')) {
             $file = $request->file('thumbnail');
             $file_name = $file->getClientOriginalName();
-            $file->move('foto_berita', $file_name);
+            $file->move('img/foto_berita', $file_name);
             $validatedAdd['thumbnail'] = $file_name;
         };
 

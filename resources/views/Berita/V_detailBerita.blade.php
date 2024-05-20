@@ -1,4 +1,4 @@
-@extends('Layout.navbarDashboard')
+@extends('Layout.Sidebar')
 @section('title', '| {{ $broadcastBerita->judul }}')
 @section('content')
     <div class="w-screen px-0 flex flex-col border-l-4 border-gray-200">
@@ -7,7 +7,7 @@
                 {{ $broadcastBerita->judul }}
             </h1>
             <div class="flex w-full items-center justify-center mt-4">
-                <img src="{{ url('foto_berita/' . $broadcastBerita->thumbnail) }}" class="w-[720px]">
+                <img src="{{ url('img/foto_berita/' . $broadcastBerita->thumbnail) }}" class="w-[720px]">
             </div>
             <div class="flex  items-center justify-center mt-4">
                 <p class="flex w-[1080px] text-center">

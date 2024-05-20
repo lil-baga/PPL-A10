@@ -18,9 +18,10 @@ return new class extends Migration
             $table->integer('jumlah_ternak');
             $table->integer('jumlah_pakan');
             $table->binary('foto_peternakan');
-            $table->enum('validasi', ['Ditolak', 'Diproses', 'Diterima'])->default('Diproses');
+            $table->enum('validasi_id', ['3', '2', '1'])->default('2');
             $table->binary('foto_konfirmasi')->nullable();
-            $table->enum('konfirmasi', ['Belum Diambil', 'Proses Validasi', 'Sudah Diambil'])->default('Proses Validasi');
+            $table->enum('konfirmasi_id', ['3', '2', '1'])->default('2');
+            $table->timestamp('tanggal_pengambilan')->nullable();
             $table->text('catatan')->nullable();
             $table->foreignId('users_id');
             $table->timestamps();

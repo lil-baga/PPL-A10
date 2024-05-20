@@ -1,4 +1,4 @@
-@extends('Layout.navbarDashboard')
+@extends('Layout.Sidebar')
 @section('title', '| Detail Penyuluhan')
 @section('content')
     <div class="w-full bg-white border-l-4 border-gray-200">

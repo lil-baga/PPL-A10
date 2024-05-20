@@ -1,4 +1,4 @@
-@extends('Layout.navbarDashboard')
+@extends('Layout.Sidebar')
 @if ($currentuser->roles_id == 2)
     @section('title', '| Profil Peternak')
 @elseif($currentuser->roles_id == 3)
@@ -7,7 +7,7 @@
     @section('title', '| Profil Admin')
 @endif
 @section('content')
-    <div class="w-full bg-gradient-to-l from-[#f5743d] to-white">
+    <div class="w-full bg-slate-200">
         @if (Session::has('success'))
             <div id="alert-border-3"
                 class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50" role="alert">
@@ -31,7 +31,7 @@
             </div>
         @endif
         <div class="px-16 py-16">
-            <div class=" px-8 py-8 shadow-xl bg-white rounded-lg">
+            <div class="px-8 py-8 shadow-xl bg-white rounded-lg">
                 <h1 class="text-2xl font-bold text-gray-900 text-center">
                     Profil Anda
                 </h1>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="flex flex-row items-center justify-center">
                         <a href="{{ route('edit.profil', $currentuser->id) }}"
-                            class="text-center items-center justify-center w-auto bg-[#F5682A] hover:bg-[#F54C2A] flex hover:cursor-pointer text-white font-medium py-2 px-4 rounded gap-2">Ubah
+                            class="text-center items-center justify-center w-auto bg-blue-500 hover:bg-blue-700 flex hover:cursor-pointer text-white font-medium py-2 px-4 rounded gap-2">Ubah
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="m7 17.013l4.413-.015l9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583l-1.597 1.582l-1.586-1.585l1.594-1.58zM9 13.417l6.03-5.973l1.586 1.586l-6.029 5.971L9 15.006v-1.589z"/>
                                 <path fill="currentColor" d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01c-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/>

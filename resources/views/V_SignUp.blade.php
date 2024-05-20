@@ -1,20 +1,31 @@
-@extends('Layout.navbarLanding')
+@extends('Layout.Navbar')
 @section('title', '| Sign Up')
+@section('hidden', 'hidden')
 @section('content')
-    <section class="bg-cover bg-center bg-no-repeat bg-[url('fotopenyuluhan.png')] bg-gray-700 bg-blend-multiply">
+    <section class="bg-cover bg-center bg-no-repeat bg-[url('img/assets/fotopenyuluhan.png')] bg-gray-700 bg-blend-multiply">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-2xl xl:p-0">
                 <div class="space-y-4 md:space-y-6 sm:p-8">
-                    @if ($roles_id == 2)
-                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-                            Sign Up Peternak
-                        </h1>
-                    @else
-                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
-                            Sign Up Dinas
-                        </h1>
-                    @endif
-
+                    <div class="flex flex-row">
+                        <a href="/signupRole"
+                            class="button absolute hover:bg-slate-200 hover:rounded-lg content-center w-auto h-auto p-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M21 11H6.414l5.293-5.293l-1.414-1.414L2.586 12l7.707 7.707l1.414-1.414L6.414 13H21z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div>
+                        @if ($roles_id == 2)
+                            <h1 class="text-xl font-bold tracking-tight text-gray-900 md:text-2xl text-center">
+                                Sign Up Peternak
+                            </h1>
+                        @else
+                            <h1 class="text-xl font-bold tracking-tight text-gray-900 md:text-2xl text-center">
+                                Sign Up Dinas
+                            </h1>
+                        @endif
+                    </div>
                     @if ($roles_id == 2)
                         <form class="space-y-4 md:space-y-6" action="/signupPeternak" method="POST" novalidate>
                             @csrf
@@ -85,9 +96,18 @@
                                         {{ $message }}</p>
                                 @enderror
                             </div>
-                            <button type="submit"
-                                class="w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign
-                                Up</button>
+                            <div class="flex">
+                                <button type="submit"
+                                    class="flex flex-row items-center justify-center text-center content-center w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] font-medium focus:bg-transparent focus:text-[#F5682A] focus:ring-2 focus:ring-[#F5682A] rounded-lg text-sm px-5 py-2.5 gap-2">Sign
+                                    Up
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M6 22h15v-2H6.012C5.55 19.988 5 19.805 5 19s.55-.988 1.012-1H21V4c0-1.103-.897-2-2-2H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3zM5 8V5c0-.805.55-.988 1-1h13v12H5V8z" />
+                                        <path fill="currentColor" d="M8 6h9v2H8z" />
+                                    </svg>
+                                </button>
+                            </div>
                             <p class="text-sm font-light text-gray-500 ">
                                 Sudah memiliki akun? <a href="/loginRole"
                                     class="font-medium text-[#F5682A] hover:text-[#F54C2A] hover:underline">Login</a>
@@ -164,9 +184,18 @@
                                         {{ $message }}</p>
                                 @enderror
                             </div>
-                            <button type="submit"
-                                class="w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign
-                                Up</button>
+                            <div class="flex">
+                                <button type="submit"
+                                    class="flex flex-row items-center justify-center text-center content-center w-full text-white bg-[#F5682A] hover:bg-[#F54C2A] font-medium focus:bg-transparent focus:text-[#F5682A] focus:ring-2 focus:ring-[#F5682A] rounded-lg text-sm px-5 py-2.5 gap-2">Sign
+                                    Up
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M6 22h15v-2H6.012C5.55 19.988 5 19.805 5 19s.55-.988 1.012-1H21V4c0-1.103-.897-2-2-2H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3zM5 8V5c0-.805.55-.988 1-1h13v12H5V8z" />
+                                        <path fill="currentColor" d="M8 6h9v2H8z" />
+                                    </svg>
+                                </button>
+                            </div>
                             <p class="text-sm font-light text-gray-500 ">
                                 Sudah memiliki akun? <a href="/loginRole"
                                     class="font-medium text-[#F5682A] hover:text-[#F54C2A] hover:underline">Login</a>

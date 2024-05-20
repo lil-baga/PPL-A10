@@ -58,7 +58,7 @@ class C_User extends Controller
         $kecamatan_id = Auth::user()->kecamatan_id;
         $kecamatan = Kecamatan::find($kecamatan_id);
 
-        return view('profil.V_editProfil', compact('currentuser', 'kecamatan', 'kecamatan_table', 'kecamatan_id'));
+        return view('profil.V_editProfil', compact('currentuser', 'kecamatan_table', 'kecamatan_id', 'kecamatan'));
     }
 
     /**

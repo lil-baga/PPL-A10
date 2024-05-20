@@ -10,4 +10,7 @@ class Penyuluhan extends Model
     use HasFactory;
     protected $guarded = ['id'];
     protected $table = 'penyuluhan';
+    protected $casts = [
+        'tanggal_penyuluhan'=>'datetime'
+    ];
 }

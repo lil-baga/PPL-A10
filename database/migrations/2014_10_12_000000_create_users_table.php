@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('kecamatan_id');
             $table->string('kontak');
             $table->foreignId('roles_id');
-            $table->integer('kode_akses')->default('0');
+            $table->integer('kode_akses')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

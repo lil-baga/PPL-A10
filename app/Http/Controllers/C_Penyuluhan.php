@@ -60,19 +60,19 @@ class C_Penyuluhan extends Controller
         if ($request->hasFile('surat_pengantar')) {
             $file = $request->file('surat_pengantar');
             $file_name = $file->getClientOriginalName();
-            $file->move('foto_surat', $file_name);
+            $file->move('img/foto_surat', $file_name);
             $validatedAdd['surat_pengantar'] = $file_name;
         };
         if ($request->hasFile('foto_ayam')) {
             $file = $request->file('foto_ayam');
             $file_name = $file->getClientOriginalName();
-            $file->move('foto_peternak', $file_name);
+            $file->move('img/foto_peternak', $file_name);
             $validatedAdd['foto_ayam'] = $file_name;
         };
         if ($request->hasFile('foto_peternakan')) {
             $file = $request->file('foto_peternakan');
             $file_name = $file->getClientOriginalName();
-            $file->move('foto_peternak', $file_name);
+            $file->move('img/foto_peternak', $file_name);
             $validatedAdd['foto_peternakan'] = $file_name;
         };
 
@@ -125,19 +125,19 @@ class C_Penyuluhan extends Controller
         if ($request->hasFile('surat_pengantar')) {
             $file = $request->file('surat_pengantar');
             $file_name = $file->getClientOriginalName();
-            $file->move('foto_surat', $file_name);
+            $file->move('img/foto_surat', $file_name);
             $validated['surat_pengantar'] = $file_name;
         };
         if ($request->hasFile('foto_ayam')) {
             $file = $request->file('foto_ayam');
             $file_name = $file->getClientOriginalName();
-            $file->move('foto_peternak', $file_name);
+            $file->move('img/foto_peternak', $file_name);
             $validatedUpdate['foto_ayam'] = $file_name;
         };
         if ($request->hasFile('foto_peternakan')) {
             $file = $request->file('foto_peternakan');
             $file_name = $file->getClientOriginalName();
-            $file->move('foto_peternak', $file_name);
+            $file->move('img/foto_peternak', $file_name);
             $validatedUpdate['foto_peternakan'] = $file_name;
         };
 

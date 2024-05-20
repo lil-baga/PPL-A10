@@ -1,4 +1,4 @@
-@extends('Layout.navbarDashboard')
+@extends('Layout.Sidebar')
 @section('title', '| Edit Berita')
 @section('content')
     <div class="w-full bg-white border-l-4 border-gray-200">
@@ -11,7 +11,7 @@
                 @method('PUT')
                 <div>
                     <label for="thumbnail" class="block mb-2 text-sm font-medium text-gray-900">Thumbnail</label>
-                    <input type="file" name="thumbnail" id="thumbnail" required="" value="{{ url("foto_berita/$broadcastBerita->thumbnail") }}">
+                    <input type="file" name="thumbnail" id="thumbnail" required="" value="{{ url("img/foto_berita/$broadcastBerita->thumbnail") }}">
                     @error('thumbnail')
                         <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                     @enderror

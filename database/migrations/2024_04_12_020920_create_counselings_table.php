@@ -20,8 +20,10 @@ return new class extends Migration
             $table->text('kondisi_ayam');
             $table->binary('foto_ayam');
             $table->binary('foto_peternakan');
-            $table->enum('validasi', ['Ditolak', 'Diproses', 'Diterima'])->default('Diproses');
-            $table->date('tanggal_penyuluhan')->nullable();
+            $table->enum('validasi_id', ['3', '2', '1'])->default('2');
+            $table->binary('foto_konfirmasi')->nullable();
+            $table->enum('konfirmasi_id', ['3', '2', '1'])->default('2');
+            $table->timestamp('tanggal_penyuluhan')->nullable();
             $table->text('catatan')->nullable();
             $table->foreignId('users_id');
             $table->timestamps();

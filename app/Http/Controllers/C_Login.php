@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class C_Login extends Controller
 {
@@ -52,11 +52,18 @@ class C_Login extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([
+        $request->validate([
+            'anda'=> 'required',
             'email'=> 'required|email',
-            'password'=> 'required',
-            'kode_akses'=> 'required',
+            'password'=> 'required|min:8',
+            'kode_akses'=> 'required_if:anda,==,3',
         ]);
+
+        $credentials = [
+            'email'=> $request->email,
+            'password'=> $request->password,
+            'kode_akses'=> $request->kode_akses
+        ];
 
         if (Auth::attempt($credentials)) {
             return redirect('/subsidiPakan');

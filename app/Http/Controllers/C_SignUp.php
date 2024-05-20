@@ -26,7 +26,7 @@ class C_SignUp extends Controller
     public function government()
     {
         $roles_id = 3;
-        $kecamatan = Kecamatan::all();
+        $kecamatan_id = Kecamatan::all();
         return view('V_SignUp', compact('roles_id', 'kecamatan_id'));
     }
 
