@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Penyuluhan;
+use App\Models\Kecamatan;
+use App\Models\Validasi;
+use App\Models\Konfirmasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,8 +30,16 @@ class C_Penyuluhan extends Controller
         $penyuluhanTernak = Penyuluhan::findOrFail($id);
         $users_id = $penyuluhanTernak['users_id'];
         $currentuser = User::find($users_id);
+        $validasi_id = $penyuluhanTernak->validasi_id;
+        $validasi_table = Validasi::find($validasi_id);
+        $validasi = $validasi_table->nama;
+        $konfirmasi_id = $penyuluhanTernak->konfirmasi_id;
+        $konfirmasi_table = Konfirmasi::find($konfirmasi_id);
+        $konfirmasi = $konfirmasi_table->nama;
+        $kecamatan_id = $currentuser->kecamatan_id;
+        $kecamatan = Kecamatan::find($kecamatan_id);
 
-        return view('penyuluhan.V_detailPenyuluhan', compact('penyuluhanTernak', 'currentuser'));
+        return view('penyuluhan.V_detailPenyuluhan', compact('penyuluhanTernak', 'currentuser', 'validasi', 'konfirmasi', 'kecamatan'));
     }
 
     /**
@@ -48,6 +59,7 @@ class C_Penyuluhan extends Controller
 
         $validatedAdd = $request->validate([
             'surat_pengantar'=> 'required|file|mimes:jpg,jpeg,png',
+            'surat_usaha'=> 'required|file|mimes:jpg,jpeg,png',
             'suhu_kandang'=> 'required',
             'kadar_air'=> 'required',
             'kadar_pakan'=> 'required',
@@ -62,6 +74,12 @@ class C_Penyuluhan extends Controller
             $file_name = $file->getClientOriginalName();
             $file->move('img/foto_surat', $file_name);
             $validatedAdd['surat_pengantar'] = $file_name;
+        };
+        if ($request->hasFile('surat_usaha')) {
+            $file = $request->file('surat_usaha');
+            $file_name = $file->getClientOriginalName();
+            $file->move('img/foto_surat', $file_name);
+            $validatedAdd['surat_usaha'] = $file_name;
         };
         if ($request->hasFile('foto_ayam')) {
             $file = $request->file('foto_ayam');
@@ -111,15 +129,20 @@ class C_Penyuluhan extends Controller
     public function update(Request $request, $id)
     {
         $penyuluhanTernak = Penyuluhan::findOrFail($id);
+        $validasi_id = $penyuluhanTernak->validasi_id;
 
         $validatedUpdate = $request->validate([
-            'surat_pengantar'=> '|file|mimes:jpg,jpeg,png',
+            'surat_pengantar'=> 'file|mimes:jpg,jpeg,png',
+            'surat_usaha'=> 'file|mimes:jpg,jpeg,png',
             'suhu_kandang'=> 'required',
             'kadar_air'=> 'required',
             'kadar_pakan'=> 'required',
             'kondisi_ayam'=> 'required',
-            'foto_ayam'=> '|file|mimes:jpg,jpeg,png',
-            'foto_peternakan'=> '|file|mimes:jpg,jpeg,png',
+            'foto_ayam'=> 'file|mimes:jpg,jpeg,png',
+            'validasi_id',
+            'foto_peternakan'=> 'file|mimes:jpg,jpeg,png',
+            'foto_konfirmasi'=> 'required|file|mimes:jpg,jpeg,png',
+            'konfirmasi_id',
         ]);
 
         if ($request->hasFile('surat_pengantar')) {
@@ -127,6 +150,12 @@ class C_Penyuluhan extends Controller
             $file_name = $file->getClientOriginalName();
             $file->move('img/foto_surat', $file_name);
             $validated['surat_pengantar'] = $file_name;
+        };
+        if ($request->hasFile('surat_usaha')) {
+            $file = $request->file('surat_usaha');
+            $file_name = $file->getClientOriginalName();
+            $file->move('img/foto_surat', $file_name);
+            $validatedAdd['surat_usaha'] = $file_name;
         };
         if ($request->hasFile('foto_ayam')) {
             $file = $request->file('foto_ayam');
@@ -139,6 +168,21 @@ class C_Penyuluhan extends Controller
             $file_name = $file->getClientOriginalName();
             $file->move('img/foto_peternak', $file_name);
             $validatedUpdate['foto_peternakan'] = $file_name;
+        };
+        if ($request->hasFile('foto_konfirmasi')) {
+            $file = $request->file('foto_konfirmasi');
+            $file_name = $file->getClientOriginalName();
+            $file->move('img/foto_peternak', $file_name);
+            $validatedUpdate['foto_konfirmasi'] = $file_name;
+        };
+
+        if($validasi_id != 3){
+            $checkbox = $request->input('konfirmasi_id');
+            $validatedUpdate['konfirmasi_id'] = $checkbox;
+        };
+        if($validasi_id == 3){
+            $validatedUpdate['konfirmasi_id'] = 2;
+            $validatedUpdate['validasi_id'] = 2;
         };
 
         $kondisiAyam = [
@@ -157,9 +201,10 @@ class C_Penyuluhan extends Controller
         $penyuluhanTernak = Penyuluhan::findOrFail($id);
         
         $checkbox = $request->input('validasi');
-        
+        $tanggal = $request->input('tanggal_penyuluhan');
+
         $validatedUpdate = $request->validate([
-            'validasi'=> 'required',
+            'validasi_id'=> 'required',
             'tanggal_penyuluhan',
             'catatan',
         ]);
@@ -170,6 +215,7 @@ class C_Penyuluhan extends Controller
         
         $validatedUpdate['validasi'] = $checkbox;
         $validatedUpdate['catatan'] = $isiCatatan['catatan'];
+        $validatedUpdate['tanggal_penyuluhan'] = $tanggal;
 
         $penyuluhanTernak->update($validatedUpdate);
         return redirect('penyuluhanTernak')->with('success', 'Pengajuan Berhasil Divalidasi!');

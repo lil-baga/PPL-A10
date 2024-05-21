@@ -81,8 +81,7 @@
                             <div>
                                 <label for="foto_konfirmasi" class="block mb-2 text-sm font-medium text-gray-900">Foto Pakan
                                     Subsidi Yang Diterima</label>
-                                <input class="w-64" type="file" name="foto_konfirmasi" id="foto_konfirmasi"
-                                    value="{{ $subsidiPakan->foto_konfirmasi }}">
+                                <input class="w-64" type="file" name="foto_konfirmasi" id="foto_konfirmasi">
                                 @error('foto_konfirmasi')
                                     <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
                                         {{ $message }}

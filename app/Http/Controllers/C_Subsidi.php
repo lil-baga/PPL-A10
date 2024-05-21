@@ -130,7 +130,7 @@ class C_Subsidi extends Controller
             'jumlah_pakan'=> 'required',
             'validasi_id',
             'foto_peternakan'=> 'file|mimes:jpg,jpeg,png',
-            'foto_konfirmasi'=> 'file|mimes:jpg,jpeg,png',
+            'foto_konfirmasi'=> 'required|file|mimes:jpg,jpeg,png',
             'konfirmasi_id',
         ]);
 

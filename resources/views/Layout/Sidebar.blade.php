@@ -46,7 +46,7 @@
             </h1>
             <nav class="flex flex-col gap-1 max-w-[280px] p-2 text-sm font-normal text-slate-900">
                 <a href="/subsidiPakan" role="button" tabindex="0"
-                    class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-colors hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
+                    class="{{ Route::is('view.subsidi') ? 'bg-[#F5682A] text-white' : '' }} flex items-center w-full p-3 rounded-lg text-start leading-tight transition-colors hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
                     <div class="grid place-items-center mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="currentColor"
@@ -55,7 +55,7 @@
                     </div>Pakan Subsidi
                 </a>
                 <a href="/penyuluhanTernak" role="button" tabindex="0"
-                    class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-colors hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
+                    class="{{ Route::is('view.penyuluhan') ? 'bg-[#F5682A] text-white' : '' }} flex items-center w-full p-3 rounded-lg text-start leading-tight transition-colors hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
                     <div class="grid place-items-center mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="currentColor"
@@ -66,7 +66,7 @@
                     </div>Penyuluhan Ternak
                 </a>
                 <a href="/broadcastBerita" role="button" tabindex="0"
-                    class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-colors hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
+                    class="{{ Route::is('view.berita') ? 'bg-[#F5682A] text-white' : '' }} flex items-center w-full p-3 rounded-lg text-start leading-tight transition-colors hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
                     <div class="grid place-items-center mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="currentColor"
@@ -76,7 +76,7 @@
                     </div>Broadcast Informasi
                 </a>
                 <a href="/profilUser" role="button" tabindex="0"
-                    class="flex items-center w-full p-3 rounded-lg text-start leading-tight transition-colors hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
+                    class="{{ Route::is('view.profil') ? 'bg-[#F5682A] text-white' : '' }} flex items-center w-full p-3 rounded-lg text-start leading-tight transition-colors hover:bg-[#F5682A]  focus:bg-[#F5682A]  active:bg-[#F5682A]  hover:text-white focus:text-white active:text-white outline-none">
                     <div class="grid place-items-center mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                             <path fill="currentColor"

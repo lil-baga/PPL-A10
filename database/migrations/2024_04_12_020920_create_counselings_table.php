@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('penyuluhan', function (Blueprint $table) {
             $table->id();
             $table->binary('surat_pengantar');
+            $table->binary('surat_usaha');
             $table->integer('suhu_kandang');
             $table->integer('kadar_air');
             $table->integer('kadar_pakan');

@@ -62,7 +62,7 @@
                             </a>
                         </div>
                         <div class="space-y-2">
-                            <p class="flex font-medium text-sm text-slate-900">Foto Pakan Subsidi Yang Diterima:</p>
+                            <p class="flex font-medium text-sm text-slate-900">Foto Menerima Pakan Subsidi:</p>
                             @if ($subsidiPakan->foto_konfirmasi == null)
                                 <p class="flex leading-normal text-slate-900">
                                     -
@@ -210,12 +210,15 @@
                     @if (Auth::user()->roles_id == 2)
                         @if ($subsidiPakan->validasi_id == 2)
                         @else
+                            @if ($subsidiPakan->konfirmasi_id == 1)
+                            @else
                             <a href="{{ route('edit.subsidi', $subsidiPakan->id) }}"
                                 class="items-center justify-center w-auto button transition-colors bg-blue-500 flex hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded gap-2">Ubah
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                                     <path fill="currentColor" d="m7 17.013l4.413-.015l9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583l-1.597 1.582l-1.586-1.585l1.594-1.58zM9 13.417l6.03-5.973l1.586 1.586l-6.029 5.971L9 15.006v-1.589z"/>
                                     <path fill="currentColor" d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01c-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"/>
                                 </svg></a>
+                            @endif
                         @endif
                         <button id="deleteButton" data-modal-target="deleteModal" data-modal-toggle="deleteModal"
                             class="items-center justify-center w-auto button transition-colors bg-red-500 flex hover:cursor-pointer hover:bg-red-700 text-white font-medium py-2 px-4 rounded gap-2"
