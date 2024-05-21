@@ -17,7 +17,7 @@
                     Edit Profil
                 </h1>
                 <form class="flex flex-col space-y-8 justify-center items-center"
-                    action="{{ route('update.profil', $currentuser->id) }}" method="POST" enctype="multipart/form-data"
+                    action="{{ route('update.profil', Crypt::encryptString($currentuser->id)) }}" method="POST" enctype="multipart/form-data"
                     novalidate>
                     @csrf
                     @method('PUT')

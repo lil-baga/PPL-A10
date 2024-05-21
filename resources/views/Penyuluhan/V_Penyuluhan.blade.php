@@ -212,7 +212,7 @@
                                                 </td>
                                                 <td class="p-4 border border-slate-300">
                                                     <div class="flex flex-row items-center justify-center">
-                                                        <a href="{{ route('detail.penyuluhan', $pt->id) }}"
+                                                        <a href="{{ route('detail.penyuluhan', Crypt::encryptString($pt->id)) }}"
                                                             class="button bg-blue-500 transition-colors flex flex-row items-center justify-center hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded gap-2">
                                                             Detail
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20"
@@ -351,7 +351,7 @@
                                             </td>
                                             <td class="p-4 border border-slate-300">
                                                 <div class="flex flex-row items-center justify-center">
-                                                    <a href="{{ route('detail.penyuluhan', $pt->id) }}"
+                                                    <a href="{{ route('detail.penyuluhan', Crypt::encryptString($pt->id)) }}"
                                                         class="button bg-blue-500 flex flex-row items-center justify-center hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded gap-2">
                                                         Detail
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20"

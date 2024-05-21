@@ -128,10 +128,8 @@ return [
     |
     */
 
-    'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+    'attributes' => [
+        'roles_id' => 'anda',
     ],
 
     'values' => [

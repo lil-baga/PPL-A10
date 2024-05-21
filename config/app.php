@@ -4,9 +4,6 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
-
-    'date_format' => 'd/m/Y',
-    'date_format_javascript' => 'DD/MM/YYYY',
     /*
     |--------------------------------------------------------------------------
     | Application Name

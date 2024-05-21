@@ -9,6 +9,7 @@ use App\Models\Validasi;
 use App\Models\Konfirmasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class C_Penyuluhan extends Controller
 {
@@ -27,7 +28,8 @@ class C_Penyuluhan extends Controller
 
     public function detail(Request $request, $id)
     {
-        $penyuluhanTernak = Penyuluhan::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $penyuluhanTernak = Penyuluhan::findOrFail($decryptedID);
         $users_id = $penyuluhanTernak['users_id'];
         $currentuser = User::find($users_id);
         $validasi_id = $penyuluhanTernak->validasi_id;
@@ -113,13 +115,15 @@ class C_Penyuluhan extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $penyuluhanTernak = Penyuluhan::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $penyuluhanTernak = Penyuluhan::findOrFail($decryptedID);
         return view('penyuluhan.V_editPenyuluhan', compact('penyuluhanTernak'));
     }
 
     public function dinasValidasi(Request $request, $id)
     {
-        $penyuluhanTernak = Penyuluhan::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $penyuluhanTernak = Penyuluhan::findOrFail($decryptedID);
         return view('penyuluhan.V_validasiPenyuluhan', compact('penyuluhanTernak'));
     }
 
@@ -128,7 +132,8 @@ class C_Penyuluhan extends Controller
      */
     public function update(Request $request, $id)
     {
-        $penyuluhanTernak = Penyuluhan::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $penyuluhanTernak = Penyuluhan::findOrFail($decryptedID);
         $validasi_id = $penyuluhanTernak->validasi_id;
 
         $validatedUpdate = $request->validate([
@@ -198,7 +203,8 @@ class C_Penyuluhan extends Controller
 
     public function updateValidasi(Request $request, $id)
     {
-        $penyuluhanTernak = Penyuluhan::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $penyuluhanTernak = Penyuluhan::findOrFail($decryptedID);
         
         $checkbox = $request->input('validasi');
         $tanggal = $request->input('tanggal_penyuluhan');
@@ -226,7 +232,8 @@ class C_Penyuluhan extends Controller
      */
     public function destroy($id)
     {
-        $destroy = Penyuluhan::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $destroy = Penyuluhan::findOrFail($decryptedID);
         $destroy->delete();
         return redirect('penyuluhanTernak')->with('success', 'Pengajuan Berhasil Dihapus!');
     }

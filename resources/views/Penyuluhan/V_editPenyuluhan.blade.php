@@ -5,7 +5,7 @@
         <div class="px-16 py-16">
             <div class=" px-8 py-8 shadow-xl bg-white rounded-lg">
                 <div class="flex flex-row">
-                    <a href="{{ route('detail.penyuluhan', $penyuluhanTernak->id) }}"
+                    <a href="{{ route('detail.penyuluhan', Crypt::encryptString($penyuluhanTernak->id)) }}"
                         class="button absolute hover:bg-slate-200 hover:rounded-lg content-center w-auto h-auto p-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path fill="currentColor"
@@ -17,7 +17,7 @@
                     Ubah Pengajuan Penyuluhan Ternak
                 </h1>
                 <form class="flex flex-col space-y-12 justify-center items-center"
-                    action="{{ route('update.penyuluhan', $penyuluhanTernak->id) }}" method="POST"
+                    action="{{ route('update.penyuluhan', Crypt::encryptString($penyuluhanTernak->id)) }}" method="POST"
                     enctype="multipart/form-data" novalidate>
                     @csrf
                     @method('PUT')

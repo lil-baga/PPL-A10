@@ -53,16 +53,17 @@ class C_Login extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'anda'=> 'required',
             'email'=> 'required|email',
             'password'=> 'required|min:8',
-            'kode_akses'=> 'required_if:anda,==,3',
+            'kode_akses'=> 'required_if:roles_id,==,3',
+            'roles_id'=>'required',
         ]);
 
         $credentials = [
             'email'=> $request->email,
             'password'=> $request->password,
-            'kode_akses'=> $request->kode_akses
+            'kode_akses'=> $request->kode_akses,
+            'roles_id'=> $request->roles_id,
         ];
 
         if (Auth::attempt($credentials)) {

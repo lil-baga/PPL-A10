@@ -10,16 +10,18 @@
     <div class="w-full bg-slate-200">
         @if (Session::has('success'))
             <div id="alert-border-3"
-                class="flex items-center p-4 mb-4 text-green-800 border-t-4 border-green-300 bg-green-50" role="alert">
+                class="flex absolute w-auto justify-center p-4 mb-4 text-slate-800 border-t-4 border-green-300 bg-green-50 z-50"
+                role="alert">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                    <path fill="currentColor" d="M5 22h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-2a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1H5c-1.103 0-2 .897-2 2v15c0 1.103.897 2 2 2zM5 5h2v2h10V5h2v15H5V5z"/>
-                    <path fill="currentColor" d="m11 13.586l-1.793-1.793l-1.414 1.414L11 16.414l5.207-5.207l-1.414-1.414z"/>
+                    <path fill="currentColor"
+                        d="M5 22h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-2a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1H5c-1.103 0-2 .897-2 2v15c0 1.103.897 2 2 2zM5 5h2v2h10V5h2v15H5V5z" />
+                    <path fill="currentColor" d="m11 13.586l-1.793-1.793l-1.414 1.414L11 16.414l5.207-5.207l-1.414-1.414z" />
                 </svg>
-                <div class="ms-3 text-sm font-medium">
+                <div class="mx-3 text-sm font-medium">
                     {{ Session::get('success') }}
                 </div>
                 <button type="button"
-                    class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8"
+                    class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-slate-500 rounded-lg p-1.5 hover:bg-slate-200 inline-flex items-center justify-center ml-8 h-8 w-8"
                     data-dismiss-target="#alert-border-3" aria-label="Close">
                     <span class="sr-only">Dismiss</span>
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -72,7 +74,7 @@
                         </div>
                     </div>
                     <div class="flex flex-row items-center justify-center">
-                        <a href="{{ route('edit.profil', $currentuser->id) }}"
+                        <a href="{{ route('edit.profil', Crypt::encryptString($currentuser->id)) }}"
                             class="text-center items-center justify-center w-auto bg-blue-500 hover:bg-blue-700 flex hover:cursor-pointer text-white font-medium py-2 px-4 rounded gap-2">Ubah
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                                 <path fill="currentColor" d="m7 17.013l4.413-.015l9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583l-1.597 1.582l-1.586-1.585l1.594-1.58zM9 13.417l6.03-5.973l1.586 1.586l-6.029 5.971L9 15.006v-1.589z"/>

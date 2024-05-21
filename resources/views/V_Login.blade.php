@@ -53,7 +53,7 @@
                             @enderror
                         </div>
                         <div class="hidden">
-                            <input type="text" name="anda" id="anda" placeholder="Role Anda"
+                            <input type="text" name="roles_id" id="roles_id" placeholder="Role Anda"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-full p-2.5"
                                 value="{{ $roles_id }}" required="">
                         </div>
@@ -67,7 +67,7 @@
                                     required="">
                                 @error('kode_akses')
                                     <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
-                                        {{ $message }}</p>
+                                        kode akses wajib diisi bila anda adalah dinas</p>
                                 @enderror
                             </div>
                         @else

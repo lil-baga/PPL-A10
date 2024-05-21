@@ -246,7 +246,7 @@
                         @else
                             @if ($penyuluhanTernak->konfirmasi_id == 1)
                             @else
-                                <a href="{{ route('edit.penyuluhan', $penyuluhanTernak->id) }}"
+                                <a href="{{ route('edit.penyuluhan', Crypt::encryptString($penyuluhanTernak->id)) }}"
                                     class="items-center justify-center w-auto button transition-colors bg-blue-500 flex hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded gap-2">Ubah
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                         viewBox="0 0 24 24">
@@ -281,7 +281,7 @@
                                             </svg>
                                         </button>
                                         <form id='delete' method="POST"
-                                            action="{{ route('destroy.penyuluhan', $penyuluhanTernak->id) }}">
+                                            action="{{ route('destroy.penyuluhan', Crypt::encryptString($penyuluhanTernak->id)) }}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
@@ -300,7 +300,7 @@
                             </div>
                         </div>
                     @elseif(Auth::user()->roles_id == 3)
-                        <a href="{{ route('view.validpenyuluhan', $penyuluhanTernak->id) }}"
+                        <a href="{{ route('view.validpenyuluhan', Crypt::encryptString($penyuluhanTernak->id)) }}"
                             class="text-center items-center justify-center w-auto bg-green-500 hover:bg-green-700 flex hover:cursor-pointer text-white font-medium py-2 px-4 rounded gap-2">Validasi
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                                 <path fill="currentColor"

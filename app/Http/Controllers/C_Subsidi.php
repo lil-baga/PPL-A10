@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Subsidi;
-use App\Models\Kecamatan;
 use App\Models\Validasi;
+use App\Models\Kecamatan;
 use App\Models\Konfirmasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 
 class C_Subsidi extends Controller
@@ -28,7 +29,8 @@ class C_Subsidi extends Controller
 
     public function detail(Request $request, $id)
     {
-        $subsidiPakan = Subsidi::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $subsidiPakan = Subsidi::findOrFail($decryptedID);
         $users_id = $subsidiPakan['users_id'];
         $currentuser = User::find($users_id);
         $validasi_id = $subsidiPakan->validasi_id;
@@ -105,13 +107,15 @@ class C_Subsidi extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $subsidiPakan = Subsidi::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $subsidiPakan = Subsidi::findOrFail($decryptedID);
         return view('subsidi.V_editSubsidi', compact('subsidiPakan'));
     }
 
     public function dinasValidasi(Request $request, $id)
     {
-        $subsidiPakan = Subsidi::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $subsidiPakan = Subsidi::findOrFail($decryptedID);
         return view('subsidi.V_validasiSubsidi', compact('subsidiPakan'));
     }
 
@@ -120,7 +124,8 @@ class C_Subsidi extends Controller
      */
     public function update(Request $request, $id)
     {
-        $subsidiPakan = Subsidi::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $subsidiPakan = Subsidi::findOrFail($decryptedID);
         $validasi_id = $subsidiPakan->validasi_id;
         
         $validatedUpdate = $request->validate([
@@ -174,7 +179,8 @@ class C_Subsidi extends Controller
 
     public function updateValidasi(Request $request, $id)
     {
-        $subsidiPakan = Subsidi::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $subsidiPakan = Subsidi::findOrFail($decryptedID);
         
         $checkbox = $request->input('validasi_id');
         $tanggal = $request->input('tanggal_pengambilan');
@@ -202,7 +208,8 @@ class C_Subsidi extends Controller
      */
     public function destroy($id)
     {
-        $destroy = Subsidi::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $destroy = Subsidi::findOrFail($decryptedID);
         $destroy->delete();
         return redirect('subsidiPakan')->with('success', 'Pengajuan Berhasil Dihapus!');
     }
