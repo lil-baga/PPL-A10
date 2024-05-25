@@ -28,7 +28,7 @@
                             class="overflow-hidden rounded-lg w-96 border border-gray-300 focus-within:border-[#F5682A] focus-within:ring-1 focus-within:ring-[#F5682A]">
                             <input type="datetime-local" id="tanggal_penyuluhan" name="tanggal_penyuluhan"
                                 class="p-2 w-96 resize-none border-none align-top focus:ring-0 sm:text-sm" rows="4"
-                                placeholder="Berikan Tanggal Penyuluhan..."
+                                placeholder="Berikan Tanggal Penyuluhan..." min="{{ now()->translatedFormat('Y-m-d H:i') }}"
                                 value="{{ $penyuluhanTernak->tanggal_penyuluhan }}">
                         </div>
                     </div>

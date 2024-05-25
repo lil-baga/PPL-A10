@@ -27,11 +27,11 @@
             </div>
         @endif
         <div class="px-16 py-16">
-            <div class="px-8 py-8 shadow-xl bg-white rounded-lg">
+            <div class="px-8 py-8 shadow-xl bg-white rounded-lg overflow-auto">
                 <h1 class="text-2xl font-bold text-slate-900 text-center">
                     Pengajuan Pakan Subsidi
                 </h1>
-                <div class="flex flex-col h-[670px] overflow-auto mt-4">
+                <div class="flex flex-col h-[540px] overflow-auto mt-4">
                     <table class="w-full table-auto text-center text-sm bg-white">
                         <thead>
                             <tr class="bg-slate-900">

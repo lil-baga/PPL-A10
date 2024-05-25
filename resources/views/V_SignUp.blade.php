@@ -27,7 +27,7 @@
                         @endif
                     </div>
                     @if ($roles_id == 2)
-                        <form class="space-y-4 md:space-y-6" action="/signupPeternak" method="POST" novalidate>
+                        <form class="space-y-4 md:space-y-6" action="/signupPeternak" method="POST" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div>
                                 <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 ">Nama
@@ -114,7 +114,7 @@
                             </p>
                         </form>
                     @else
-                        <form class="space-y-4 md:space-y-6" action="/signupDinas" method="POST" novalidate>
+                        <form class="space-y-4 md:space-y-6" action="/signupDinas" method="POST" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div>
                                 <label for="nama" class="block mb-2 text-sm font-medium text-gray-900 ">Nama

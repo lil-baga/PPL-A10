@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'email' => 'adminc&c@gmail.com',
             'password' => bcrypt('adminroot123'),
             'alamat' => 'Jl. Admin Gg. Database No. 4',
-            'kecamatan_id' => '1',
+            'kecamatan_id' => '27',
             'kontak' => '081333760081',
             'roles_id' => '1',
         ]);
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             'email' => 'purwoto_dkppk@gmail.com',
             'password' => bcrypt('purwoto1'),
             'alamat' => 'Jl. Letjend Suprapto No.139',
-            'kecamatan_id' => '1',
+            'kecamatan_id' => '27',
             'kontak' => '0331337275',
             'kode_akses' => $accessCode,
             'roles_id' => '3',
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
             'email' => 'arifandi@gmail.com',
             'password' => bcrypt('arifandi7'),
             'alamat' => 'Jl. Sarangan No.5',
-            'kecamatan_id' => '22',
+            'kecamatan_id' => '17',
             'kontak' => '081657832490',
             'roles_id' => '2',
         ]);
@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
             'email' => 'riyan@gmail.com',
             'password' => bcrypt('riyan333'),
             'alamat' => 'Jl. Sritanjung No.55',
-            'kecamatan_id' => '1',
+            'kecamatan_id' => '27',
             'kontak' => '082879264510',
             'roles_id' => '2',
         ]);

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/23.0.0/classic/ckeditor.js"></script>
     <style>
         .remove-arrow::-webkit-inner-spin-button,
         .remove-arrow::-webkit-outer-spin-button {
@@ -18,15 +19,23 @@
         }
 
         .scrollbar::-webkit-scrollbar {
-            width: 20px;
+            width: 16px;
         }
 
         .scrollbar::-webkit-scrollbar-track {
-            background: #fff;
+            background-color: white;
         }
 
         .scrollbar::-webkit-scrollbar-thumb {
-            background: #000;
+            background-color: #F5682A;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .preserveLines {
+            white-space: pre-wrap;
         }
     </style>
     <link rel="stylesheet" href="./resources/output.css">
@@ -35,7 +44,7 @@
     <title>Chick&Check @yield('title')</title>
 </head>
 
-<body class="font-[poppins] font-medium">
+<body class="font-[poppins] font-medium scrollbar">
     <div class="flex flex-row">
         <div class="relative flex flex-col bg-clip-border bg-white text-slate-900 h-screen w-full max-w-[320px] p-4">
             <div class="mb-2 p-2 flex items-center justify-center">
@@ -131,13 +140,6 @@
                     </div>
                 </div>
             </div>
-            <footer
-                class="fixed font-medium bottom-0 left-0 z-10 w-[320px] p-2 bg-white shadow md:flex md:items-center md:justify-center">
-                <p class="text-sm text-[#F5682A] text-center">© 2024 <a
-                        href="https://docs.google.com/document/d/167jNoQAbCq6WD8fNQgyfTdpghg5DldRu" target="_blank"
-                        class="hover:underline">Kelompok A10™ - Chick&Check</a>
-                </p>
-            </footer>
         </div>
         @yield('content')
     </div>

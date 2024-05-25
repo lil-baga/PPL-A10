@@ -48,11 +48,12 @@ class C_SignUp extends Controller
             'email'=> 'required|email|unique:users',
             'password'=> 'required|min:8',
             'alamat'=> 'required',
-            'kecamatan'=> 'required',
+            'kecamatan_id'=> 'required',
             'kontak'=> 'required|min:12',
         ]);
 
         $validatedRegister['password'] = bcrypt($validatedRegister['password']);
+        $validatedRegister['kode_akses'] = null;
         $validatedRegister['roles_id'] = '2';
         User::create($validatedRegister);
 
@@ -69,7 +70,7 @@ class C_SignUp extends Controller
             'email'=> 'required|email|unique:users',
             'password'=> 'required|min:8',
             'alamat'=> 'required',
-            'kecamatan'=> 'required',
+            'kecamatan_id'=> 'required',
             'kontak'=> 'required|min:12',
             'kode_akses',
             'roles_id',
@@ -77,7 +78,7 @@ class C_SignUp extends Controller
         ]);
 
         $validatedRegister['password'] = bcrypt($validatedRegister['password']);
-        $validatedRegister['access_code'] = $accessCode;
+        $validatedRegister['kode_akses'] = $accessCode;
         $validatedRegister['roles_id'] = '3';
 
         User::create($validatedRegister);

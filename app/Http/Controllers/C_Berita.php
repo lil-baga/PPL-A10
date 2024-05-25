@@ -6,6 +6,7 @@ use App\Models\Berita;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class C_Berita extends Controller
 {
@@ -24,7 +25,8 @@ class C_Berita extends Controller
 
     public function detail(Request $request, $id)
     {
-        $broadcastBerita = Berita::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $broadcastBerita = Berita::findOrFail($decryptedID);
         $users_id = $broadcastBerita['users_id'];
         $currentuser = User::find($users_id);
 
@@ -79,7 +81,8 @@ class C_Berita extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $broadcastBerita = Berita::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $broadcastBerita = Berita::findOrFail($decryptedID);
         return view('berita.V_editBerita', compact('broadcastBerita'));
     }
 
@@ -88,7 +91,8 @@ class C_Berita extends Controller
      */
     public function update(Request $request, $id)
     {
-        $broadcastBerita = Berita::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $broadcastBerita = Berita::findOrFail($decryptedID);
 
         $validatedUpdate = $request->validate([
             'thumbnail'=> 'file|mimes:jpg,jpeg,png',
@@ -119,7 +123,8 @@ class C_Berita extends Controller
      */
     public function destroy($id)
     {
-        $destroy = Berita::findOrFail($id);
+        $decryptedID = Crypt::decryptString($id);
+        $destroy = Berita::findOrFail($decryptedID);
         $destroy->delete();
         return redirect('broadcastBerita')->with('success', 'Berita Berhasil Dihapus!');
     }
