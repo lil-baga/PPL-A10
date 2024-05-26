@@ -26,7 +26,7 @@
                             <div class="w-64">
                                 <label for="surat_pengantar" class="block mb-2 text-sm font-medium text-slate-900">Surat
                                     Pengantar</label>
-                                <input class="w-64" type="file" name="surat_pengantar" id="surat_pengantar"
+                                <input class="w-64" type="file" name="surat_pengantar" id="surat_pengantar" accept="image/png, image/jpeg"
                                     required="" value="{{ $penyuluhanTernak->surat_pengantar }}">
                                 @error('surat_pengantar')
                                     <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
@@ -37,7 +37,7 @@
                             <div class="w-64">
                                 <label for="surat_usaha" class="block mb-2 text-sm font-medium text-slate-900">Surat
                                     Usaha</label>
-                                <input class="w-64" type="file" name="surat_usaha" id="surat_usaha" required=""
+                                <input class="w-64" type="file" name="surat_usaha" id="surat_usaha" accept="image/png, image/jpeg" required=""
                                     value="{{ $penyuluhanTernak->surat_usaha }}">
                                 @error('surat_usaha')
                                     <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
@@ -88,7 +88,7 @@
                             <div>
                                 <label for="foto_ayam" class="block mb-2 text-sm font-medium text-gray-900">Foto
                                     Ayam</label>
-                                <input class="w-64" type="file" name="foto_ayam" id="foto_ayam" required=""
+                                <input class="w-64" type="file" name="foto_ayam" id="foto_ayam" accept="image/png, image/jpeg" required=""
                                     value="{{ $penyuluhanTernak->foto_ayam }}">
                                 @error('foto_ayam')
                                     <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
@@ -114,7 +114,7 @@
                             <div>
                                 <label for="foto_peternakan" class="block mb-2 text-sm font-medium text-gray-900">Foto
                                     Peternakan</label>
-                                <input class="w-64" type="file" name="foto_peternakan" id="foto_peternakan"
+                                <input class="w-64" type="file" name="foto_peternakan" id="foto_peternakan" accept="image/png, image/jpeg"
                                     required="" value="{{ $penyuluhanTernak->foto_peternakan }}">
                                 @error('foto_peternakan')
                                     <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
@@ -140,7 +140,7 @@
                             <div>
                                 <label for="foto_konfirmasi" class="block mb-2 text-sm font-medium text-gray-900">Foto
                                     Menerima Penyuluhan</label>
-                                <input class="w-64" type="file" name="foto_konfirmasi" id="foto_konfirmasi">
+                                <input class="w-64" type="file" name="foto_konfirmasi" id="foto_konfirmasi" accept="image/png, image/jpeg">
                                 @error('foto_konfirmasi')
                                     <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
                                         {{ $message }}

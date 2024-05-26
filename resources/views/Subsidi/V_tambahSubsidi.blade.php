@@ -23,7 +23,7 @@
                         <div class="w-64">
                             <label for="surat_pengantar" class="block mb-2 text-sm font-medium text-slate-900">Surat
                                 Pengantar</label>
-                            <input class="w-64" type="file" name="surat_pengantar" id="surat_pengantar" required="">
+                            <input class="w-64" type="file" name="surat_pengantar" id="surat_pengantar" accept="image/png, image/jpeg" required="">
                             @error('surat_pengantar')
                                 <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}
                                 </p>
@@ -32,7 +32,7 @@
                         <div class="w-64">
                             <label for="surat_usaha" class="block mb-2 text-sm font-medium text-slate-900">Surat
                                 Usaha</label>
-                            <input class="w-64" type="file" name="surat_usaha" id="surat_usaha" required="">
+                            <input class="w-64" type="file" name="surat_usaha" id="surat_usaha" accept="image/png, image/jpeg" required="">
                             @error('surat_usaha')
                                 <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}
                                 </p>
@@ -66,7 +66,7 @@
                     <div class="w-64">
                         <label for="foto_peternakan" class="block mb-2 text-sm font-medium text-slate-900">Foto
                             Peternakan</label>
-                        <input class="w-64" type="file" name="foto_peternakan" id="foto_peternakan" required="">
+                        <input class="w-64" type="file" name="foto_peternakan" id="foto_peternakan" accept="image/png, image/jpeg" required="">
                         @error('foto_peternakan')
                             <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                         @enderror

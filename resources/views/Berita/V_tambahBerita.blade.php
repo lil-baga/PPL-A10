@@ -21,7 +21,7 @@
                     @csrf
                     <div>
                         <label for="thumbnail" class="block mb-2 text-sm font-medium text-gray-900">Thumbnail</label>
-                        <input class="w-96" type="file" name="thumbnail" id="thumbnail" required="">
+                        <input class="w-96" type="file" name="thumbnail" id="thumbnail" accept="image/png, image/jpeg" required="">
                         @error('thumbnail')
                             <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">{{ $message }}</p>
                         @enderror
