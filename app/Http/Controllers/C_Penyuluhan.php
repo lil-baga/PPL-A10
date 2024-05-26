@@ -157,13 +157,13 @@ class C_Penyuluhan extends Controller
             $file = $request->file('surat_pengantar');
             $file_name = $file->getClientOriginalName();
             $file->move('img/foto_surat', $file_name);
-            $validated['surat_pengantar'] = $file_name;
+            $validatedUpdate['surat_pengantar'] = $file_name;
         };
         if ($request->hasFile('surat_usaha')) {
             $file = $request->file('surat_usaha');
             $file_name = $file->getClientOriginalName();
             $file->move('img/foto_surat', $file_name);
-            $validatedAdd['surat_usaha'] = $file_name;
+            $validatedUpdate['surat_usaha'] = $file_name;
         };
         if ($request->hasFile('foto_ayam')) {
             $file = $request->file('foto_ayam');
