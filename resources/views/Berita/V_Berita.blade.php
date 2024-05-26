@@ -4,7 +4,7 @@
     <div class="w-full bg-slate-200 scrollbar">
         @if (Session::has('success'))
             <div id="alert-border-3"
-                class="flex absolute w-auto justify-center p-4 mb-4 text-slate-800 border-t-4 border-green-300 bg-green-50 z-50"
+                class="flex absolute w-auto justify-center p-4 mb-4 text-slate-800 border-t-4 border-green-300 bg-green-50 z-40"
                 role="alert">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                     <path fill="currentColor"
@@ -151,20 +151,42 @@
                     </div>
                 </div>
             </div>
-            @if (Auth::user()->roles_id == 3)
+            <div class="flex flex-row items-center justify-center gap-8">
+                @if (Auth::user()->roles_id == 3)
+                    <div class="flex flex-row items-center justify-center">
+                        <a href="/tambahBerita"
+                            class="button items-center justify-center transition-colors bg-green-500 inset-y-0 left-0 top-0 flex flex-row mt-6 bottom-0 hover:cursor-pointer hover:bg-green-700 text-white font-medium py-2 px-4 rounded gap-2">
+                            Tambah
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="m21.706 5.292l-2.999-2.999A.996.996 0 0 0 18 2H6a.996.996 0 0 0-.707.293L2.294 5.292A.994.994 0 0 0 2 6v13c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6a.994.994 0 0 0-.294-.708zM6.414 4h11.172l1 1H5.414l1-1zM4 19V7h16l.002 12H4z" />
+                                <path fill="currentColor" d="M14 9h-4v3H7l5 5l5-5h-3z" />
+                            </svg>
+                        </a>
+                    </div>
+                @else
+                @endif
                 <div class="flex flex-row items-center justify-center">
-                    <a href="/tambahBerita"
-                        class="button items-center justify-center transition-colors bg-green-500 inset-y-0 left-0 top-0 flex flex-row mt-6 bottom-0 hover:cursor-pointer hover:bg-green-700 text-white font-medium py-2 px-4 rounded gap-2">
-                        Tambah
+                    <a href="{{ url("img/pdf/surat_pengantar.pdf") }}" target="_blank"
+                        class="button items-center justify-center transition-colors bg-blue-500 inset-y-0 left-0 top-0 flex flex-row mt-6 bottom-0 hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded gap-2">
+                        Surat Pengantar
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="m21.706 5.292l-2.999-2.999A.996.996 0 0 0 18 2H6a.996.996 0 0 0-.707.293L2.294 5.292A.994.994 0 0 0 2 6v13c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6a.994.994 0 0 0-.294-.708zM6.414 4h11.172l1 1H5.414l1-1zM4 19V7h16l.002 12H4z" />
-                            <path fill="currentColor" d="M14 9h-4v3H7l5 5l5-5h-3z" />
+                            <path fill="currentColor" d="m12 16l4-5h-3V4h-2v7H8z" />
+                            <path fill="currentColor" d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z" />
                         </svg>
                     </a>
                 </div>
-            @else
-            @endif
+                <div class="flex flex-row items-center justify-center">
+                    <a href="{{ url("img/pdf/surat_usaha.pdf") }}" target="_blank"
+                        class="button items-center justify-center transition-colors bg-blue-500 inset-y-0 left-0 top-0 flex flex-row mt-6 bottom-0 hover:cursor-pointer hover:bg-blue-700 text-white font-medium py-2 px-4 rounded gap-2">
+                        Surat Usaha
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="m12 16l4-5h-3V4h-2v7H8z" />
+                            <path fill="currentColor" d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

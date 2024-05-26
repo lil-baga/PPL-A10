@@ -52,12 +52,16 @@ class C_Login extends Controller
 
     public function login(Request $request)
     {
+        $message = [
+            'required_if'  => 'kode akses wajib diisi.',
+        ];
+
         $request->validate([
             'email'=> 'required|email',
             'password'=> 'required|min:8',
             'kode_akses'=> 'required_if:roles_id,==,3',
             'roles_id'=>'required',
-        ]);
+        ], $message);
 
         $credentials = [
             'email'=> $request->email,

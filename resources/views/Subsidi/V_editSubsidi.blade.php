@@ -76,12 +76,24 @@
                                 </p>
                             @enderror
                         </div>
+                        <div class="flex-col items-center w-auto hidden">
+                            <div>
+                                <label for="foto_konfirmasi" class="block mb-2 text-sm font-medium text-gray-900">Foto Pakan
+                                    Subsidi Yang Diterima</label>
+                                <input class="w-64" type="file" name="foto_konfirmasi" id="foto_konfirmasi" value="null">
+                                @error('foto_konfirmasi')
+                                    <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
+                                        {{ $message }}
+                                    </p>
+                                @enderror
+                            </div>
+                        </div>
                     @elseif ($subsidiPakan->validasi_id == 1)
                         <div class="flex flex-col items-center w-auto">
                             <div>
                                 <label for="foto_konfirmasi" class="block mb-2 text-sm font-medium text-gray-900">Foto Pakan
                                     Subsidi Yang Diterima</label>
-                                <input class="w-64" type="file" name="foto_konfirmasi" id="foto_konfirmasi">
+                                <input class="w-64" type="file" name="foto_konfirmasi" id="foto_konfirmasi" accept="image/jpg, image/jpeg, image/png">
                                 @error('foto_konfirmasi')
                                     <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
                                         {{ $message }}
@@ -126,6 +138,13 @@
                                 value="{{ $subsidiPakan->jumlah_pakan }}" placeholder="Ajuan Pakan (Kwintal)"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block w-64 p-2.5 remove-arrow"
                                 required="">
+                                <div class="flex flex-col items-center justify-center">
+                                    <label for="Sudah" class="block mb-2 text-sm font-medium text-gray-900">Diterima</label>
+                                    <input type="radio" name="validasi_id" id="Sudah" value="{{ $subsidiPakan->validasi_id }}"
+                                        @if ($subsidiPakan->validasi_id == 1) checked @endif
+                                        onclick="if(this.checked) {Belum.checked=false;} {Proses.checked=false;}"
+                                        class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
+                                </div>
                         </div>
                     @else
                         <h1>Pengajuan Anda Masih Diproses...</h1>

@@ -67,7 +67,7 @@
                                     required="">
                                 @error('kode_akses')
                                     <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
-                                        kode akses wajib diisi bila anda adalah dinas</p>
+                                        {{ $message }}</p>
                                 @enderror
                             </div>
                         @else

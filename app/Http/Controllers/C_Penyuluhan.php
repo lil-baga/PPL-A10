@@ -135,6 +135,9 @@ class C_Penyuluhan extends Controller
         $decryptedID = Crypt::decryptString($id);
         $penyuluhanTernak = Penyuluhan::findOrFail($decryptedID);
         $validasi_id = $penyuluhanTernak->validasi_id;
+        $message = [
+            'required_if'  => 'foto konfirmasi wajib diisi.',
+        ];
 
         $validatedUpdate = $request->validate([
             'surat_pengantar'=> 'file|mimes:jpg,jpeg,png',
@@ -146,9 +149,9 @@ class C_Penyuluhan extends Controller
             'foto_ayam'=> 'file|mimes:jpg,jpeg,png',
             'validasi_id',
             'foto_peternakan'=> 'file|mimes:jpg,jpeg,png',
-            'foto_konfirmasi'=> 'required|file|mimes:jpg,jpeg,png',
+            'foto_konfirmasi'=> 'required_if:validasi_id,==,1|file|mimes:jpg,jpeg,png',
             'konfirmasi_id',
-        ]);
+        ], $message);
 
         if ($request->hasFile('surat_pengantar')) {
             $file = $request->file('surat_pengantar');

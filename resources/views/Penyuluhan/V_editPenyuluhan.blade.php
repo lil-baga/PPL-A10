@@ -122,6 +122,18 @@
                                     </p>
                                 @enderror
                             </div>
+                            <div class="flex-col items-center w-auto hidden">
+                                <div>
+                                    <label for="foto_konfirmasi" class="block mb-2 text-sm font-medium text-gray-900">Foto Pakan
+                                        Subsidi Yang Diterima</label>
+                                    <input class="w-64" type="file" name="foto_konfirmasi" id="foto_konfirmasi" value="null">
+                                    @error('foto_konfirmasi')
+                                        <p class="text-red-500 text-sm font-medium py-2 capitalize" role="alert">
+                                            {{ $message }}
+                                        </p>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
                     @elseif ($penyuluhanTernak->validasi_id == 1)
                         <div class="flex flex-col items-center w-auto">
@@ -182,6 +194,13 @@
                                 <textarea id="kondisi_ayam" name="kondisi_ayam"
                                     class="p-2 w-full h-full resize-none border-none align-top focus:ring-0 sm:text-sm"
                                     placeholder="Tuliskan Isi Kondisi Ayam Anda...">{{ $penyuluhanTernak->kondisi_ayam }}</textarea>
+                            </div>
+                            <div class="flex flex-col items-center justify-center">
+                                <label for="Sudah" class="block mb-2 text-sm font-medium text-gray-900">Diterima</label>
+                                <input type="radio" name="validasi_id" id="Sudah" value="{{ $penyuluhanTernak->validasi_id }}"
+                                    @if ($penyuluhanTernak->validasi_id == 1) checked @endif
+                                    onclick="if(this.checked) {Belum.checked=false;} {Proses.checked=false;}"
+                                    class="bg-gray-50 border border-gray-500 text-gray-900 sm:text-sm rounded-lg focus:ring-[#F5682A] focus:border-[#F5682A] block p-2.5">
                             </div>
                         </div>
                     @else

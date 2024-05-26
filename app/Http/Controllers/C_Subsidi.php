@@ -127,6 +127,9 @@ class C_Subsidi extends Controller
         $decryptedID = Crypt::decryptString($id);
         $subsidiPakan = Subsidi::findOrFail($decryptedID);
         $validasi_id = $subsidiPakan->validasi_id;
+        $message = [
+            'required_if'  => 'foto konfirmasi wajib diisi.',
+        ];
         
         $validatedUpdate = $request->validate([
             'surat_pengantar'=> 'file|mimes:jpg,jpeg,png',
@@ -135,9 +138,10 @@ class C_Subsidi extends Controller
             'jumlah_pakan'=> 'required',
             'validasi_id',
             'foto_peternakan'=> 'file|mimes:jpg,jpeg,png',
-            'foto_konfirmasi'=> 'required|file|mimes:jpg,jpeg,png',
+            'foto_konfirmasi'=> 'required_if:validasi_id,==,1|file|mimes:jpg,jpeg,png',
             'konfirmasi_id',
-        ]);
+        ], $message);
+
 
         if ($request->hasFile('surat_pengantar')) {
             $file = $request->file('surat_pengantar');
