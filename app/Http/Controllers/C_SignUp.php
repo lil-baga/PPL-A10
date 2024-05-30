@@ -57,8 +57,7 @@ class C_SignUp extends Controller
         $validatedRegister['roles_id'] = '2';
         User::create($validatedRegister);
 
-        $roles_id = 2;
-        return view('V_Login', compact('roles_id'));
+        return redirect('/loginPeternak');
     }
 
     public function registerGovernment(Request $request)
@@ -83,8 +82,7 @@ class C_SignUp extends Controller
 
         User::create($validatedRegister);
 
-        $roles_id = 3;
-        return view('V_Login', compact('roles_id'));
+        return redirect('/loginDinas');
     }
 
     /**

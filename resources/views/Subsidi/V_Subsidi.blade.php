@@ -26,12 +26,14 @@
                 </button>
             </div>
         @endif
-        <div class="px-16 py-16">
-            <div class="px-8 py-8 shadow-xl bg-white rounded-lg overflow-auto">
-                <h1 class="text-2xl font-bold text-slate-900 text-center">
+        <div class="px-12 py-12">
+            <div class="flex text-center items-center justify-center content-center bg-cover bg-center bg-no-repeat bg-[url('img/assets/fotopakan.png')] bg-slate-500 bg-blend-multiply w-full h-16 mb-4 rounded-lg">
+                <h1 class="text-2xl font-bold text-white text-center">
                     Pengajuan Pakan Subsidi
                 </h1>
-                <div class="flex flex-col h-[540px] overflow-auto mt-4">
+            </div>
+            <div class="px-6 py-6 shadow-xl bg-white rounded-lg overflow-auto">
+                <div class="flex flex-col h-[540px] overflow-auto">
                     <table class="w-full table-auto text-center text-sm bg-white">
                         <thead>
                             <tr class="bg-slate-900">

@@ -2,8 +2,8 @@
 @section('title', '| Detail Berita')
 @section('content')
     <div class="w-full bg-slate-200 scrollbar">
-        <div class="px-16 py-16">
-            <div class=" px-8 py-8 shadow-xl bg-white rounded-lg overflow-auto">
+        <div class="px-12 py-12">
+            <div class=" px-6 py-6 shadow-xl bg-white rounded-lg overflow-auto">
                 <div class="flex flex-row">
                     <a href="/broadcastBerita"
                         class="button absolute hover:bg-slate-200 hover:rounded-lg content-center w-auto h-auto p-1">

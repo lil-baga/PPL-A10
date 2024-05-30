@@ -32,8 +32,8 @@
                 </button>
             </div>
         @endif
-        <div class="px-16 py-16">
-            <div class="px-8 py-8 shadow-xl bg-white rounded-lg">
+        <div class="px-12 py-12">
+            <div class="px-6 py-6 shadow-xl bg-white rounded-lg">
                 <h1 class="text-2xl font-bold text-gray-900 text-center">
                     Profil Anda
                 </h1>
