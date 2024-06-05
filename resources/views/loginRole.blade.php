@@ -1,10 +1,9 @@
 @extends('Layout.Navbar')
 @section('title', '| Login')
-@section('hidden', 'hidden')
 @section('content')
-    <section class="bg-cover bg-center bg-no-repeat bg-[url('img/assets/fotopakan.png')] bg-gray-700 bg-blend-multiply">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <div class="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-lg xl:p-0">
+    <section class="bg-cover bg-center bg-no-repeat bg-[url('img/assets/fotopakan.png')] bg-slate-700 bg-blend-multiply w-full h-full">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
+            <div class="w-full bg-white rounded-lg shadow md:my-0 md:mt-0 sm:max-w-lg xl:p-0">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <div class="flex flex-row mb-8">
                         <a href="/"
@@ -41,28 +40,28 @@
                         </div>
                     @endif
                     <div>
-                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl text-center">
+                        <h1 class="text-lg font-bold leading-tight tracking-tight text-slate-900 md:text-2xl text-center">
                             Login Sebagai
                         </h1>
                     </div>
                     <div class="space-y-4 md:space-y-6">
-                        <div class="flex md:order-2 space-x-3 md:space-x-0 gap-6 items-center justify-center">
+                        <div class="flex md:order-2 space-x-3 md:space-x-0 gap-2 md:gap-6 items-center justify-center">
                             <form action="/loginPeternak" method="GET">
                                 <button
-                                    class="text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:bg-transparent focus:text-[#F5682A] focus:ring-2 focus:ring-[#F5682A] font-medium rounded-lg text-sm px-4 py-2 text-center">Peternak</button>
+                                    class="text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:bg-transparent focus:text-[#F5682A] focus:ring-2 focus:ring-[#F5682A] font-medium rounded-lg text-xs md:text-sm px-4 py-2 text-center">Peternak</button>
                             </form>
                             <form action="/loginDinas" method="GET">
                                 <button
-                                    class="text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:bg-transparent focus:text-[#F5682A] focus:ring-2 focus:ring-[#F5682A] font-medium rounded-lg text-sm px-4 py-2 text-center">Dinas</button>
+                                    class="text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:bg-transparent focus:text-[#F5682A] focus:ring-2 focus:ring-[#F5682A] font-medium rounded-lg text-xs md:text-sm px-4 py-2 text-center">Dinas</button>
                             </form>
                             <form action="/loginAdmin" method="GET">
                                 <button
-                                    class="text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:bg-transparent focus:text-[#F5682A] focus:ring-2 focus:ring-[#F5682A] font-medium rounded-lg text-sm px-4 py-2 text-center">Admin</button>
+                                    class="text-white bg-[#F5682A] hover:bg-[#F54C2A] focus:bg-transparent focus:text-[#F5682A] focus:ring-2 focus:ring-[#F5682A] font-medium rounded-lg text-xs md:text-sm px-4 py-2 text-center">Admin</button>
                             </form>
                         </div>
-                        <p class="text-sm font-light text-gray-500 ">
+                        <p class="text-xs md:text-sm font-light text-slate-500 ">
                             Belum memiliki akun? <a href="/signupRole"
-                                class="font-medium text-[#F5682A] hover:text-[#F54C2A] hover:underline">Sign Up</a>
+                                class="font-medium text-[#F5682A] hover:text-[#F54C2A] text-xs md:text-sm hover:underline">Sign Up</a>
                         </p>
                     </div>
                 </div>
